@@ -1,38 +1,28 @@
 "use client";
-import Link from "next/link";
-import { useState } from "react";
-import ProjectDetailsModal from "./ProjectDetailsModal";
 
+
+import { useState } from "react";
+import dynamic from "next/dynamic";
+import Header from "../../components/Header";
+import FooterSection from "../../components/FooterSection";
 interface Project {
   id: string;
   title: string;
-  location: string;
   image: string;
   services: string[];
   completedDate: string;
   description: string;
   category: string;
+  location: {
+    lat: number;
+    lng: number;
+  };
 }
-
-interface ProjectsSectionProps {
-  previewCount?: number;
-  showAll?: boolean;
-}
-
-const availableImageIds = new Set([
-  "1","2","3","4","5","6","7","8","9","10","11",
-  "13","14","15","16","17","18","19","20","22","23","24",
-  "25","26","27","29","31","35","37","39","40","41","42",
-  "43","44","45","47","49","50","51"
-]);
-const previewCount = 6;
-
-// Placeholder projects - will be replaced with actual data
-const projects: Project[] = [
+const allProjects: Project[] = [
   {
     id: "1",
     title: "BUKIT BATOK EAST & CLEMENTI",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2025",
@@ -42,7 +32,7 @@ const projects: Project[] = [
   {
     id: "2",
     title: "RIVERVALE",
-    location: "Singapore",
+    location: { lat: 1.3917, lng: 103.9023 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING", "REPLACEMENT OF LAMP POST"],
     completedDate: "2025",
@@ -52,7 +42,7 @@ const projects: Project[] = [
   {
     id: "3",
     title: "ANG MO KIO TOWN COUNCIL",
-    location: "Singapore",
+    location: { lat: 1.3691, lng: 103.8499 },
     image: "/api/placeholder/400/300",
     services: ["REPLACEMENT OF LAMP POST"],
     completedDate: "2025",
@@ -62,7 +52,7 @@ const projects: Project[] = [
   {
     id: "4",
     title: "BLOCK 401 TO 428 CHOA CHU KANG AVENUE 3/4",
-    location: "Singapore",
+    location: { lat: 1.3921, lng: 103.7454 },
     image: "/api/placeholder/400/300",
     services: ["Electrical Load Upgrading", "CCTV Works", "Renewal Programme"],
     completedDate: "2025",
@@ -72,7 +62,7 @@ const projects: Project[] = [
   {
     id: "5",
     title: "BUKIT PANJANG, BUKIT TIMAH, CASHEW, ULU PANDAN, AND ZHENGHUA",
-    location: "Singapore",
+    location: { lat: 1.3772, lng: 103.7631 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING", "REPLACEMENT OF LAMP POST"],
     completedDate: "2025",
@@ -82,7 +72,7 @@ const projects: Project[] = [
   {
     id: "6",
     title: "YEW TEE",
-    location: "Singapore",
+    location: { lat: 1.3772, lng: 103.7631 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2024",
@@ -92,7 +82,7 @@ const projects: Project[] = [
   {
     id: "7",
     title: "ADMIRALTY AND WOODLANDS",
-    location: "Singapore",
+    location: { lat: 1.4363, lng: 103.7860 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2024",
@@ -102,7 +92,7 @@ const projects: Project[] = [
   {
     id: "8",
     title: "KEMBANGAN-CHAI CHEE, MACPHERSON AND MOUNTBATTEN",
-    location: "Singapore",
+    location: { lat: 1.3200, lng: 103.9000 },
     image: "/api/placeholder/400/300",
     services: ["REPLACEMENT OF LAMP POSTS", "UNDERGROUND CABLES", "REWIRING"],
     completedDate: "2024",
@@ -112,7 +102,7 @@ const projects: Project[] = [
   {
     id: "9",
     title: "SEMBAWANG WEST",
-    location: "Singapore",
+    location: { lat: 1.4500, lng: 103.8200 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2024",
@@ -122,7 +112,7 @@ const projects: Project[] = [
   {
     id: "10",
     title: "PASIR RIS - PUNGGOL",
-    location: "Singapore",
+    location: { lat: 1.3721, lng: 103.9270 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS AND MAINTENANCE"],
     completedDate: "2024",
@@ -132,7 +122,7 @@ const projects: Project[] = [
   {
     id: "11",
     title: "WEST COAST",
-    location: "Singapore",
+    location: { lat: 1.3157, lng: 103.7550 },
     image: "/api/placeholder/400/300",
     services: ["MAINTENANCE & SERVICING OF AIR-CONDITIONING SYSTEM", "MECHANICAL EXHAUST FAN SYSTEM"],
     completedDate: "2024",
@@ -142,7 +132,7 @@ const projects: Project[] = [
   {
     id: "12",
     title: "HDB DEVICE LEASING CONTRACT",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["SUB CONTRACT CLAIM"],
     completedDate: "2023",
@@ -152,7 +142,7 @@ const projects: Project[] = [
   {
     id: "13",
     title: "ST ENGINEERING URBAN SOLUTIONS LTD",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["DISMANTLING AND INSTALLATION WORKS"],
     completedDate: "2023",
@@ -162,7 +152,7 @@ const projects: Project[] = [
   {
     id: "14",
     title: "TANJONG PAGAR TOWN COUNCIL",
-    location: "Singapore",
+    location: { lat: 1.2800, lng: 103.8500 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS AND MAINTENANCE"],
     completedDate: "2023",
@@ -172,7 +162,7 @@ const projects: Project[] = [
   {
     id: "15",
     title: "TELOK BLANGAH DRIVE/HEIGHTS",
-    location: "Singapore",
+    location: { lat: 1.2765, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2023",
@@ -182,7 +172,7 @@ const projects: Project[] = [
   {
     id: "16",
     title: "CHOA CHU KANG STREET 62 AND WOODLANDS DRIVE 50",
-    location: "Singapore",
+    location: { lat: 1.3921, lng: 103.7454 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2022",
@@ -192,7 +182,7 @@ const projects: Project[] = [
   {
     id: "17",
     title: "CHOA CHU KANG STREET 62 AND WOODLANDS DRIVE 50",
-    location: "Singapore",
+    location: { lat: 1.3921, lng: 103.7454 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2022",
@@ -202,7 +192,7 @@ const projects: Project[] = [
   {
     id: "18",
     title: "YUNG HO ROAD",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL LOAD UPGRADING WORKS"],
     completedDate: "2022",
@@ -212,7 +202,7 @@ const projects: Project[] = [
   {
     id: "19",
     title: "WOODLANDS DRIVE 40/70, AVE 6, STREET 83",
-    location: "Singapore",
+    location: { lat: 1.4363, lng: 103.7860 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2022",
@@ -222,7 +212,7 @@ const projects: Project[] = [
   {
     id: "20",
     title: "KEAT HONG SHOPPING CENTRE & CHOA CHU KANG AVE 2",
-    location: "Singapore",
+    location: { lat: 1.3772, lng: 103.7631 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2022",
@@ -232,7 +222,7 @@ const projects: Project[] = [
   {
     id: "21",
     title: "LED BATCHES 1 & 2 PROJECTS",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["LIGHTING COMPLAINTS RESPONSE"],
     completedDate: "2021",
@@ -242,7 +232,7 @@ const projects: Project[] = [
   {
     id: "22",
     title: "JURONG WEST STREET 74",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2021",
@@ -252,7 +242,7 @@ const projects: Project[] = [
   {
     id: "23",
     title: "TANJONG PAGAR",
-    location: "Singapore",
+    location: { lat: 1.2800, lng: 103.8500 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS AND MAINTENANCE"],
     completedDate: "2021",
@@ -262,7 +252,7 @@ const projects: Project[] = [
   {
     id: "24",
     title: "WEST COAST",
-    location: "Singapore",
+    location: { lat: 1.3157, lng: 103.7550 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS AND MAINTENANCE"],
     completedDate: "2021",
@@ -272,7 +262,7 @@ const projects: Project[] = [
   {
     id: "25",
     title: "CONNECT @ CHANGI EXPO HALL 7 & 8",
-    location: "Singapore",
+    location: { lat: 1.3500, lng: 103.9940 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS"],
     completedDate: "2021",
@@ -282,7 +272,7 @@ const projects: Project[] = [
   {
     id: "26",
     title: "MULTI STOREY CARPARK",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["A&A WORKS"],
     completedDate: "2021",
@@ -292,7 +282,7 @@ const projects: Project[] = [
   {
     id: "27",
     title: "WOODLANDS STREET 81/82/83/ AVENUE 4/9",
-    location: "Singapore",
+    location: { lat: 1.4363, lng: 103.7860 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2020",
@@ -302,7 +292,7 @@ const projects: Project[] = [
   {
     id: "28",
     title: "BIG BOX SITE",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS"],
     completedDate: "2020",
@@ -312,7 +302,7 @@ const projects: Project[] = [
   {
     id: "29",
     title: "PASIR RIS DRIVE 1/3 & 10",
-    location: "Singapore",
+    location: { lat: 1.3721, lng: 103.9498 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2020",
@@ -322,7 +312,7 @@ const projects: Project[] = [
   {
     id: "30",
     title: "MINISTRY OF HOME AFFAIRS PROPERTIES",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["RETROFITTING WORKS"],
     completedDate: "2019",
@@ -332,7 +322,7 @@ const projects: Project[] = [
   {
     id: "31",
     title: "CHUA CHU KANG AVE 3/4",
-    location: "Singapore",
+    location: { lat: 1.3921, lng: 103.7454 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2019",
@@ -342,7 +332,7 @@ const projects: Project[] = [
   {
     id: "32",
     title: "SP POWER GRID P1A CCTV CAT1 SUBSTATION",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["SUB CONTRACTOR"],
     completedDate: "2019",
@@ -352,7 +342,7 @@ const projects: Project[] = [
   {
     id: "33",
     title: "CHOA CHU KANG WATERWORKS CONTRACT 3",
-    location: "Singapore",
+    location: { lat: 1.3772, lng: 103.7631 },
     image: "/api/placeholder/400/300",
     services: ["PROCESS UPGRADING"],
     completedDate: "2019",
@@ -362,7 +352,7 @@ const projects: Project[] = [
   {
     id: "34",
     title: "LED INSTALLATION WORKS BATCH 3",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["LED INSTALLATION WORKS"],
     completedDate: "2019",
@@ -372,7 +362,7 @@ const projects: Project[] = [
   {
     id: "35",
     title: "CHOA CHU KANG ST 51/ST 52 & LIMBANG PARK",
-    location: "Singapore",
+    location: { lat: 1.3772, lng: 103.7631 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2019",
@@ -382,7 +372,7 @@ const projects: Project[] = [
   {
     id: "36",
     title: "SP POWER GRID P2A CCTV CAT2 SUBSTATION",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["SUB CONTRACTOR"],
     completedDate: "2019",
@@ -392,7 +382,7 @@ const projects: Project[] = [
   {
     id: "37",
     title: "WOODLANDS AVENUE 1/ STREET 32",
-    location: "Singapore",
+    location: { lat: 1.4363, lng: 103.7860 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL REWIRING"],
     completedDate: "2019",
@@ -402,7 +392,7 @@ const projects: Project[] = [
   {
     id: "38",
     title: "EMSU TRADEMEN CONTRACT",
-    location: "Singapore",
+    location: { lat: 1.3157, lng: 103.7550 },
     image: "/api/placeholder/400/300",
     services: ["TERM CONTRACT"],
     completedDate: "2018",
@@ -412,7 +402,7 @@ const projects: Project[] = [
   {
     id: "39",
     title: "NATIONAL UNIVERSITY OF SINGAPORE",
-    location: "Singapore",
+    location: { lat: 1.2966, lng: 103.7764 },
     image: "/api/placeholder/400/300",
     services: ["LIGHTING & CCTV REPLACEMENTS"],
     completedDate: "2018",
@@ -422,7 +412,7 @@ const projects: Project[] = [
   {
     id: "40",
     title: "NATIONAL UNIVERSITY OF SINGAPORE",
-    location: "Singapore",
+    location: { lat: 1.2966, lng: 103.7764 },
     image: "/api/placeholder/400/300",
     services: ["CCTV AND PA SYSTEM INSTALLATIONS"],
     completedDate: "2018",
@@ -432,7 +422,7 @@ const projects: Project[] = [
   {
     id: "41",
     title: "CHANGI AIRPORT T4",
-    location: "Singapore",
+    location: { lat: 1.3644, lng: 103.9915 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS"],
     completedDate: "2017",
@@ -442,7 +432,7 @@ const projects: Project[] = [
   {
     id: "42",
     title: "MARINA ONE",
-    location: "Singapore",
+    location: { lat: 1.2765, lng: 103.8510 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL & CCTV WORKS"],
     completedDate: "2017",
@@ -452,7 +442,7 @@ const projects: Project[] = [
   {
     id: "43",
     title: "KOPITIAM SITES",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WIRE & TRUNKING"],
     completedDate: "2017",
@@ -462,7 +452,7 @@ const projects: Project[] = [
   {
     id: "44",
     title: "FAJAR/SAUJANA ROAD",
-    location: "Singapore",
+    location: { lat: 1.3772, lng: 103.7631 },
     image: "/api/placeholder/400/300",
     services: ["ELU WORKS"],
     completedDate: "2017",
@@ -472,7 +462,7 @@ const projects: Project[] = [
   {
     id: "45",
     title: "BOUTIQUE HOTEL",
-    location: "Singapore",
+    location: { lat: 1.2976, lng: 103.8568 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL AND CCTV INSTALLATION WORKS"],
     completedDate: "2016",
@@ -482,7 +472,7 @@ const projects: Project[] = [
   {
     id: "46",
     title: "CHANGI AIRPORT T4",
-    location: "Singapore",
+    location: { lat: 1.3644, lng: 103.9915 },
     image: "/api/placeholder/400/300",
     services: ["CCTV WORKS"],
     completedDate: "2016",
@@ -492,7 +482,7 @@ const projects: Project[] = [
   {
     id: "47",
     title: "CHANGI AIRPORT T4",
-    location: "Singapore",
+    location: { lat: 1.3644, lng: 103.9915 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORK"],
     completedDate: "2016",
@@ -502,7 +492,7 @@ const projects: Project[] = [
   {
     id: "48",
     title: "LED INSTALLATIONS BATCH 2",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["LED INSTALLATIONS"],
     completedDate: "2016",
@@ -512,7 +502,7 @@ const projects: Project[] = [
   {
     id: "49",
     title: "FUSIONPOLIS 5",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL WORKS"],
     completedDate: "2015",
@@ -522,7 +512,7 @@ const projects: Project[] = [
   {
     id: "50",
     title: "NATIONAL UNIVERSITY OF SINGAPORE/CHANGI",
-    location: "Singapore",
+    location: { lat: 1.3521, lng: 103.8198 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL, CCTV AND FIRE ALARM INSTALLATION WORKS"],
     completedDate: "2015",
@@ -532,7 +522,7 @@ const projects: Project[] = [
   {
     id: "51",
     title: "NATIONAL UNIVERSITY OF SINGAPORE",
-    location: "Singapore",
+    location: { lat: 1.2966, lng: 103.7764 },
     image: "/api/placeholder/400/300",
     services: ["ELECTRICAL AND CCTV WORKS"],
     completedDate: "2015",
@@ -540,162 +530,45 @@ const projects: Project[] = [
     category: "Commercial"
   }
 ];
-
-const categories = ["All", "Residential", "Commercial", "Industrial", "Maintenance", "Installation"];
-
-export default function ProjectsSection({ previewCount = 6, showAll = false }: ProjectsSectionProps) {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter(project => project.category === activeCategory);
-
-  const projectsToRender = showAll ? filteredProjects : filteredProjects.slice(0, previewCount);
-
-  const openModal = (project: Project) => {
-    setSelectedProject(project);
+// Assign all projects to Singapore with distributed coordinates for demo
+const singaporeCenter = { lat: 1.3521, lng: 103.8198 };
+function getDistributedCoords(idx: number, total: number) {
+  // Distribute markers in a spiral around Singapore center
+  const angle = (2 * Math.PI * idx) / total;
+  const radius = 0.04 + 0.07 * (idx / total); // ~4-11km
+  return {
+    lat: singaporeCenter.lat + Math.sin(angle) * radius,
+    lng: singaporeCenter.lng + Math.cos(angle) * radius,
   };
+}
 
-  const closeModal = () => {
-    setSelectedProject(null);
-  };
+const projects = allProjects.map((p, idx) => ({
+  ...p,
+  location: getDistributedCoords(idx, allProjects.length),
+  image: p.image?.startsWith("/api/placeholder") ? "/images/clients/project" + (((+p.id-1)%10)+1) + ".jpg" : p.image,
+}));
 
+const MapWithMarkers = dynamic(() => import("./ProjectMap"), { ssr: false });
+
+export default function ProjectsWithLocation() {
+  const [selectedProject, setSelectedProject] = useState(null);
   return (
-    <section id="projects" className="py-32 bg-[#040d1a] relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-[rgba(255,193,7,0.02)] blur-[100px] animate-pulse-slow" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-[rgba(255,143,0,0.01)] blur-[120px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[rgba(255,193,7,0.25)] bg-[rgba(255,193,7,0.06)] rounded-full mb-8 opacity-0 animate-fade-up">
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#FFC107] tracking-[0.15em] uppercase">
-              Our Portfolio
-            </span>
-          </div>
-
-          <h2 className="font-display text-[60px] md:text-[80px] text-white tracking-wider mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            COMPLETED
-          </h2>
-          <h2 className="font-display text-[60px] md:text-[80px] text-[#FFC107] glow-text tracking-wider mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            PROJECTS
-          </h2>
-
-          <p className="font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            Explore our successful electrical projects across Singapore, from residential estates to industrial complexes.
-            Each project showcases our commitment to quality, safety, and innovation.
-          </p>
+    <div className="min-h-screen flex flex-col bg-[#040d1a]">
+      <Header />
+      <main className="flex-1 flex flex-col items-center justify-center pt-24 pb-16">
+        <div className="w-full max-w-7xl px-2 md:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-2 tracking-tight">Singapore Project Portfolio</h1>
+          <p className="text-center text-slate-400 mb-8 text-lg">Explore our completed projects across Singapore. Click a marker to view project details.</p>
         </div>
-
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 opacity-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-heading text-sm tracking-[0.1em] uppercase transition-all duration-300 ${
-                activeCategory === category
-                  ? "bg-[#FFC107] text-[#030712] shadow-[0_0_20px_rgba(255,193,7,0.3)]"
-                  : "border border-[rgba(255,193,7,0.25)] text-slate-400 hover:text-[#FFC107] hover:border-[rgba(255,193,7,0.5)]"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+        <div className="w-full max-w-7xl flex-1 rounded-2xl overflow-hidden shadow-2xl border border-[#FFC107]/10 bg-[#0a1627] relative" style={{minHeight: 600}}>
+          <MapWithMarkers
+            projects={projects}
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
+          />
         </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsToRender.map((project, index) => {
-            const imageSrc = availableImageIds.has(project.id) ? `/images/${project.id}.png` : null;
-            return (
-              <div
-                key={project.id}
-              onClick={() => openModal(project)}
-              className="group relative cursor-pointer overflow-hidden rounded-sm border-grad bg-[rgba(13,21,37,0.6)] backdrop-blur-sm hover:bg-[rgba(255,193,7,0.04)] transition-all duration-500 opacity-0 animate-fade-up"
-              style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-            >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden bg-[#0c1723]">
-                {imageSrc ? (
-                  <img
-                    src={imageSrc}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center bg-[rgba(255,193,7,0.08)] text-slate-500 text-sm font-body">
-                    Image not available
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#FFC107] text-[#030712] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
-                    {project.category}
-                  </span>
-                </div>
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center">
-                    <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                    <span className="text-white font-heading text-sm tracking-[0.1em] uppercase">View Details</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-heading text-xl text-white mb-2 group-hover:text-[#FFC107] transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <div className="flex items-center gap-2 mb-3">
-                  <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="font-body text-slate-400 text-sm">{project.location}</span>
-                </div>
-                <p className="font-body text-slate-500 text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          );
-          })}
-        </div>
-
-        {/* CTA */}
-        {!showAll && (
-          <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300">
-              <span>View All Projects</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        )}
-      </div>
-
-      {/* Modal */}
-      {selectedProject && (
-        <ProjectDetailsModal
-          project={selectedProject}
-          availableImageIds={availableImageIds}
-          onClose={closeModal}
-        />
-      )}
-    </section>
+      </main>
+      <FooterSection />
+    </div>
   );
 }

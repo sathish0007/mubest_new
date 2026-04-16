@@ -57,11 +57,11 @@ export default function ClientsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="clients" className="relative py-20 bg-[#030712] overflow-hidden">
+    <section ref={sectionRef} id="clients" className="relative py-20 bg-background bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[150px]" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[rgba(255,143,0,0.02)] blur-[120px]" />
+        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-primary/10 blur-[150px]" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-accent/10 blur-[120px]" />
       </div>
 
       <div className="relative z-10">
@@ -79,7 +79,7 @@ export default function ClientsSection() {
           </div>
 
           <h2
-            className={`font-display text-[48px] md:text-[64px] text-white tracking-wider mb-4 transition-all duration-700 ${
+            className={`font-display text-[48px] md:text-[64px] text-heading tracking-wider mb-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}
@@ -88,7 +88,7 @@ export default function ClientsSection() {
           </h2>
 
           <p
-            className={`font-body text-slate-400 text-base max-w-2xl mx-auto leading-relaxed transition-all duration-700 ${
+            className={`font-body text-body text-base max-w-2xl mx-auto leading-relaxed transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.2s" }}
@@ -117,8 +117,8 @@ export default function ClientsSection() {
 
         <div className="relative overflow-hidden">
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-[#030712] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling logos */}
           <div
@@ -154,7 +154,7 @@ export default function ClientsSection() {
                           }}
                         />
                         <span
-                          className="font-display text-lg md:text-2xl text-[#FFC107] font-bold tracking-wider group-hover:scale-110 transition-transform duration-300"
+                          className="font-display text-lg md:text-2xl text-primary font-bold tracking-wider group-hover:scale-110 transition-transform duration-300"
                           id={`initials-${client.id}`}
                         >
                           {initials || "?"}
@@ -166,7 +166,7 @@ export default function ClientsSection() {
                     </div>
 
                     {/* Tooltip */}
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 border border-[rgba(255,193,7,0.3)] rounded-lg text-white font-body text-xs text-center whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-primary/90 border border-primary/30 rounded-lg text-white font-body text-xs text-center whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
                       {client.name}
                     </div>
                   </div>

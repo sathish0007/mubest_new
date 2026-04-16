@@ -562,11 +562,11 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
   };
 
   return (
-    <section id="projects" className="py-32 bg-[#040d1a] relative overflow-hidden">
+    <section id="projects" className="relative py-28 px-6 bg-background bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-[rgba(255,193,7,0.02)] blur-[100px] animate-pulse-slow" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-[rgba(255,143,0,0.01)] blur-[120px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 rounded-full bg-accent/10 blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -579,14 +579,14 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
             </span>
           </div>
 
-          <h2 className="font-display text-[60px] md:text-[80px] text-white tracking-wider mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="font-display text-[60px] md:text-[80px] text-heading tracking-wider mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             COMPLETED
           </h2>
-          <h2 className="font-display text-[60px] md:text-[80px] text-[#FFC107] glow-text tracking-wider mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="font-display text-[60px] md:text-[80px] text-primary glow-text tracking-wider mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             PROJECTS
           </h2>
 
-          <p className="font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <p className="font-body text-body text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             Explore our successful electrical projects across Singapore, from residential estates to industrial complexes.
             Each project showcases our commitment to quality, safety, and innovation.
           </p>
@@ -617,11 +617,11 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
               <div
                 key={project.id}
               onClick={() => openModal(project)}
-              className="group relative cursor-pointer overflow-hidden rounded-sm border-grad bg-[rgba(13,21,37,0.6)] backdrop-blur-sm hover:bg-[rgba(255,193,7,0.04)] transition-all duration-500 opacity-0 animate-fade-up"
+              className="group relative cursor-pointer overflow-hidden rounded-sm border-grad bg-background hover:bg-primary/5 transition-all duration-500 opacity-0 animate-fade-up"
               style={{ animationDelay: `${0.5 + index * 0.1}s` }}
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden bg-[#0c1723]">
+              <div className="relative h-48 overflow-hidden bg-background">
                 {imageSrc ? (
                   <img
                     src={imageSrc}
@@ -629,21 +629,21 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center bg-[rgba(255,193,7,0.08)] text-slate-500 text-sm font-body">
+                  <div className="flex h-full items-center justify-center bg-primary/10 text-body text-sm font-body">
                     Image not available
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-background/80" />
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#FFC107] text-[#030712] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
+                  <span className="px-3 py-1 bg-primary text-background font-mono text-xs tracking-[0.1em] uppercase rounded-full">
                     {project.category}
                   </span>
                 </div>
 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center">
                     <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -656,17 +656,17 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="font-heading text-xl text-white mb-2 group-hover:text-[#FFC107] transition-colors duration-300">
+                <h3 className="font-heading text-xl text-heading mb-2 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
                 <div className="flex items-center gap-2 mb-3">
-                  <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span className="font-body text-slate-400 text-sm">{project.location}</span>
+                  <span className="font-body text-body text-sm">{project.location}</span>
                 </div>
-                <p className="font-body text-slate-500 text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
+                <p className="font-body text-body text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
                   {project.description}
                 </p>
               </div>
@@ -678,7 +678,7 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
         {/* CTA */}
         {!showAll && (
           <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300">
+            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-background font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(32,80,114,0.2)] transition-all duration-300">
               <span>View All Projects</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

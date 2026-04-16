@@ -147,12 +147,12 @@ export default function TestimonialsSection() {
     <section
       ref={sectionRef}
       id="testimonials"
-      className="relative py-32 bg-[#030712] overflow-hidden"
+      className="relative py-32 bg-background bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/3 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[150px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[rgba(255,143,0,0.02)] blur-[120px]" />
+        <div className="absolute top-1/4 right-1/3 w-96 h-96 rounded-full bg-primary/10 blur-[150px]" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-accent/10 blur-[120px]" />
       </div>
 
       <div className="relative z-10">
@@ -170,7 +170,7 @@ export default function TestimonialsSection() {
           </div>
 
           <h2
-            className={`font-display text-[48px] md:text-[64px] text-white tracking-wider mb-6 transition-all duration-700 ${
+            className={`font-display text-[48px] md:text-[64px] text-heading tracking-wider mb-6 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}
@@ -179,7 +179,7 @@ export default function TestimonialsSection() {
           </h2>
 
           <p
-            className={`font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${
+            className={`font-body text-body text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.2s" }}
@@ -208,8 +208,8 @@ export default function TestimonialsSection() {
 
         <div className="relative overflow-hidden">
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-[#030712] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling testimonial groups */}
           <div className="scroll-container flex gap-6 py-8 px-6 w-max">
@@ -221,7 +221,7 @@ export default function TestimonialsSection() {
                 {group.map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="group flex-shrink-0 w-80 overflow-hidden rounded-2xl border border-[rgba(255,193,7,0.2)] bg-gradient-to-br from-[rgba(13,21,37,0.6)] via-[rgba(13,21,37,0.4)] to-[rgba(13,21,37,0.2)] backdrop-blur-xl p-6 md:p-8 hover:border-[rgba(255,193,7,0.5)] transition-all duration-300"
+                    className="group flex-shrink-0 w-80 overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 backdrop-blur-xl p-6 md:p-8 hover:border-primary/40 transition-all duration-300"
                   >
                     {/* Background accent */}
                     <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[rgba(255,193,7,0.1)] to-transparent rounded-full blur-3xl -z-10" />

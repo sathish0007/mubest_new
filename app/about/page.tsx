@@ -97,7 +97,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="bg-[#030712]">
+    <main className="bg-background bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 min-h-screen">
       <Header />
 
       {/* Enhanced Hero Section with Images and Slogans */}
@@ -105,7 +105,7 @@ export default function AboutPage() {
         {/* Background Images Collage */}
         <div className="absolute inset-0">
           {/* Main background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#040d1a] via-[#030712] to-[#0a1628]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10" />
 
           {/* Featured project images as floating elements */}
           <div className="absolute top-20 left-10 w-64 h-40 opacity-20 hover:opacity-40 transition-opacity duration-500">

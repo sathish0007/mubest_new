@@ -71,30 +71,30 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative py-32 bg-[#030712] overflow-hidden"
+      className="relative py-32 bg-background overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 rounded-full bg-[rgba(255,143,0,0.02)] blur-[120px]" />
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 rounded-full bg-secondary/5 blur-[120px]" />
       </div>
 
       <div className="relative z-10">
         {/* Header */}
         <div className="text-center mb-20 px-6 max-w-7xl mx-auto">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 border border-[rgba(255,193,7,0.25)] bg-[rgba(255,193,7,0.06)] rounded-full mb-8 transition-all duration-700 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 border border-primary/30 bg-primary/10 rounded-full mb-8 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#FFC107] tracking-[0.15em] uppercase">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="font-mono text-xs text-primary tracking-[0.15em] uppercase">
               Get In Touch
             </span>
           </div>
 
           <h2
-            className={`font-display text-[48px] md:text-[64px] text-white tracking-wider mb-6 transition-all duration-700 ${
+            className={`font-display text-[48px] md:text-[64px] text-heading tracking-wider mb-6 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}
@@ -103,7 +103,7 @@ export default function ContactSection() {
           </h2>
 
           <p
-            className={`font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${
+            className={`font-body text-body text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.2s" }}
@@ -122,7 +122,7 @@ export default function ContactSection() {
             style={{ transitionDelay: "0.3s" }}
           >
             {/* Interactive Map with Marker */}
-            <div className="relative h-full min-h-96 lg:min-h-[600px] rounded-2xl overflow-hidden border border-[rgba(255,193,7,0.2)]">
+            <div className="relative h-full min-h-96 lg:min-h-[600px] rounded-2xl overflow-hidden border border-primary/20">
               
               {/* Google Maps Embed */}
               <iframe
@@ -151,16 +151,16 @@ export default function ContactSection() {
                 <a
                   key={index}
                   href={info.href}
-                  className="group flex items-start gap-4 p-5 rounded-xl border border-[rgba(255,193,7,0.15)] bg-gradient-to-br from-[rgba(13,21,37,0.5)] to-[rgba(13,21,37,0.2)] hover:border-[rgba(255,193,7,0.4)] hover:bg-gradient-to-br hover:from-[rgba(13,21,37,0.7)] hover:to-[rgba(13,21,37,0.3)] transition-all duration-300 cursor-pointer"
+                  className="group flex items-start gap-4 p-5 rounded-xl border border-primary/15 bg-gradient-to-br from-primary/10 to-accent/10 hover:border-primary/40 hover:bg-gradient-to-br hover:from-primary/20 hover:to-accent/20 transition-all duration-300 cursor-pointer"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFC107] to-[#FF8F00] flex items-center justify-center text-[#030712] group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-background group-hover:scale-110 transition-transform duration-300">
                     {info.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-sm font-heading text-white tracking-[0.05em] mb-1">
+                    <h3 className="text-sm font-heading text-heading tracking-[0.05em] mb-1">
                       {info.label}
                     </h3>
-                    <p className="text-sm text-slate-400 group-hover:text-[#FFC107] transition-colors duration-300">
+                    <p className="text-sm text-body group-hover:text-primary transition-colors duration-300">
                       {info.value}
                     </p>
                   </div>
@@ -176,12 +176,12 @@ export default function ContactSection() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="p-4 rounded-xl border border-[rgba(255,193,7,0.15)] bg-gradient-to-br from-[rgba(13,21,37,0.5)] to-[rgba(13,21,37,0.2)] text-center hover:border-[rgba(255,193,7,0.4)] transition-all duration-300"
+                  className="p-4 rounded-xl border border-primary/15 bg-gradient-to-br from-primary/10 to-accent/10 text-center hover:border-primary/40 transition-all duration-300"
                 >
-                  <h3 className="font-display text-2xl text-[#FFC107] mb-1">
+                  <h3 className="font-display text-2xl text-primary mb-1">
                     {stat.number}
                   </h3>
-                  <p className="font-body text-xs text-slate-400 uppercase tracking-[0.1em]">
+                  <p className="font-body text-xs text-body uppercase tracking-[0.1em]">
                     {stat.label}
                   </p>
                 </div>

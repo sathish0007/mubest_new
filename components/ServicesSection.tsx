@@ -184,7 +184,7 @@ export default function ServicesSection() {
     : services.filter(service => service.category === activeCategory);
 
   return (
-    <section id="services" className="py-32 bg-[#030712] relative overflow-hidden">
+    <section id="services" className="relative py-28 px-6 bg-background bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[120px] animate-pulse-slow" />
@@ -232,14 +232,14 @@ export default function ServicesSection() {
             </span>
           </div>
 
-          <h2 className="font-display text-[60px] md:text-[80px] text-white tracking-wider mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="font-display text-[60px] md:text-[80px] text-heading tracking-wider mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             ELECTRICAL
           </h2>
-          <h2 className="font-display text-[60px] md:text-[80px] text-[#FFC107] glow-text tracking-wider mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="font-display text-[60px] md:text-[80px] text-primary glow-text tracking-wider mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             SERVICES
           </h2>
 
-          <p className="font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <p className="font-body text-body text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             From residential rewiring to industrial substations, we deliver comprehensive electrical solutions
             with precision, safety, and reliability. Our licensed engineers ensure every project meets the highest standards.
           </p>
@@ -294,7 +294,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-heading text-lg text-white mb-3 group-hover:text-[#FFC107] transition-colors duration-300">
+                <h3 className="font-heading text-lg text-heading mb-3 group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </h3>
 

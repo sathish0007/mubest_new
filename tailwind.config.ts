@@ -30,6 +30,15 @@ const config: Config = {
         slate: {
           950: "#020617",
         },
+        // Logo-based theme colors
+        primary: '#205072', // Deep blue from logo
+        secondary: '#4E9F3D', // Teal green from logo
+        accent: '#3CA6A6', // Lighter blue/green (approximate)
+        background: '#F5FAFC', // Very light blue/gray
+        text: {
+          DEFAULT: '#1A2A36', // Dark blue/gray for body text
+          heading: '#205072', // Deep blue for headings
+        },
       },
       animation: {
         "fade-up": "fadeUp 0.8s ease forwards",

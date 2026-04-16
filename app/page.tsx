@@ -10,7 +10,7 @@ import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
-    <main className="bg-[#030712]">
+    <main className="bg-background bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 min-h-screen">
       <Header />
       <HeroSection />
       <AboutSection />

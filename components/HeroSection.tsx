@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const stats = [
   { value: 500, suffix: "+", label: "Projects Completed" },
@@ -10,14 +11,11 @@ const stats = [
 
 // Available project images for background slideshow
 const projectImages = [
-  "/images/1.png", "/images/2.png", "/images/3.png", "/images/4.png", "/images/5.png",
-  "/images/6.png", "/images/7.png", "/images/8.png", "/images/9.png", "/images/10.png",
-  "/images/11.png", "/images/13.png", "/images/14.png", "/images/15.png", "/images/16.png",
-  "/images/17.png", "/images/18.png", "/images/19.png", "/images/20.png", "/images/22.png",
-  "/images/23.png", "/images/24.png", "/images/25.png", "/images/26.png", "/images/27.png",
-  "/images/29.png", "/images/31.png", "/images/35.png", "/images/37.png", "/images/39.png",
-  "/images/40.png", "/images/41.png", "/images/42.png", "/images/43.png", "/images/44.png",
-  "/images/45.png", "/images/47.png", "/images/49.png", "/images/50.png", "/images/51.png"
+  "/images/1.png",
+  "/images/5.png",
+  "/images/23.png",
+  "/images/43.png",
+  "/images/45.png"
 ];
 
 function useCountUp(target: number, duration = 2000, start = false) {
@@ -45,7 +43,7 @@ function AnimatedBackground() {
     setIsLoaded(true);
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % projectImages.length);
-    }, 5000); // Change image every 5 seconds
+    }, 15000); // Change image every 15 seconds (slower)
 
     return () => clearInterval(interval);
   }, []);
@@ -56,38 +54,26 @@ function AnimatedBackground() {
       {projectImages.map((image, index) => (
         <div
           key={image}
-          className={`absolute inset-0 transition-all duration-[3000ms] ease-in-out ${
+          className={`absolute inset-0 transition-all duration-[8000ms] ease-in-out ${
             index === currentImageIndex
-              ? "opacity-100 scale-110"
+              ? "opacity-100 scale-100"
               : "opacity-0 scale-105"
           }`}
         >
-          <img
+          <Image
             src={image}
             alt={`Electrical project ${index + 1}`}
-            className="w-full h-full object-cover filter brightness-50 contrast-125"
-            loading="lazy"
+            fill
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            priority
+            unoptimized
+            sizes="100vw"
+            quality={100}
           />
         </div>
       ))}
 
-      {/* Dynamic gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#030712]/90 via-[#030712]/70 to-[#030712]/90" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/95 via-transparent to-[#030712]/80" />
-
-      {/* Animated mesh overlay */}
-      <div className="absolute inset-0 opacity-20">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="mesh" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <circle cx="50" cy="50" r="1" fill="#FFC107" opacity="0.3" />
-              <line x1="0" y1="50" x2="100" y2="50" stroke="#FFC107" strokeWidth="0.5" opacity="0.2" />
-              <line x1="50" y1="0" x2="50" y2="100" stroke="#FFC107" strokeWidth="0.5" opacity="0.2" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#mesh)" />
-        </svg>
-      </div>
+      {/* ...no overlays, only background images... */}
     </div>
   );
 }
@@ -100,10 +86,10 @@ function StatCard({ value, suffix, label, delay, start }: { value: number; suffi
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="absolute inset-0 rounded-sm bg-gradient-to-b from-[rgba(255,193,7,0.03)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className={`font-display text-5xl md:text-6xl text-[#FFC107] glow-text leading-none mb-2 ${start ? "count-animate" : ""}`}>
+      <div className={`font-display text-5xl md:text-6xl text-primary glow-text leading-none mb-2 ${start ? "count-animate" : ""}`}>
         {start ? count : 0}{suffix}
       </div>
-      <div className="font-heading text-xs tracking-[0.2em] text-slate-400 uppercase">{label}</div>
+      <div className="font-heading text-xs tracking-[0.2em] text-body uppercase">{label}</div>
     </div>
   );
 }
@@ -128,7 +114,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24">
 
       {/* Animated Project Images Background */}
       <AnimatedBackground />

@@ -75,18 +75,18 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <main className="bg-[#030712]">
+    <main className="bg-background">
       <Header />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10"></div>
         <div className="absolute inset-0">
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-blue-400/30 rounded-full animate-pulse"
+              className="absolute w-1 h-1 bg-primary/20 rounded-full animate-pulse"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -107,47 +107,47 @@ export default function ServicesPage() {
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-blue-500/10 text-blue-400 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
               Professional Electrical Services
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
-            Our <span className="text-blue-400">Expertise</span>
+          <h1 className="text-5xl md:text-7xl font-bold text-heading mb-6 animate-fade-in-up">
+            Our <span className="text-primary">Expertise</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-up animation-delay-200 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-body mb-8 animate-fade-in-up animation-delay-200 max-w-3xl mx-auto">
             Comprehensive electrical solutions powered by 20+ years of experience and cutting-edge technology
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 animate-fade-in-up animation-delay-400">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-1">500+</div>
-              <div className="text-sm text-gray-400">Projects Done</div>
+              <div className="text-3xl font-bold text-primary mb-1">500+</div>
+              <div className="text-sm text-body">Projects Done</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-1">20+</div>
-              <div className="text-sm text-gray-400">Years Experience</div>
+              <div className="text-3xl font-bold text-primary mb-1">20+</div>
+              <div className="text-sm text-body">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-1">24/7</div>
-              <div className="text-sm text-gray-400">Support</div>
+              <div className="text-3xl font-bold text-primary mb-1">24/7</div>
+              <div className="text-sm text-body">Support</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-1">100%</div>
-              <div className="text-sm text-gray-400">Satisfaction</div>
+              <div className="text-3xl font-bold text-primary mb-1">100%</div>
+              <div className="text-sm text-body">Satisfaction</div>
             </div>
           </div>
 
           <div className="flex justify-center space-x-4 animate-fade-in-up animation-delay-400">
             <Link
               href="#services"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
+              className="bg-primary hover:bg-secondary text-background px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
             >
               View Services
             </Link>
             <Link
               href="/contact"
-              className="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
+              className="border border-primary text-primary hover:bg-primary hover:text-background px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
             >
               Get Quote
             </Link>

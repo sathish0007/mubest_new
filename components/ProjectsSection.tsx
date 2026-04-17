@@ -562,53 +562,43 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
   };
 
   return (
-    <section id="projects" className="py-32 bg-[#040d1a] relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-[rgba(255,193,7,0.02)] blur-[100px] animate-pulse-slow" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-[rgba(255,143,0,0.01)] blur-[120px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
-      </div>
-
+    <section id="projects" className="py-32 bg-white font-sans relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[rgba(255,193,7,0.25)] bg-[rgba(255,193,7,0.06)] rounded-full mb-8 opacity-0 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#0e4672] bg-[#F5F7FA] rounded-full mb-8 opacity-0 animate-fade-up">
             <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#FFC107] tracking-[0.15em] uppercase">
+            <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
               Our Portfolio
             </span>
           </div>
-
-          <h2 className="font-display text-[60px] md:text-[80px] text-white tracking-wider mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] mb-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             COMPLETED
           </h2>
-          <h2 className="font-display text-[60px] md:text-[80px] text-[#FFC107] glow-text tracking-wider mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0d6f60] mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             PROJECTS
           </h2>
-
-          <p className="font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <p className="text-[#0d6f60] text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             Explore our successful electrical projects across Singapore, from residential estates to industrial complexes.
             Each project showcases our commitment to quality, safety, and innovation.
           </p>
         </div>
-
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12 opacity-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-heading text-sm tracking-[0.1em] uppercase transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-[#FFC107] text-[#030712] shadow-[0_0_20px_rgba(255,193,7,0.3)]"
-                  : "border border-[rgba(255,193,7,0.25)] text-slate-400 hover:text-[#FFC107] hover:border-[rgba(255,193,7,0.5)]"
+                  ? "bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]"
+                  : "border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]"
               }`}
             >
               {category}
             </button>
           ))}
         </div>
-
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsToRender.map((project, index) => {
@@ -616,69 +606,65 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
             return (
               <div
                 key={project.id}
-              onClick={() => openModal(project)}
-              className="group relative cursor-pointer overflow-hidden rounded-sm border-grad bg-[rgba(13,21,37,0.6)] backdrop-blur-sm hover:bg-[rgba(255,193,7,0.04)] transition-all duration-500 opacity-0 animate-fade-up"
-              style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-            >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden bg-[#0c1723]">
-                {imageSrc ? (
-                  <img
-                    src={imageSrc}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center bg-[rgba(255,193,7,0.08)] text-slate-500 text-sm font-body">
-                    Image not available
+                onClick={() => openModal(project)}
+                className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-0 animate-fade-up shadow-sm"
+                style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden bg-[#E3E7ED]">
+                  {imageSrc ? (
+                    <img
+                      src={imageSrc}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center bg-[#FFF8E1] text-[#0e4672] text-sm font-body">
+                      Image not available
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8E1] via-transparent to-transparent" />
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
+                      {project.category}
+                    </span>
                   </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#FFC107] text-[#030712] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
-                    {project.category}
-                  </span>
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-[#0e4672]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-center">
+                      <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                      <span className="text-white font-bold text-sm tracking-[0.1em] uppercase">View Details</span>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center">
-                    <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    <span className="text-white font-heading text-sm tracking-[0.1em] uppercase">View Details</span>
+                    <span className="font-body text-[#0d6f60] text-sm">{project.location}</span>
                   </div>
+                  <p className="font-body text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
+                    {project.description}
+                  </p>
                 </div>
               </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-heading text-xl text-white mb-2 group-hover:text-[#FFC107] transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <div className="flex items-center gap-2 mb-3">
-                  <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="font-body text-slate-400 text-sm">{project.location}</span>
-                </div>
-                <p className="font-body text-slate-500 text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          );
+            );
           })}
         </div>
-
         {/* CTA */}
         {!showAll && (
           <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300">
+            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300">
               <span>View All Projects</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -687,7 +673,6 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
           </div>
         )}
       </div>
-
       {/* Modal */}
       {selectedProject && (
         <ProjectDetailsModal

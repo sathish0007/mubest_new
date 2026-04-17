@@ -1,30 +1,219 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
+
+const values = [
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
+    title: "Safety First",
+    desc: "Every project follows strict SS 638 Singapore standards and international electrical codes, ensuring zero-compromise safety.",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    title: "Fast Response",
+    desc: "Our rapid-response team dispatches within 60 minutes for emergency electrical faults across Singapore.",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
+    ),
+    title: "Smart Solutions",
+    desc: "We integrate modern smart metering and energy management systems to optimize your electrical infrastructure.",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+    title: "Expert Team",
+    desc: "A team of 80+ EMA-licensed electricians, engineers, and project managers with combined decades of expertise.",
+  },
+];
+
+const milestones = [
+  { year: "2009", event: "Founded in Jurong, Singapore" },
+  { year: "2012", event: "Awarded BCA Green Mark certification" },
+  { year: "2015", event: "Expanded to industrial & MRT projects" },
+  { year: "2018", event: "ISO 9001:2015 Quality certification" },
+  { year: "2021", event: "Achieved bizSAFE Star status" },
+  { year: "2024", event: "500+ projects milestone reached" },
+];
 
 export default function AboutSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="relative py-28 px-6 bg-[#030712] overflow-hidden">
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 tracking-tight leading-tight drop-shadow-xl">
-          POWERING
-          <span className="block text-blue-400">SINGAPORE'S INFRASTRUCTURE</span>
-        </h1>
-        <h2 className="font-display text-2xl md:text-3xl text-[#FFC107] font-bold mb-8 tracking-widest uppercase">Electrical Experts</h2>
-        <p className="font-body text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto">
-          Mubest Pte Ltd is a Singapore-based company focused on electrical infrastructure and building works across public housing developments, commercial properties, and large-scale projects.<br className="hidden md:block" />
-          Established in 2006, we bring over 20 years of experience in electrification and infrastructure works, supporting the development of residential estates, public spaces, and private projects. Our work includes lighting and electrical systems for housing blocks, linkways, public areas, commercial buildings, and large-scale facilities.
-        </p>
-        <div className="flex flex-wrap justify-center gap-8 mt-8">
-          <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-bold text-blue-400">80+</span>
-            <span className="text-sm text-slate-400 mt-1 uppercase tracking-widest">Certified Professionals</span>
+    <section
+      id="about"
+      ref={sectionRef}
+      className="relative py-32 overflow-hidden bg-white font-sans"
+    >
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Section label */}
+        <div className={`flex items-center gap-4 mb-6 transition-all duration-700 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
+          <div className="w-8 h-px bg-[#0e4672]" />
+          <span className="font-mono text-xs tracking-[0.3em] text-[#0e4672] uppercase">Who We Are</span>
+        </div>
+
+        {/* Main heading */}
+        <div className={`mb-20 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm">
+            SINGAPORE'S
+          </h2>
+          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0d6f60] drop-shadow-sm">
+            ELECTRICAL EXPERTS
+          </h2>
+        </div>
+
+        {/* Two-column layout */}
+        <div className="grid lg:grid-cols-2 gap-16 mb-24">
+          {/* Left: Story */}
+          <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
+            <p className="text-[#0e4672] text-lg leading-relaxed mb-6 font-medium">
+              Mubest Pte Ltd is a Singapore-based company focused on electrical infrastructure and building works across public housing developments, commercial properties and large-scale projects.
+            </p>
+            <p className="text-[#0d6f60] text-base leading-relaxed mb-8">
+              Established in 2006, the company brings together over 20 years of experience in electrification and infrastructure works. We have supported the development of residential estates, public spaces and private projects, delivering practical and reliable solutions that meet industry standards.
+              Our work includes lighting and electrical systems for housing blocks, linkways, public areas, commercial buildings and large-scale facilities.
+            </p>
+            {/* Key capabilities */}
+            <div className="space-y-3 mb-8">
+              {[
+                "High & Low Voltage Installation",
+                "Preventive Maintenance Programs",
+                "Emergency 24/7 Fault Response",
+                "Energy Audits & Smart Systems",
+                "Building Electrical Construction (M&E)",
+              ].map((item, i) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 group"
+                  style={{ transitionDelay: `${200 + i * 80}ms` }}
+                >
+                  <div className="w-5 h-5 rounded-sm border border-[#FFC107] bg-[#FFF8E1] flex items-center justify-center flex-shrink-0 group-hover:bg-[#FFE082] transition-colors duration-300">
+                    <svg className="w-3 h-3 text-[#FFC107]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
+                  <span className="text-[#0e4672] text-sm font-semibold">{item}</span>
+                </div>
+              ))}
+            </div>
+            <a
+              href="#services"
+              className="group inline-flex items-center gap-3 font-bold text-sm tracking-[0.15em] uppercase text-[#FFC107] hover:text-[#0d6f60] transition-colors duration-300"
+            >
+              View Our Services
+              <div className="w-8 h-px bg-[#FFC107] group-hover:w-12 transition-all duration-300" />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
-          <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-bold text-blue-400">20+</span>
-            <span className="text-sm text-slate-400 mt-1 uppercase tracking-widest">Years of Trust</span>
+          {/* Right: Timeline */}
+          <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
+            <h3 className="font-bold text-xl tracking-[0.15em] uppercase text-[#0e4672] mb-8">Our Journey</h3>
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-[#FFC107] via-[#FFF8E1] to-transparent" />
+              {milestones.map((m, i) => (
+                <div
+                  key={m.year}
+                  className="relative flex items-start gap-6 pb-8 group"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  {/* Year */}
+                  <div className="w-24 flex-shrink-0 text-right">
+                    <span className="font-bold text-lg text-[#FFC107] tracking-wider">{m.year}</span>
+                  </div>
+                  {/* Dot */}
+                  <div className="relative flex-shrink-0 z-10">
+                    <div className="w-3 h-3 rounded-full bg-[#FFC107] group-hover:scale-150 transition-transform duration-300" />
+                    <div className="absolute inset-0 rounded-full bg-[#FFC107] animate-ping opacity-20" style={{ animationDelay: `${i * 500}ms` }} />
+                  </div>
+                  {/* Event */}
+                  <div className="flex-1 pt-0.5">
+                    <p className="text-[#0d6f60] text-sm leading-relaxed group-hover:text-[#0e4672] transition-colors duration-300 font-medium">
+                      {m.event}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-bold text-blue-400">500+</span>
-            <span className="text-sm text-slate-400 mt-1 uppercase tracking-widest">Projects Done</span>
+        </div>
+        {/* Values grid */}
+        <div className={`transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="flex items-center gap-4 mb-10">
+            <span className="font-mono text-xs tracking-[0.3em] text-[#0e4672] uppercase">Our Principles</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-[#0e4672] to-transparent" />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {values.map((v, i) => (
+              <div
+                key={v.title}
+                className="group relative p-6 rounded-sm bg-[#F5F7FA] hover:bg-[#FFF8E1] border border-[#E3E7ED] transition-all duration-500 cursor-default shadow-sm"
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                <div className="absolute inset-0 rounded-sm bg-gradient-to-br from-[#FFF8E1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative">
+                  <div className="w-12 h-12 rounded-sm bg-[#FFF8E1] border border-[#FFC107] flex items-center justify-center text-[#FFC107] mb-4 group-hover:bg-[#FFE082] transition-colors duration-300">
+                    {v.icon}
+                  </div>
+                  <h4 className="text-base font-bold tracking-wider text-[#0e4672] mb-3">{v.title}</h4>
+                  <p className="text-[#0d6f60] text-sm leading-relaxed font-medium">{v.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Team photo placeholder with overlay */}
+        <div className={`mt-20 relative rounded-sm overflow-hidden transition-all duration-700 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="h-64 md:h-80 bg-gradient-to-r from-[#FFF8E1] via-[#E3E7ED] to-[#FFF8E1] flex items-center justify-center border border-[#FFC107]">
+            {/* SVG illustration of workers */}
+            <svg width="600" height="200" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20">
+              {[80, 160, 240, 320, 400, 480].map((x, i) => (
+                <g key={x}>
+                  <circle cx={x} cy={60} r={20} fill="#FFC107"/>
+                  <rect x={x - 15} y={84} width={30} height={60} rx={4} fill="#FFC107"/>
+                  <line x1={x - 25} y1={100} x2={x - 40} y2={130} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
+                  <line x1={x + 25} y1={100} x2={x + 40} y2={130} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
+                  <line x1={x - 10} y1={144} x2={x - 15} y2={180} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
+                  <line x1={x + 10} y1={144} x2={x + 15} y2={180} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
+                  <rect x={x - 22} y={40} width={44} height={12} rx={2} fill="#FF8F00"/>
+                </g>
+              ))}
+            </svg>
+            <div className="absolute bottom-8 left-8 right-8 flex items-end justify-between">
+              <div>
+                <p className="text-4xl text-[#0e4672] font-extrabold">80+</p>
+                <p className="text-sm tracking-[0.2em] text-[#0d6f60] uppercase font-bold">Certified Professionals</p>
+              </div>
+              <div className="text-right">
+                <p className="text-4xl text-[#0e4672] font-extrabold">15+</p>
+                <p className="text-sm tracking-[0.2em] text-[#0d6f60] uppercase font-bold">Years of Trust</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

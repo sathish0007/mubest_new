@@ -147,30 +147,30 @@ export default function TestimonialsSection() {
     <section
       ref={sectionRef}
       id="testimonials"
-      className="relative py-32 bg-[#030712] overflow-hidden"
+      className="relative py-32 bg-white overflow-hidden"
     >
-      {/* Background elements */}
+      {/* Soft logo color background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/3 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[150px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[rgba(255,143,0,0.02)] blur-[120px]" />
+        <div className="absolute top-1/4 right-1/3 w-96 h-96 rounded-full bg-[rgba(14,70,114,0.06)] blur-[150px]" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[rgba(13,111,96,0.05)] blur-[120px]" />
       </div>
 
       <div className="relative z-10">
         {/* Header */}
         <div className="text-center mb-20 px-6 max-w-7xl mx-auto">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 border border-[rgba(255,193,7,0.25)] bg-[rgba(255,193,7,0.06)] rounded-full mb-8 transition-all duration-700 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 border border-[#FFC107]/30 bg-[#FFC107]/10 rounded-full mb-8 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#FFC107] tracking-[0.15em] uppercase">
+            <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
               Client Success
             </span>
           </div>
 
           <h2
-            className={`font-display text-[48px] md:text-[64px] text-white tracking-wider mb-6 transition-all duration-700 ${
+            className={`font-display text-[40px] md:text-[56px] text-[#0e4672] font-bold tracking-wider mb-6 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}
@@ -179,7 +179,7 @@ export default function TestimonialsSection() {
           </h2>
 
           <p
-            className={`font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${
+            className={`font-body text-[#0d6f60] text-lg max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.2s" }}
@@ -208,8 +208,8 @@ export default function TestimonialsSection() {
 
         <div className="relative overflow-hidden">
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-[#030712] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling testimonial groups */}
           <div className="scroll-container flex gap-6 py-8 px-6 w-max">
@@ -221,11 +221,11 @@ export default function TestimonialsSection() {
                 {group.map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="group flex-shrink-0 w-80 overflow-hidden rounded-2xl border border-[rgba(255,193,7,0.2)] bg-gradient-to-br from-[rgba(13,21,37,0.6)] via-[rgba(13,21,37,0.4)] to-[rgba(13,21,37,0.2)] backdrop-blur-xl p-6 md:p-8 hover:border-[rgba(255,193,7,0.5)] transition-all duration-300"
+                    className="group relative flex-shrink-0 w-80 overflow-hidden rounded-2xl border border-[#0e4672]/15 bg-gradient-to-br from-[#e3f2fd] via-[#f1f8e9] to-[#fffde7] p-6 md:p-8 hover:border-[#FFC107] transition-all duration-300 shadow-lg"
                   >
                     {/* Background accent */}
-                    <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[rgba(255,193,7,0.1)] to-transparent rounded-full blur-3xl -z-10" />
-                    <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[rgba(255,193,7,0.05)] to-transparent rounded-full blur-3xl -z-10" />
+                    <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#FFC107]/10 to-transparent rounded-full blur-3xl -z-10" />
+                    <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#0d6f60]/10 to-transparent rounded-full blur-3xl -z-10" />
 
                     {/* Star Rating */}
                     <div className="flex gap-1 mb-4">
@@ -244,29 +244,29 @@ export default function TestimonialsSection() {
                     {/* Quote */}
                     <div className="mb-6">
                       <svg
-                        className="w-6 h-6 text-[#FFC107] mb-3 opacity-50"
+                        className="w-6 h-6 text-[#0e4672] mb-3 opacity-50"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
                         <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.716-5-7-5-6 0-5 5-5 9.972C0 15.971 1 21 3 21z" />
                       </svg>
-                      <p className="font-body text-sm text-white leading-relaxed italic line-clamp-4">
+                      <p className="font-body text-sm text-[#0e4672] leading-relaxed italic line-clamp-4">
                         "{testimonial.content}"
                       </p>
                     </div>
 
                     {/* Author Info */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-[rgba(255,193,7,0.1)]">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FFC107] to-[#FF8F00] flex items-center justify-center flex-shrink-0">
-                        <span className="font-display text-sm font-bold text-[#030712]">
+                    <div className="flex items-center gap-3 pt-4 border-t border-[#0e4672]/10">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FFC107] to-[#0d6f60] flex items-center justify-center flex-shrink-0">
+                        <span className="font-display text-sm font-bold text-white">
                           {testimonial.name.charAt(0)}
                         </span>
                       </div>
                       <div className="min-w-0">
-                        <h3 className="font-heading text-sm text-white tracking-[0.05em] truncate">
+                        <h3 className="font-heading text-sm text-[#0e4672] tracking-[0.05em] truncate">
                           {testimonial.name}
                         </h3>
-                        <p className="font-body text-xs text-slate-400 truncate">
+                        <p className="font-body text-xs text-[#0d6f60] truncate">
                           {testimonial.title}, {testimonial.company}
                         </p>
                       </div>
@@ -279,7 +279,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-6 md:gap-12 mt-20 pt-20 px-6 max-w-7xl mx-auto border-t border-[rgba(255,193,7,0.1)]">
+        <div className="grid grid-cols-3 gap-6 md:gap-12 mt-20 pt-20 px-6 max-w-7xl mx-auto border-t border-[#0e4672]/10">
           {[
             { number: "100%", label: "Client Satisfaction" },
             { number: "500+", label: "Projects Done" },
@@ -294,10 +294,10 @@ export default function TestimonialsSection() {
               }`}
               style={{ transitionDelay: isVisible ? `${0.4 + index * 0.1}s` : "0s" }}
             >
-              <h3 className="font-display text-4xl md:text-5xl text-[#FFC107] mb-2">
+              <h3 className="font-display text-4xl md:text-5xl text-[#0d6f60] mb-2">
                 {stat.number}
               </h3>
-              <p className="font-body text-xs md:text-sm text-slate-400 uppercase tracking-[0.1em]">
+              <p className="font-body text-xs md:text-sm text-[#0e4672] uppercase tracking-[0.1em]">
                 {stat.label}
               </p>
             </div>

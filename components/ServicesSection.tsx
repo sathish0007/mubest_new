@@ -184,7 +184,7 @@ export default function ServicesSection() {
     : services.filter(service => service.category === activeCategory);
 
   return (
-    <section id="services" className="py-32 bg-[#030712] relative overflow-hidden">
+    <section id="services" className="py-32 bg-white font-sans relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[120px] animate-pulse-slow" />
@@ -225,84 +225,70 @@ export default function ServicesSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[rgba(255,193,7,0.25)] bg-[rgba(255,193,7,0.06)] rounded-full mb-8 opacity-0 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#0e4672] bg-[#F5F7FA] rounded-full mb-8 opacity-0 animate-fade-up">
             <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#FFC107] tracking-[0.15em] uppercase">
+            <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
               Our Expertise
             </span>
           </div>
-
-          <h2 className="font-display text-[60px] md:text-[80px] text-white tracking-wider mb-6 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] mb-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             ELECTRICAL
           </h2>
-          <h2 className="font-display text-[60px] md:text-[80px] text-[#FFC107] glow-text tracking-wider mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0d6f60] mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             SERVICES
           </h2>
-
-          <p className="font-body text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <p className="text-[#0d6f60] text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             From residential rewiring to industrial substations, we deliver comprehensive electrical solutions
             with precision, safety, and reliability. Our licensed engineers ensure every project meets the highest standards.
           </p>
         </div>
-
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12 opacity-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-heading text-sm tracking-[0.1em] uppercase transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-[#FFC107] text-[#030712] shadow-[0_0_20px_rgba(255,193,7,0.3)]"
-                  : "border border-[rgba(255,193,7,0.25)] text-slate-400 hover:text-[#FFC107] hover:border-[rgba(255,193,7,0.5)]"
+                  ? "bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]"
+                  : "border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]"
               }`}
             >
               {category}
             </button>
           ))}
         </div>
-
         {/* Services Grid */}
         <div ref={servicesRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.map((service, index) => (
             <div
               key={service.title}
-              className={`group relative p-6 border-grad rounded-sm bg-[rgba(13,21,37,0.6)] backdrop-blur-sm hover:bg-[rgba(255,193,7,0.04)] transition-all duration-500 reveal ${
+              className={`group relative p-6 rounded-sm bg-[#F5F7FA] hover:bg-[#FFF8E1] border border-[#E3E7ED] transition-all duration-500 reveal ${
                 visibleServices ? "visible" : ""
-              } overflow-hidden`}
+              } overflow-hidden shadow-sm`}
               style={{ transitionDelay: `${index * 50}ms` }}
             >
               {/* Card background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[rgba(255,193,7,0.02)] via-transparent to-[rgba(255,143,0,0.01)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Animated border */}
-              <div className="absolute inset-0 rounded-sm bg-gradient-to-r from-transparent via-[rgba(255,193,7,0.1)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -skew-x-12 group-hover:animate-pulse" />
-
-              <div className="absolute inset-0 rounded-sm bg-gradient-to-b from-[rgba(255,193,7,0.03)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+              <div className="absolute inset-0 bg-gradient-to-br from-[#FFF8E1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-full bg-[rgba(255,193,7,0.1)] border border-[rgba(255,193,7,0.2)] flex items-center justify-center mb-4 group-hover:bg-[rgba(255,193,7,0.15)] transition-colors duration-300 text-[#FFC107]">
+                <div className="w-12 h-12 rounded-sm bg-[#FFF8E1] border border-[#FFC107] flex items-center justify-center mb-4 group-hover:bg-[#FFE082] transition-colors duration-300 text-[#FFC107]">
                   {service.icon}
                 </div>
-
                 {/* Category Badge */}
-                <div className="inline-flex items-center px-2 py-1 bg-[rgba(255,193,7,0.08)] border border-[rgba(255,193,7,0.15)] rounded-full mb-3">
+                <div className="inline-flex items-center px-2 py-1 bg-[#F5F7FA] border border-[#FFC107] rounded-full mb-3">
                   <span className="font-mono text-[10px] text-[#FFC107] tracking-[0.1em] uppercase">
                     {service.category}
                   </span>
                 </div>
-
                 {/* Title */}
-                <h3 className="font-heading text-lg text-white mb-3 group-hover:text-[#FFC107] transition-colors duration-300">
+                <h3 className="text-lg font-bold text-[#0e4672] mb-3 group-hover:text-[#FFC107] transition-colors duration-300">
                   {service.title}
                 </h3>
-
                 {/* Description */}
-                <p className="font-body text-slate-400 text-sm leading-relaxed">
+                <p className="text-[#0d6f60] text-sm leading-relaxed font-medium">
                   {service.description}
                 </p>
-
                 {/* Hover indicator */}
                 <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <svg className="w-5 h-5 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -313,19 +299,16 @@ export default function ServicesSection() {
             </div>
           ))}
         </div>
-
         {/* CTA */}
         <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.6s" }}>
-          <div className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300 cursor-pointer overflow-hidden">
+          <div className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300 cursor-pointer overflow-hidden">
             {/* Button background animation */}
             <div className="absolute inset-0 bg-[#FF8F00] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#FFC107] to-[#FF8F00] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
             <span className="relative z-10">Request Service Quote</span>
             <svg className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-
             {/* Spark effect */}
             <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#FFC107] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping" />
           </div>

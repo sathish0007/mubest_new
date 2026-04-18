@@ -54,10 +54,10 @@ export default function Header() {
                 alt="Mubest Logo"
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 rounded-full bg-[rgba(255,193,7,0.1)] blur-lg scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-full bg-[#FFC107]/30 blur-lg scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div>
-              <div className="font-display text-2xl leading-none text-white tracking-widest group-hover:text-[#FFC107] transition-colors duration-300">
+              <div className="font-display text-2xl leading-none text-[#0e4672] tracking-widest group-hover:text-[#0e4672] group-hover:bg-[#FFC107] group-hover:px-2 group-hover:rounded transition-all duration-300">
                 MUBEST
               </div>
               <div className="font-heading text-[10px] tracking-[0.25em] text-[#FFC107] uppercase leading-none opacity-70">
@@ -77,8 +77,9 @@ export default function Header() {
                   className={`relative px-5 py-2 font-heading text-sm tracking-[0.1em] uppercase transition-all duration-300 rounded-sm
                     ${isActive
                       ? "text-[#FFC107]"
-                      : "text-slate-400 hover:text-white"
+                      : "text-[#0e4672] hover:text-[#0e4672] hover:bg-[#FFC107] hover:shadow hover:px-6"
                     }`}
+                  style={{ zIndex: 1 }}
                 >
                   {isActive && (
                     <span className="absolute inset-0 bg-[rgba(255,193,7,0.06)] rounded-sm border border-[rgba(255,193,7,0.15)]" />

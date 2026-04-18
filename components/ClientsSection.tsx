@@ -32,8 +32,10 @@ const clients = [
 
 // Duplicate clients for seamless loop
 const duplicatedClients = [...clients, ...clients];
-
 export default function ClientsSection() {
+
+// Track which client images failed to load
+  const [imageError, setImageError] = useState<{ [key: number]: boolean }>({});
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -132,6 +134,8 @@ export default function ClientsSection() {
                 .slice(0, 2)
                 .join("");
 
+              const showInitials = imageError[client.id];
+
               return (
                 <div
                   key={`${client.id}-${Math.floor(index / clients.length)}`}
@@ -145,20 +149,22 @@ export default function ClientsSection() {
 
                       {/* Logo image or initials */}
                       <div className="relative z-10 flex items-center justify-center w-full h-full p-3">
-                        <img
-                          src={`/images/clients/${client.id}.png`}
-                          alt={client.name}
-                          className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = "none";
-                          }}
-                        />
-                        <span
-                          className="font-display text-lg md:text-2xl text-[#0e4672] font-bold tracking-wider group-hover:scale-110 transition-transform duration-300"
-                          id={`initials-${client.id}`}
-                        >
-                          {initials || "?"}
-                        </span>
+                        {!showInitials && (
+                          <img
+                            src={`/images/clients/${client.id}.png`}
+                            alt={client.name}
+                            className="w-full h-full max-w-[95%] max-h-[95%] object-contain group-hover:scale-110 transition-transform duration-300"
+                            onError={() => setImageError((prev) => ({ ...prev, [client.id]: true }))}
+                          />
+                        )}
+                        {showInitials && (
+                          <span
+                            className="font-display text-2xl md:text-4xl text-[#0e4672] font-bold tracking-wider group-hover:scale-110 transition-transform duration-300 flex items-center justify-center w-full h-full"
+                            id={`initials-${client.id}`}
+                          >
+                            {initials || "?"}
+                          </span>
+                        )}
                       </div>
 
                       {/* Glow effect on hover */}
@@ -191,3 +197,4 @@ export default function ClientsSection() {
     </section>
   );
 }
+

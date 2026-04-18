@@ -62,18 +62,11 @@ export default function FooterSection() {
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="relative w-10 h-10">
-                    <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
-                      <polygon
-                        points="20,2 38,12 38,28 20,38 2,28 2,12"
-                        stroke="#FFC107"
-                        strokeWidth="1.5"
-                        fill="rgba(255,193,7,0.08)"
-                      />
-                      <path
-                        d="M22 8L12 22h8l-2 10 10-14h-8l2-10z"
-                        fill="#FFC107"
-                      />
-                    </svg>
+                    <img
+                      src="/favicon.png"
+                      alt="Voltex Logo"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
                     <div className="font-display text-xl leading-none text-white tracking-widest">

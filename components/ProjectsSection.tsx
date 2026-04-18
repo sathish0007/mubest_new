@@ -1,19 +1,21 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 
-interface Project {
+const ProjectMap = dynamic(() => import("./ProjectMap"), { ssr: false });
+
+export interface Project {
   id: string;
   title: string;
-  location: string;
+  location: string | { lat: number; lng: number };
   image: string;
   services: string[];
   completedDate: string;
   description: string;
   category: string;
 }
-
 interface ProjectsSectionProps {
   previewCount?: number;
   showAll?: boolean;
@@ -546,10 +548,68 @@ const categories = ["All", "Residential", "Commercial", "Industrial", "Maintenan
 export default function ProjectsSection({ previewCount = 6, showAll = false }: ProjectsSectionProps) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeTab, setActiveTab] = useState<'card' | 'map'>("card");
+
+  // For map view, we need lat/lng. We'll try to parse from the location if not present.
+  // Accurate lat/lng for specific projects
+  const projectLocations: { [key: string]: { lat: number; lng: number } } = {
+    "ST ENGINEERING URBAN SOLUTIONS LTD": { lat: 1.3117, lng: 103.8636 },
+    "TANJONG PAGAR TOWN COUNCIL": { lat: 1.2830, lng: 103.8165 },
+    "WEST COAST": { lat: 1.2900, lng: 103.7700 },
+    "TANJONG PAGAR": { lat: 1.2764, lng: 103.8458 },
+    "TELOK BLANGAH DRIVE/HEIGHTS": { lat: 1.2735, lng: 103.8090 },
+    "CHOA CHU KANG STREET 62": { lat: 1.4015, lng: 103.7485 },
+    "WOODLANDS DRIVE 50": { lat: 1.4320, lng: 103.7910 },
+    "YUNG HO ROAD": { lat: 1.3285, lng: 103.7065 },
+    "WOODLANDS DRIVE 40/70, AVE 6, STREET 83": { lat: 1.4405, lng: 103.7925 },
+    "KEAT HONG SHOPPING CENTRE": { lat: 1.3786, lng: 103.7440 },
+    "CHOA CHU KANG AVE 2": { lat: 1.3805, lng: 103.7425 },
+    "JURONG WEST STREET 74": { lat: 1.3490, lng: 103.6975 },
+    "WOODLANDS STREET 81/82/83/ AVENUE 4/9": { lat: 1.4400, lng: 103.7890 },
+    "PASIR RIS DRIVE 1/3 & 10": { lat: 1.3735, lng: 103.9495 },
+    "CHUA CHU KANG AVE 3/4": { lat: 1.3855, lng: 103.7435 },
+    "CHOA CHU KANG ST 51/ST 52 & LIMBANG PARK": { lat: 1.3920, lng: 103.7475 },
+    "WOODLANDS AVENUE 1/ STREET 32": { lat: 1.4310, lng: 103.7850 },
+    "NATIONAL UNIVERSITY OF SINGAPORE": { lat: 1.2966, lng: 103.7764 },
+    "CHANGI AIRPORT T4": { lat: 1.3344, lng: 103.9865 },
+    "MARINA ONE": { lat: 1.2789, lng: 103.8536 },
+    "CONNECT @ CHANGI EXPO HALL 7 & 8": { lat: 1.3331, lng: 103.9619 },
+    "FUSIONPOLIS 5": { lat: 1.2990, lng: 103.7873 },
+  };
+
+  const projectsWithLocation = projects.map((p, idx) => {
+    // Try to match by title (case-insensitive, partial match)
+    let matchedLocation = null;
+    for (const [key, loc] of Object.entries(projectLocations)) {
+      if (p.title.toUpperCase().includes(key)) {
+        matchedLocation = loc;
+        break;
+      }
+    }
+    if (matchedLocation) {
+      return { ...p, location: matchedLocation };
+    }
+    if (
+      typeof p.location === "object" &&
+      p.location !== null &&
+      typeof (p.location as any).lat === "number" &&
+      typeof (p.location as any).lng === "number"
+    ) {
+      return p;
+    }
+    // Fallback: distribute markers in a spiral around Singapore center
+    const singaporeCenter = { lat: 1.3521, lng: 103.8198 };
+    const angle = (2 * Math.PI * idx) / projects.length;
+    const radius = 0.04 + 0.07 * (idx / projects.length);
+    return {
+      ...p,
+      location: { lat: singaporeCenter.lat + Math.sin(angle) * radius, lng: singaporeCenter.lng + Math.cos(angle) * radius },
+    };
+  });
 
   const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter(project => project.category === activeCategory);
+    ? projectsWithLocation
+    : projectsWithLocation.filter(project => project.category === activeCategory);
 
   const projectsToRender = showAll ? filteredProjects : filteredProjects.slice(0, previewCount);
 
@@ -583,7 +643,22 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
             Each project showcases our commitment to quality, safety, and innovation.
           </p>
         </div>
-        {/* Category Filter */}
+        {/* Tabs for Card/Map view */}
+        <div className="flex justify-center gap-4 mb-10">
+          <button
+            className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${activeTab === 'card' ? 'bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]' : 'border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]'}`}
+            onClick={() => setActiveTab('card')}
+          >
+            Card View
+          </button>
+          <button
+            className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${activeTab === 'map' ? 'bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]' : 'border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]'}`}
+            onClick={() => setActiveTab('map')}
+          >
+            Map View
+          </button>
+        </div>
+        {/* Category Filter (show in both views) */}
         <div className="flex flex-wrap justify-center gap-3 mb-12 opacity-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
           {categories.map((category) => (
             <button
@@ -599,77 +674,87 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
             </button>
           ))}
         </div>
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsToRender.map((project, index) => {
-            const imageSrc = availableImageIds.has(project.id) ? `/images/${project.id}.png` : null;
-            return (
-              <div
-                key={project.id}
-                onClick={() => openModal(project)}
-                className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-0 animate-fade-up shadow-sm"
-                style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden bg-[#E3E7ED]">
-                  {imageSrc ? (
-                    <img
-                      src={imageSrc}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  ) : (
-                    <div className="flex h-full items-center justify-center bg-[#FFF8E1] text-[#0e4672] text-sm font-body">
-                      Image not available
+        {/* Card View */}
+        {activeTab === 'card' && (
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projectsToRender.map((project, index) => {
+                const imageSrc = availableImageIds.has(project.id) ? `/images/${project.id}.png` : null;
+                return (
+                  <div
+                    key={project.id}
+                    onClick={() => openModal(project)}
+                    className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-0 animate-fade-up shadow-sm"
+                    style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden bg-[#E3E7ED]">
+                      {imageSrc ? (
+                        <img
+                          src={imageSrc}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      ) : (
+                        <div className="flex h-full items-center justify-center bg-[#FFF8E1] text-[#0e4672] text-sm font-body">
+                          Image not available
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8E1] via-transparent to-transparent" />
+                      {/* Category Badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
+                          {project.category}
+                        </span>
+                      </div>
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-[#0e4672]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="text-center">
+                          <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                          <span className="text-white font-bold text-sm tracking-[0.1em] uppercase">View Details</span>
+                        </div>
+                      </div>
                     </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8E1] via-transparent to-transparent" />
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
-                      {project.category}
-                    </span>
-                  </div>
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#0e4672]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
-                      <span className="text-white font-bold text-sm tracking-[0.1em] uppercase">View Details</span>
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center gap-2 mb-3">
+                        <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span className="font-body text-[#0d6f60] text-sm">{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
+                      </div>
+                      <p className="font-body text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
+                        {project.description}
+                      </p>
                     </div>
                   </div>
-                </div>
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <div className="flex items-center gap-2 mb-3">
-                    <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span className="font-body text-[#0d6f60] text-sm">{project.location}</span>
-                  </div>
-                  <p className="font-body text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
-                    {project.description}
-                  </p>
-                </div>
+                );
+              })}
+            </div>
+            {/* CTA */}
+            {!showAll && (
+              <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.8s" }}>
+                <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300">
+                  <span>View All Projects</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
               </div>
-            );
-          })}
-        </div>
-        {/* CTA */}
-        {!showAll && (
-          <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300">
-              <span>View All Projects</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            )}
+          </>
+        )}
+        {/* Map View */}
+        {activeTab === 'map' && (
+          <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#0e4672]/10 bg-[#e3f2fd] relative min-h-[600px]">
+            <ProjectMap projects={projectsToRender} />
           </div>
         )}
       </div>

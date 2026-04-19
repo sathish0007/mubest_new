@@ -41,9 +41,10 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "glass border-b border-[rgba(255,193,7,0.12)] py-3"
-            : "py-6 bg-transparent"
+            ? "glass border-b border-[rgba(255,193,7,0.12)] py-3 bg-gradient-to-r from-[#0e4672] via-[#046f5e] to-[#7bc59d]"
+            : "py-6 bg-gradient-to-r from-[#0e4672] via-[#046f5e] to-[#7bc59d]"
         }`}
+        style={{ background: scrolled ? undefined : 'linear-gradient(90deg, #0e4672 0%, #046f5e 40%, #7bc59d 80%, #fff 100%)' }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
@@ -91,6 +92,7 @@ export default function Header() {
                 </Link>
               );
             })}
+            <Link href="/certifications" className="hover:text-[#046f5e] transition-colors">Certifications & Awards</Link>
           </nav>
 
           {/* CTA */}

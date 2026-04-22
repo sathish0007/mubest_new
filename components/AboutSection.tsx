@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import AboutTeamPhoto from "./AboutTeamPhoto";
 
 const values = [
   {
@@ -66,33 +67,31 @@ export default function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative py-32 overflow-hidden bg-white font-sans"
+      className="relative py-32 overflow-hidden bg-white font-serif"
+      style={{ fontFamily: 'Times New Roman, Times, serif' }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section label */}
         <div className={`flex items-center gap-4 mb-6 transition-all duration-700 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
           <div className="w-8 h-px bg-[#0e4672]" />
-          <span className="font-mono text-xs tracking-[0.3em] text-[#0e4672] uppercase">Who We Are</span>
+          <span className="text-xs tracking-[0.3em] text-[#0e4672] uppercase font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>Who We Are</span>
         </div>
 
         {/* Main heading */}
         <div className={`mb-20 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm">
-            SINGAPORE'S
-          </h2>
-          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0d6f60] drop-shadow-sm">
-            ELECTRICAL EXPERTS
-          </h2>
+          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+About Us          </h2>
+          
         </div>
 
         {/* Two-column layout */}
         <div className="grid lg:grid-cols-2 gap-16 mb-24">
           {/* Left: Story */}
-          <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
-            <p className="text-[#0e4672] text-lg leading-relaxed mb-6 font-medium">
+          <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}> 
+            <p className="text-[#0e4672] text-lg leading-relaxed mb-6 font-medium font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
               Mubest Pte Ltd is a Singapore-based company focused on electrical infrastructure and building works across public housing developments, commercial properties and large-scale projects.
             </p>
-            <p className="text-[#0d6f60] text-base leading-relaxed mb-8">
+            <p className="text-[#0d6f60] text-base leading-relaxed mb-8 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
               Established in 2006, the company brings together over 20 years of experience in electrification and infrastructure works. We have supported the development of residential estates, public spaces and private projects, delivering practical and reliable solutions that meet industry standards.
               Our work includes lighting and electrical systems for housing blocks, linkways, public areas, commercial buildings and large-scale facilities.
             </p>
@@ -115,107 +114,28 @@ export default function AboutSection() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                   </div>
-                  <span className="text-[#0e4672] text-sm font-semibold">{item}</span>
+                  <span className="text-[#0e4672] text-sm font-semibold font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>{item}</span>
                 </div>
               ))}
             </div>
             <a
-              href="#services"
-              className="group inline-flex items-center gap-3 font-bold text-sm tracking-[0.15em] uppercase text-[#FFC107] hover:text-[#0d6f60] transition-colors duration-300"
+              href="/about"
+              className="group inline-flex items-center gap-3 font-bold text-sm tracking-[0.15em] uppercase text-[#FFC107] hover:text-[#0d6f60] transition-colors duration-300 font-serif"
+              style={{ fontFamily: 'Times New Roman, Times, serif' }}
             >
-              View Our Services
+              View More
               <div className="w-8 h-px bg-[#FFC107] group-hover:w-12 transition-all duration-300" />
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
-          {/* Right: Timeline */}
-          <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
-            <h3 className="font-bold text-xl tracking-[0.15em] uppercase text-[#0e4672] mb-8">Our Journey</h3>
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-[#FFC107] via-[#FFF8E1] to-transparent" />
-              {milestones.map((m, i) => (
-                <div
-                  key={m.year}
-                  className="relative flex items-start gap-6 pb-8 group"
-                  style={{ animationDelay: `${i * 100}ms` }}
-                >
-                  {/* Year */}
-                  <div className="w-24 flex-shrink-0 text-right">
-                    <span className="font-bold text-lg text-[#FFC107] tracking-wider">{m.year}</span>
-                  </div>
-                  {/* Dot */}
-                  <div className="relative flex-shrink-0 z-10">
-                    <div className="w-3 h-3 rounded-full bg-[#FFC107] group-hover:scale-150 transition-transform duration-300" />
-                    <div className="absolute inset-0 rounded-full bg-[#FFC107] animate-ping opacity-20" style={{ animationDelay: `${i * 500}ms` }} />
-                  </div>
-                  {/* Event */}
-                  <div className="flex-1 pt-0.5">
-                    <p className="text-[#0d6f60] text-sm leading-relaxed group-hover:text-[#0e4672] transition-colors duration-300 font-medium">
-                      {m.event}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          {/* Right: Animated Team Photo */}
+          <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <AboutTeamPhoto animate={true} />
           </div>
         </div>
-        {/* Values grid */}
-        <div className={`transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="flex items-center gap-4 mb-10">
-            <span className="font-mono text-xs tracking-[0.3em] text-[#0e4672] uppercase">Our Principles</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-[#0e4672] to-transparent" />
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {values.map((v, i) => (
-              <div
-                key={v.title}
-                className="group relative p-6 rounded-sm bg-[#F5F7FA] hover:bg-[#FFF8E1] border border-[#E3E7ED] transition-all duration-500 cursor-default shadow-sm"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <div className="absolute inset-0 rounded-sm bg-gradient-to-br from-[#FFF8E1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative">
-                  <div className="w-12 h-12 rounded-sm bg-[#FFF8E1] border border-[#FFC107] flex items-center justify-center text-[#FFC107] mb-4 group-hover:bg-[#FFE082] transition-colors duration-300">
-                    {v.icon}
-                  </div>
-                  <h4 className="text-base font-bold tracking-wider text-[#0e4672] mb-3">{v.title}</h4>
-                  <p className="text-[#0d6f60] text-sm leading-relaxed font-medium">{v.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* Team photo placeholder with overlay */}
-        <div className={`mt-20 relative rounded-sm overflow-hidden transition-all duration-700 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="h-64 md:h-80 bg-gradient-to-r from-[#FFF8E1] via-[#E3E7ED] to-[#FFF8E1] flex items-center justify-center border border-[#FFC107]">
-            {/* SVG illustration of workers */}
-            <svg width="600" height="200" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20">
-              {[80, 160, 240, 320, 400, 480].map((x, i) => (
-                <g key={x}>
-                  <circle cx={x} cy={60} r={20} fill="#FFC107"/>
-                  <rect x={x - 15} y={84} width={30} height={60} rx={4} fill="#FFC107"/>
-                  <line x1={x - 25} y1={100} x2={x - 40} y2={130} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
-                  <line x1={x + 25} y1={100} x2={x + 40} y2={130} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
-                  <line x1={x - 10} y1={144} x2={x - 15} y2={180} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
-                  <line x1={x + 10} y1={144} x2={x + 15} y2={180} stroke="#FFC107" strokeWidth={8} strokeLinecap="round"/>
-                  <rect x={x - 22} y={40} width={44} height={12} rx={2} fill="#FF8F00"/>
-                </g>
-              ))}
-            </svg>
-            <div className="absolute bottom-8 left-8 right-8 flex items-end justify-between">
-              <div>
-                <p className="text-4xl text-[#0e4672] font-extrabold">80+</p>
-                <p className="text-sm tracking-[0.2em] text-[#0d6f60] uppercase font-bold">Certified Professionals</p>
-              </div>
-              <div className="text-right">
-                <p className="text-4xl text-[#0e4672] font-extrabold">15+</p>
-                <p className="text-sm tracking-[0.2em] text-[#0d6f60] uppercase font-bold">Years of Trust</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      
       </div>
     </section>
   );

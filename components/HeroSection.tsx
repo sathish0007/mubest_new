@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import HeroVideoBackground from "./HeroVideoBackground";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects Completed" },
-  { value: 15, suffix: "yrs", label: "Industry Experience" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
-  { value: 24, suffix: "/7", label: "Emergency Support" },
+  { value: 20, suffix: "+", label: "Years of Experience" },
+  { value: 900, suffix: "+", label: "HDB Blocks Rewired" },
+  { value: 10, suffix: "+", label: "Town Councils Served" },
+  { value: 100, suffix: "%", label: "Client Satisfaction" },
 ];
 
 // Available project images for background slideshow
@@ -115,62 +116,38 @@ export default function HeroSection() {
 
   return (
     <>
-    <section
-      id="home"
-      className="relative min-h-[80vh] flex flex-col justify-center items-center bg-white overflow-hidden"
-    >
-      {/* Project images slideshow background */}
-      <div
-        className="absolute left-0 right-0 w-full h-full z-0 pointer-events-none"
-        style={{ top: '72px', height: 'calc(100% - 72px)', position: 'absolute' }}
-      >
-        {projectImages.map((image, idx) => (
-          <div
-            key={image}
-            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
-              idx === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              backgroundImage: `url(${image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              zIndex: 0,
-              transitionProperty: 'opacity',
-            }}
-            aria-label={`Project background ${idx + 1}`}
-          />
-        ))}
-      </div>
-      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-3xl mx-auto py-32 px-4 text-center">
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-[#0e4672] mb-4 tracking-tight">
-          QUALITY IS OUR PRIORITY
-        </h1>
-        <br/>
-        {/* <p className="font-body text-lg md:text-xl text-slate-700 mb-10">
-          We are a trusted main contractor in Singapore, specializing in delivering quality residential projects with excellence and reliability.
-        </p> */}
-        <a
-          href="#contact"
-          className="inline-block px-10 py-4 bg-[#0e4672] text-white font-heading font-semibold text-lg rounded-full shadow-lg hover:bg-[#0d6f60] transition-colors duration-300"
-        >
-          Get in Touch
-        </a>
-          {/* <div className="flex flex-wrap justify-center items-center gap-6 mt-12">
-            <img src="/images/biz-safe-transparent-rcpset4ksj9t4gx7ydpg773coqqsatx6w965z529z4.png" alt="BizSafe" className="h-10 object-contain" />
-            <img src="/images/GGBD-logo-transparent-rcpsf85ztvuea8bdik7hb3aq6wonpzkwablxnkfz7k.png" alt="GGBD" className="h-10 object-contain" />
-            <img src="/images/progress-wage-transparent-rcpsfhkdq879ibxpzo9r00xc4rebuym7nm4sgc21hc.png" alt="Progressive Wage" className="h-10 object-contain" />
-          </div> */}
-        {/* Overlay removed for maximum image clarity */}
-      </div>
-    </section>
-      {/* Stats row below hero section */}
-      <section className="relative z-20 max-w-6xl mx-auto px-4 pb-20 -mt-12">
+      <section id="home" className="relative flex flex-col justify-center items-center overflow-hidden" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+        <HeroVideoBackground>
+          <div className="flex flex-col items-center justify-center w-full max-w-3xl mx-auto py-48 md:py-64 px-4 text-center">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-[#fff] mb-4 tracking-tight drop-shadow-lg">
+              QUALITY IS OUR PRIORITY
+            </h1>
+            <br/>
+            {/* <p className="font-body text-lg md:text-xl text-slate-700 mb-10">
+              We are a trusted main contractor in Singapore, specializing in delivering quality residential projects with excellence and reliability.
+            </p> */}
+            {/* <a
+              href="#contact"
+              className="inline-block px-10 py-4 bg-[#0e4672] text-white font-heading font-semibold text-lg rounded-full shadow-lg hover:bg-[#0d6f60] transition-colors duration-300"
+            >
+              Get in Touch
+            </a> */}
+            {/* <div className="flex flex-wrap justify-center items-center gap-6 mt-12">
+              <img src="/images/biz-safe-transparent-rcpset4ksj9t4gx7ydpg773coqqsatx6w965z529z4.png" alt="BizSafe" className="h-10 object-contain" />
+              <img src="/images/GGBD-logo-transparent-rcpsf85ztvuea8bdik7hb3aq6wonpzkwablxnkfz7k.png" alt="GGBD" className="h-10 object-contain" />
+              <img src="/images/progress-wage-transparent-rcpsfhkdq879ibxpzo9r00xc4rebuym7nm4sgc21hc.png" alt="Progressive Wage" className="h-10 object-contain" />
+            </div> */}
+          </div>
+        </HeroVideoBackground>
+      </section>
+      {/* Stats row below hero section, below video */}
+      <section className="relative z-20 max-w-6xl mx-auto px-4 pb-20 -mt-12" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <StatCard key={stat.label} {...stat} delay={i * 100} start={true} />
           ))}
         </div>
       </section>
-      </>
+    </>
   );
 }

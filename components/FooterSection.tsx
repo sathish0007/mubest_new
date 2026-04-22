@@ -154,7 +154,7 @@ export default function FooterSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 00.948.684l1.498 4.493a1 1 0 00.502.756l2.048 1.024a11.037 11.037 0 010 1.986l-2.048 1.024a1 1 0 00-.502.756l-1.498 4.493a1 1 0 00-.948.684H5a2 2 0 01-2-2V5z" />
                   </svg>
                   <a href="tel:+6563590110" className="font-body text-sm text-slate-400 hover:text-[#FFC107] transition-colors duration-300">
-                    +65 6359 0110 / 0119
+                    +65 6359 0110
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
@@ -167,20 +167,7 @@ export default function FooterSection() {
                 </div>
               </div>
 
-              {/* Certifications */}
-              <div>
-                <h4 className="font-heading text-xs text-white tracking-[0.15em] uppercase mb-3">
-                  Certifications
-                </h4>
-                <div className="space-y-2">
-                  {footerLinks.certifications.map((cert) => (
-                    <div key={cert} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#FFC107] flex-shrink-0" />
-                      <span className="font-body text-xs text-slate-500">{cert}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+           
             </div>
           </div>
         </div>
@@ -190,15 +177,9 @@ export default function FooterSection() {
           <div className="max-w-7xl mx-auto px-6 py-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="font-body text-xs text-slate-600 text-center md:text-left">
-                © {new Date().getFullYear()} Mubest Pte Ltd. All rights reserved. | UEN: 200901234A
+                © {new Date().getFullYear()} Mubest Pte Ltd. All rights reserved.
               </p>
-              <div className="flex items-center gap-6 text-slate-600">
-                <span className="font-mono text-xs">EMA Licensed</span>
-                <span className="w-1 h-1 rounded-full bg-[#FFC107]" />
-                <span className="font-mono text-xs">BCA Registered</span>
-                <span className="w-1 h-1 rounded-full bg-[#FFC107]" />
-                <span className="font-mono text-xs">bizSAFE Star</span>
-              </div>
+            
             </div>
           </div>
         </div>

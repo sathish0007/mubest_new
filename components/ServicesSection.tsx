@@ -1,317 +1,73 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const services = [
   {
-    title: "Housing Precinct Rewiring",
-    description: "Complete electrical rewiring solutions for residential housing precincts, ensuring safety and modern electrical standards.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-    category: "Residential"
+    title: "Electrical Infrastructure & Power Systems",
+    description: "Installation, upgrading and maintenance of electrical infrastructure for residential, commercial and public developments. Our work includes electrical rewiring of residential blocks, electrical load upgrading works (ELU), underground cable replacement, substations, distribution systems and consumer switch rooms.",
+    image: "/images/1.png",
   },
   {
-    title: "MSB Works",
-    description: "Main Switch Board installation, maintenance, and upgrades for commercial and industrial facilities.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10h3l-3 3v-3z" />
-      </svg>
-    ),
-    category: "Commercial"
+    title: "Lighting & Energy Efficiency",
+    description: "Design and installation of lighting systems for streets, carparks and public areas. We also carry out LED retrofitting and energy-efficient lighting upgrades for existing facilities.",
+    image: "/images/2.png",
   },
   {
-    title: "TurnKey / Sub Projects",
-    description: "End-to-end electrical project management from design to completion for complex installations.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-      </svg>
-    ),
-    category: "Project Management"
+    title: "Substations & Electrical Facilities",
+    description: "Design and construction of substations, consumer switch rooms (CSR), and electrical linkways to support reliable power distribution within developments.",
+    image: "/images/17.png",
   },
   {
-    title: "Sub Stations - Electrical",
-    description: "Design, installation, and maintenance of electrical substations for power distribution.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 2l3 3-3 3V2z" />
-      </svg>
-    ),
-    category: "Industrial"
+    title: "Mechanical Systems (ACMV)",
+    description: "Installation and maintenance of air-conditioning, refrigeration and ventilation systems to ensure proper environmental control for buildings and facilities.",
+    image: "/images/18.png",
   },
   {
-    title: "Town Council Electrical Maintenance",
-    description: "Comprehensive electrical maintenance services under term contracts for town councils and estates.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    category: "Maintenance"
+    title: "Security & Communication Systems",
+    description: "Installation of CCTV surveillance systems, fibre network infrastructure and related building communication systems.",
+    image: "/images/19.png",
   },
   {
-    title: "Survey & Asset Coding",
-    description: "Detailed electrical system surveys and asset coding for inventory management and maintenance planning.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-      </svg>
-    ),
-    category: "Survey"
+    title: "Building & External Infrastructure Works",
+    description: "General building works, external infrastructure construction and project support works that complement electrical and mechanical installations.",
+    image: "/images/20.png",
   },
-  {
-    title: "Testing & Tuning",
-    description: "Electrical system testing, calibration, and performance tuning to ensure optimal operation.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-    category: "Testing"
-  },
-  {
-    title: "Mechanical Completion",
-    description: "Final mechanical completion and commissioning of electrical systems before handover.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    category: "Commissioning"
-  },
-  {
-    title: "Distribution Board",
-    description: "Installation and maintenance of electrical distribution boards and panel systems.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-      </svg>
-    ),
-    category: "Installation"
-  },
-  {
-    title: "Electrical Room & Instrumentation",
-    description: "Complete electrical room setup and instrumentation for control and monitoring systems.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    category: "Control Systems"
-  },
-  {
-    title: "Lamp Post Installation",
-    description: "Professional installation of street lighting and decorative lamp posts with proper foundations.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
-    category: "Lighting"
-  },
-  {
-    title: "CCTV Camera Installation",
-    description: "Security camera system installation, configuration, and integration with electrical systems.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 10h.01M11 10h.01" />
-      </svg>
-    ),
-    category: "Security"
-  },
-  {
-    title: "Cable Tray Works",
-    description: "Cable management solutions including cable tray installation for switchrooms and distribution areas.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-      </svg>
-    ),
-    category: "Infrastructure"
-  },
-  {
-    title: "Lighting Maintenance",
-    description: "Regular maintenance and repair services for housing estate lighting systems.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    category: "Maintenance"
-  },
-  {
-    title: "Concrete Foundation Works",
-    description: "Concrete foundation and base installation for electrical infrastructure like lampposts.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-    category: "Construction"
-  }
 ];
 
-const categories = ["All", "Residential", "Commercial", "Industrial", "Maintenance", "Installation"];
-
 export default function ServicesSection() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [visibleServices, setVisibleServices] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setVisibleServices(true), 200);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (servicesRef.current) observer.observe(servicesRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const filteredServices = activeCategory === "All"
-    ? services
-    : services.filter(service => service.category === activeCategory);
-
   return (
-    <section id="services" className="py-32 bg-white font-sans relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full bg-[rgba(255,143,0,0.02)] blur-[100px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
-
-        {/* Circuit pattern overlay */}
-        <svg className="absolute inset-0 w-full h-full opacity-[0.02]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="circuit-services" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <circle cx="20" cy="20" r="2" fill="#FFC107" opacity="0.3"/>
-              <circle cx="80" cy="80" r="2" fill="#FFC107" opacity="0.3"/>
-              <line x1="20" y1="20" x2="80" y2="80" stroke="#FFC107" strokeWidth="0.5" opacity="0.2"/>
-              <line x1="20" y1="80" x2="80" y2="20" stroke="#FFC107" strokeWidth="0.5" opacity="0.2"/>
-              <rect x="45" y="45" width="10" height="10" fill="none" stroke="#FFC107" strokeWidth="0.5" opacity="0.2"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#circuit-services)" />
-        </svg>
-
-        {/* Floating electrical symbols */}
-        <div className="absolute top-20 left-10 opacity-[0.03] animate-float" style={{ animationDelay: "1s" }}>
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-            <path d="M30 10L40 25H20L30 40L25 50L30 45L35 50L30 40L40 25H20L30 10z" fill="#FFC107"/>
-          </svg>
+    <section id="services" className="relative py-32 bg-[#f7fafc] font-serif overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-8 h-px bg-[#0e4672]" />
+          <span className="font-mono text-xs tracking-[0.3em] text-[#0e4672] uppercase">Our Services</span>
         </div>
-        <div className="absolute bottom-32 right-16 opacity-[0.03] animate-float" style={{ animationDelay: "3s" }}>
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="15" stroke="#FFC107" strokeWidth="2"/>
-            <circle cx="20" cy="20" r="8" stroke="#FFC107" strokeWidth="1"/>
-            <line x1="20" y1="5" x2="20" y2="15" stroke="#FFC107" strokeWidth="1"/>
-            <line x1="20" y1="25" x2="20" y2="35" stroke="#FFC107" strokeWidth="1"/>
-            <line x1="5" y1="20" x2="15" y2="20" stroke="#FFC107" strokeWidth="1"/>
-            <line x1="25" y1="20" x2="35" y2="20" stroke="#FFC107" strokeWidth="1"/>
-          </svg>
-        </div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#0e4672] bg-[#F5F7FA] rounded-full mb-8 opacity-0 animate-fade-up">
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
-              Our Expertise
-            </span>
-          </div>
-          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] mb-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            ELECTRICAL
-          </h2>
-          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0d6f60] mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            SERVICES
-          </h2>
-          <p className="text-[#0d6f60] text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            From residential rewiring to industrial substations, we deliver comprehensive electrical solutions
-            with precision, safety, and reliability. Our licensed engineers ensure every project meets the highest standards.
-          </p>
-        </div>
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 opacity-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${
-                activeCategory === category
-                  ? "bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]"
-                  : "border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        {/* Services Grid */}
-        <div ref={servicesRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredServices.map((service, index) => (
+        <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm mb-16 font-serif">
+          Services
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service, i) => (
             <div
               key={service.title}
-              className={`group relative p-6 rounded-sm bg-[#F5F7FA] hover:bg-[#FFF8E1] border border-[#E3E7ED] transition-all duration-500 reveal ${
-                visibleServices ? "visible" : ""
-              } overflow-hidden shadow-sm`}
-              style={{ transitionDelay: `${index * 50}ms` }}
+              className="group rounded-3xl shadow-2xl border border-[#e0f2f1] p-0 flex flex-col items-center text-center relative overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-[0_8px_40px_rgba(14,70,114,0.18)]"
+              style={{ minHeight: 420, background: '#fff' }}
             >
-              {/* Card background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FFF8E1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-sm bg-[#FFF8E1] border border-[#FFC107] flex items-center justify-center mb-4 group-hover:bg-[#FFE082] transition-colors duration-300 text-[#FFC107]">
-                  {service.icon}
-                </div>
-                {/* Category Badge */}
-                <div className="inline-flex items-center px-2 py-1 bg-[#F5F7FA] border border-[#FFC107] rounded-full mb-3">
-                  <span className="font-mono text-[10px] text-[#FFC107] tracking-[0.1em] uppercase">
-                    {service.category}
-                  </span>
-                </div>
-                {/* Title */}
-                <h3 className="text-lg font-bold text-[#0e4672] mb-3 group-hover:text-[#FFC107] transition-colors duration-300">
+              {/* Background image with dark overlay for text readability */}
+              <div className="absolute inset-0 z-0">
+                <Image src={service.image} alt={service.title} fill style={{ objectFit: 'cover' }} className="transition-transform duration-700 scale-100 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
+              </div>
+              <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-10">
+                <h3 className="font-bold text-2xl md:text-3xl lg:text-4xl text-white mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300 drop-shadow-lg">
                   {service.title}
                 </h3>
-                {/* Description */}
-                <p className="text-[#0d6f60] text-sm leading-relaxed font-medium">
+                <p className="text-white/90 text-base md:text-lg font-normal mb-2 font-serif drop-shadow-md group-hover:text-[#fffde7] transition-colors duration-300">
                   {service.description}
                 </p>
-                {/* Hover indicator */}
-                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-5 h-5 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
               </div>
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1.5 bg-[#FFC107] rounded-full opacity-0 group-hover:opacity-80 transition-all duration-500 z-10" />
             </div>
           ))}
-        </div>
-        {/* CTA */}
-        <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.6s" }}>
-          <div className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300 cursor-pointer overflow-hidden">
-            {/* Button background animation */}
-            <div className="absolute inset-0 bg-[#FF8F00] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FFC107] to-[#FF8F00] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative z-10">Request Service Quote</span>
-            <svg className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-            {/* Spark effect */}
-            <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#FFC107] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping" />
-          </div>
         </div>
       </div>
     </section>

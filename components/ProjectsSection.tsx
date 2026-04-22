@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-import dynamic from "next/dynamic";
+import { useRef, useState } from "react";
 import ProjectDetailsModal from "./ProjectDetailsModal";
-
-const ProjectMap = dynamic(() => import("./ProjectMap"), { ssr: false });
+import "../app/certifications/scrollbar-hide.css";
+import ProjectMap from "./ProjectMap";
 
 export interface Project {
   id: string;
@@ -543,12 +542,11 @@ const projects: Project[] = [
   }
 ];
 
-const categories = ["All", "Residential", "Commercial", "Industrial", "Maintenance", "Installation"];
 
-export default function ProjectsSection({ previewCount = 6, showAll = false }: ProjectsSectionProps) {
-  const [activeCategory, setActiveCategory] = useState("All");
+
+export default function ProjectsSection({ previewCount = 20, showAll = false }: ProjectsSectionProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [activeTab, setActiveTab] = useState<'card' | 'map'>("card");
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // For map view, we need lat/lng. We'll try to parse from the location if not present.
   // Accurate lat/lng for specific projects
@@ -607,11 +605,13 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
     };
   });
 
-  const filteredProjects = activeCategory === "All"
-    ? projectsWithLocation
-    : projectsWithLocation.filter(project => project.category === activeCategory);
 
-  const projectsToRender = showAll ? filteredProjects : filteredProjects.slice(0, previewCount);
+  const projectsToRender = showAll ? projectsWithLocation : projectsWithLocation.slice(0, previewCount);
+  const scrollBy = (offset: number) => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: offset, behavior: "smooth" });
+    }
+  };
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -621,70 +621,53 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
     setSelectedProject(null);
   };
 
-  return (
-    <section id="projects" className="py-32 bg-white font-sans relative overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#0e4672] bg-[#F5F7FA] rounded-full mb-8 opacity-0 animate-fade-up">
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
-              Our Portfolio
-            </span>
-          </div>
-          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] mb-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            COMPLETED
+  if (showAll) {
+    // Map/List view for /projects page with tabs
+    const [activeTab, setActiveTab] = useState<'map' | 'list'>('map');
+    return (
+      <section id="projects" className="py-32 bg-white font-serif relative overflow-hidden" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] mb-4 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+            COMPLETED PROJECTS
           </h2>
-          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0d6f60] mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            PROJECTS
-          </h2>
-          <p className="text-[#0d6f60] text-lg max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            Explore our successful electrical projects across Singapore, from residential estates to industrial complexes.
-            Each project showcases our commitment to quality, safety, and innovation.
+          <p className="text-[#0d6f60] text-lg max-w-3xl mb-12 leading-relaxed font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+            Our electrical projects across Singapore span residential estates to industrial complexes, all delivered with a commitment to quality, safety, and innovation.
           </p>
-        </div>
-        {/* Tabs for Card/Map view */}
-        <div className="flex justify-center gap-4 mb-10">
-          <button
-            className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${activeTab === 'card' ? 'bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]' : 'border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]'}`}
-            onClick={() => setActiveTab('card')}
-          >
-            Card View
-          </button>
-          <button
-            className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${activeTab === 'map' ? 'bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]' : 'border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]'}`}
-            onClick={() => setActiveTab('map')}
-          >
-            Map View
-          </button>
-        </div>
-        {/* Category Filter (show in both views) */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 opacity-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          {categories.map((category) => (
+          {/* Tabs */}
+          <div className="flex gap-4 mb-8">
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-bold text-sm tracking-[0.1em] uppercase transition-all duration-300 ${
-                activeCategory === category
-                  ? "bg-[#FFC107] text-[#0e4672] shadow-[0_0_20px_rgba(255,193,7,0.15)]"
-                  : "border border-[#0e4672] text-[#0e4672] hover:text-[#FFC107] hover:border-[#FFC107]"
-              }`}
+              className={`px-6 py-2 rounded-t-lg font-bold text-sm transition-colors duration-200 border-b-2 ${activeTab === 'map' ? 'border-[#FFC107] text-[#0e4672] bg-[#FFF8E1]' : 'border-transparent text-slate-400 bg-transparent'}`}
+              onClick={() => setActiveTab('map')}
             >
-              {category}
+              Map View
             </button>
-          ))}
-        </div>
-        {/* Card View */}
-        {activeTab === 'card' && (
-          <>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projectsToRender.map((project, index) => {
+            <button
+              className={`px-6 py-2 rounded-t-lg font-bold text-sm transition-colors duration-200 border-b-2 ${activeTab === 'list' ? 'border-[#FFC107] text-[#0e4672] bg-[#FFF8E1]' : 'border-transparent text-slate-400 bg-transparent'}`}
+              onClick={() => setActiveTab('list')}
+            >
+              List View
+            </button>
+          </div>
+          {/* Tab Content */}
+          {activeTab === 'map' && (
+            <div className="mb-12">
+              <div className="w-full max-w-7xl mx-auto">
+                <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#FFC107]/10 bg-[#0a1627] relative" style={{ minHeight: 600 }}>
+                  {/* @ts-ignore */}
+                  <ProjectMap projects={projectsWithLocation} />
+                </div>
+              </div>
+            </div>
+          )}
+          {activeTab === 'list' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projectsWithLocation.map((project, index) => {
                 const imageSrc = availableImageIds.has(project.id) ? `/images/${project.id}.png` : null;
                 return (
                   <div
                     key={project.id}
                     onClick={() => openModal(project)}
-                    className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-0 animate-fade-up shadow-sm"
+                    className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-100 animate-fade-up shadow-sm flex flex-col font-serif"
                     style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                   >
                     {/* Image */}
@@ -707,20 +690,10 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
                           {project.category}
                         </span>
                       </div>
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-[#0e4672]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="text-center">
-                          <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          <span className="text-white font-bold text-sm tracking-[0.1em] uppercase">View Details</span>
-                        </div>
-                      </div>
                     </div>
                     {/* Content */}
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
                         {project.title}
                       </h3>
                       <div className="flex items-center gap-2 mb-3">
@@ -728,9 +701,9 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        <span className="font-body text-[#0d6f60] text-sm">{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
+                        <span className="text-[#0d6f60] text-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
                       </div>
-                      <p className="font-body text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden">
+                      <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
                         {project.description}
                       </p>
                     </div>
@@ -738,34 +711,142 @@ export default function ProjectsSection({ previewCount = 6, showAll = false }: P
                 );
               })}
             </div>
-            {/* CTA */}
-            {!showAll && (
-              <div className="text-center mt-16 opacity-0 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-                <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300">
-                  <span>View All Projects</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
+          )}
+        </div>
+        {/* Modal */}
+        {selectedProject && (
+          <ProjectDetailsModal
+            project={selectedProject}
+            availableImageIds={availableImageIds}
+            onClose={closeModal}
+          />
+        )}
+      </section>
+    );
+  }
+
+  // Homepage carousel/card layout
+  return (
+    <>
+      <section id="projects" className="py-32 bg-white font-serif relative overflow-hidden" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {/* Header and View All Projects */}
+          <div className="flex items-center justify-between mb-16">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#0e4672] bg-[#F5F7FA] rounded-full mb-8 opacity-0 animate-fade-up font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+                <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
+                <span className="text-xs text-[#0e4672] tracking-[0.15em] uppercase">
+                  Our Portfolio
+                </span>
               </div>
-            )}
-          </>
-        )}
-        {/* Map View */}
-        {activeTab === 'map' && (
-          <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#0e4672]/10 bg-[#e3f2fd] relative min-h-[600px]">
-            <ProjectMap projects={projectsToRender} />
+              <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] mb-4 opacity-0 animate-fade-up font-serif" style={{ animationDelay: "0.1s", fontFamily: 'Times New Roman, Times, serif' }}>
+                COMPLETED PROJECTS
+              </h2>
+            </div>
+            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300 mt-8 md:mt-0">
+              <span>View All Projects</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
+          <p className="text-[#0d6f60] text-lg max-w-3xl mb-12 leading-relaxed opacity-0 animate-fade-up font-serif" style={{ animationDelay: "0.3s", fontFamily: 'Times New Roman, Times, serif' }}>
+            Our electrical projects across Singapore span residential estates to industrial complexes, all delivered with a commitment to quality, safety, and innovation.
+          </p>
+          {/* Carousel */}
+          <div className="relative flex items-center justify-center h-[440px]"> {/* Increased height for homepage */}
+            <button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-[#FFF8E1] text-[#0e4672] rounded-full shadow p-2 transition-all disabled:opacity-30 flex items-center justify-center"
+              onClick={() => scrollBy(-440)}
+              aria-label="Scroll left"
+              style={{ marginLeft: '8px', height: '48px', width: '48px' }}
+            >
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <div
+              ref={carouselRef}
+              className="flex gap-8 overflow-x-auto snap-x snap-mandatory px-12 no-scrollbar items-center"
+              style={{ scrollBehavior: 'smooth', height: '380px' }}
+            >
+              {projectsToRender.map((project, index) => {
+                  const imageSrc = availableImageIds.has(project.id) ? `/images/${project.id}.png` : null;
+                  return (
+                    <div
+                      key={project.id}
+                      onClick={() => openModal(project)}
+                      className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-100 animate-fade-up shadow-sm min-w-[340px] max-w-[340px] flex flex-col snap-center font-serif"
+                      style={{ animationDelay: `${0.5 + index * 0.1}s`, height: '360px' }}
+                    >
+                      {/* Image */}
+                      <div className="relative h-56 overflow-hidden bg-[#E3E7ED]"> {/* Increased image height */}
+                        {imageSrc ? (
+                          <img
+                            src={imageSrc}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        ) : (
+                          <div className="flex h-full items-center justify-center bg-[#FFF8E1] text-[#0e4672] text-sm font-body">
+                            Image not available
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8E1] via-transparent to-transparent" />
+                        {/* Category Badge */}
+                        <div className="absolute top-4 left-4">
+                          <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
+                            {project.category}
+                          </span>
+                        </div>
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-[#0e4672]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="text-center">
+                            <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <span className="text-white font-bold text-sm tracking-[0.1em] uppercase">View Details</span>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Content */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+                          {project.title}
+                        </h3>
+                        <div className="flex items-center gap-2 mb-3">
+                          <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          <span className="text-[#0d6f60] text-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
+                        </div>
+                        <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+                          {project.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+            <button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-[#FFF8E1] text-[#0e4672] rounded-full shadow p-2 transition-all disabled:opacity-30 flex items-center justify-center"
+              onClick={() => scrollBy(440)}
+              aria-label="Scroll right"
+              style={{ marginRight: '8px', height: '48px', width: '48px' }}
+            >
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+        {/* Modal */}
+        {selectedProject && (
+          <ProjectDetailsModal
+            project={selectedProject}
+            availableImageIds={availableImageIds}
+            onClose={closeModal}
+          />
         )}
-      </div>
-      {/* Modal */}
-      {selectedProject && (
-        <ProjectDetailsModal
-          project={selectedProject}
-          availableImageIds={availableImageIds}
-          onClose={closeModal}
-        />
-      )}
-    </section>
+      </section>
+    </>
   );
 }

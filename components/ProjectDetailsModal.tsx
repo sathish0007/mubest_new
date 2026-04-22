@@ -64,19 +64,15 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, avai
             </h2>
 
             {/* Location */}
-            <div className="flex items-center gap-2 mb-6">
-              <svg className="w-5 h-5 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span className="font-body text-slate-400">
-                {typeof project.location === "string"
-                  ? project.location
-                  : project.location && typeof project.location === "object"
-                  ? `Lat: ${project.location.lat}, Lng: ${project.location.lng}`
-                  : ""}
-              </span>
-            </div>
+            {typeof project.location === "string" && project.location && (
+              <div className="flex items-center gap-2 mb-6">
+                <svg className="w-5 h-5 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span className="font-body text-slate-400">{project.location}</span>
+              </div>
+            )}
 
             {/* Services */}
             <div className="mb-6">

@@ -9,7 +9,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Phone",
-    value: "+65 6359 0110 / 0119",
+    value: "+65 6359 0110",
     href: "tel:+6563590110",
   },
   {
@@ -164,26 +164,6 @@ export default function ContactSection() {
                     </p>
                   </div>
                 </a>
-              ))}
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              {[
-                { number: "24/7", label: "Emergency Support" },
-                { number: "1hr", label: "Response Time" },
-              ].map((stat, index) => (
-                <div
-                  key={index}
-                  className="p-4 rounded-xl border border-[#0e4672]/15 bg-gradient-to-br from-[#e3f2fd] to-[#f1f8e9] text-center hover:border-[#FFC107] hover:from-[#fffde7] hover:to-[#e3f2fd] transition-all duration-300"
-                >
-                  <h3 className="font-display text-2xl text-[#0d6f60] mb-1">
-                    {stat.number}
-                  </h3>
-                  <p className="font-body text-xs text-[#0e4672] uppercase tracking-[0.1em]">
-                    {stat.label}
-                  </p>
-                </div>
               ))}
             </div>
           </div>

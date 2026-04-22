@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Services", href: "/#services" },
   { label: "Projects", href: "/projects" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -58,11 +58,11 @@ export default function Header() {
               <div className="absolute inset-0 rounded-full bg-[#FFC107]/30 blur-lg scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div>
-              <div className="font-display text-2xl leading-none text-[#0e4672] tracking-widest group-hover:text-[#0e4672] group-hover:bg-[#FFC107] group-hover:px-2 group-hover:rounded transition-all duration-300">
-                MUBEST
+              <div className="font-display text-2xl leading-none text-[#fff] tracking-widest group-hover:text-[#0e4672] group-hover:bg-[#FFC107] group-hover:px-2 group-hover:rounded transition-all duration-300" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
+                Mubest
               </div>
-              <div className="font-heading text-[10px] tracking-[0.25em] text-[#FFC107] uppercase leading-none opacity-70">
-                PTE LTD.
+              <div className="font-heading text-[10px] tracking-[0.25em] text-[#fff]  leading-none opacity-70" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
+                Pvt Ltd. Since 2006.
               </div>
             </div>
           </Link>
@@ -95,25 +95,7 @@ export default function Header() {
             <Link href="/certifications" className="hover:text-[#046f5e] transition-colors">Certifications & Awards</Link>
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="tel:+6512345678"
-              className="flex items-center gap-2 text-sm font-heading tracking-wider text-slate-400 hover:text-[#FFC107] transition-colors duration-300"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              +65 1234 5678
-            </a>
-            <Link
-              href="/#contact"
-              className="relative group overflow-hidden px-6 py-2.5 font-heading text-sm tracking-[0.15em] uppercase text-[#030712] bg-[#FFC107] rounded-sm font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,193,7,0.4)]"
-            >
-              <span className="relative z-10">Get Quote</span>
-              <div className="absolute inset-0 bg-[#FF8F00] translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-            </Link>
-          </div>
+        
 
           {/* Hamburger */}
           <button

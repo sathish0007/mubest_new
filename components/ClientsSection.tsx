@@ -142,18 +142,16 @@ export default function ClientsSection() {
                   className="group flex-shrink-0 flex items-center justify-center"
                 >
                   {/* Logo container */}
-                  <div className="relative flex items-center justify-center h-20 md:h-28 aspect-square">
+                  <div className="relative flex items-center justify-center h-24 md:h-32">
                     <div className="relative w-full h-full flex items-center justify-center">
-                      {/* Background circle */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#e3f2fd] to-[#f1f8e9] border border-[#0e4672]/15 group-hover:border-[#FFC107] group-hover:from-[#fffde7] group-hover:to-[#e3f2fd] transition-all duration-300" />
-
                       {/* Logo image or initials */}
-                      <div className="relative z-10 flex items-center justify-center w-full h-full p-3">
+                      <div className="relative z-10 flex items-center justify-center w-full h-full p-0">
                         {!showInitials && (
                           <img
                             src={`/images/clients/${client.id}.png`}
                             alt={client.name}
-                            className="w-full h-full max-w-[95%] max-h-[95%] object-contain group-hover:scale-110 transition-transform duration-300"
+                            className="h-20 md:h-28 object-contain group-hover:scale-110 transition-transform duration-300"
+                            style={{ maxHeight: '100%', width: 'auto', maxWidth: '180px' }}
                             onError={() => setImageError((prev) => ({ ...prev, [client.id]: true }))}
                           />
                         )}
@@ -166,11 +164,7 @@ export default function ClientsSection() {
                           </span>
                         )}
                       </div>
-
-                      {/* Glow effect on hover */}
-                      <div className="absolute inset-0 rounded-xl bg-[#FFC107]/15 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
-
                     {/* Tooltip */}
                     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-[#0e4672]/90 border border-[#FFC107]/30 rounded-lg text-white font-body text-xs text-center whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
                       {client.name}

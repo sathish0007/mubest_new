@@ -20,7 +20,7 @@ export default function CareersPage() {
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 z-10" />
           {/* Staggered Photo Grid */}
-          <div className="absolute inset-0 flex justify-center items-end gap-4 z-0 px-4">
+          {/* <div className="absolute inset-0 flex justify-center items-end gap-4 z-0 px-4">
             {heroImages.map((src, i) => (
               <img
                 key={src}
@@ -30,7 +30,7 @@ export default function CareersPage() {
                 style={{ zIndex: 2 + i }}
               />
             ))}
-          </div>
+          </div> */}
           {/* Hero Text */}
           <div className="relative z-20 text-center">
             <h1 className="font-display text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-white via-[#7bc59d] to-[#FFC107] bg-clip-text text-transparent drop-shadow-lg mb-4">Careers at Mubest</h1>

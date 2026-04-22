@@ -8,39 +8,22 @@ const services = [
   {
     title: "Electrical Infrastructure",
     description: "Complete electrification systems for residential, commercial and industrial projects",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+    image: "/images/services/electrical_power.jpg", // Power lines/infrastructure
   },
   {
     title: "Lighting Systems",
     description: "Energy-efficient lighting solutions for public spaces, buildings and infrastructure",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
+    image: "/images/services/light_energy.jpg", // Modern lighting
   },
   {
     title: "Maintenance & Support",
     description: "Ongoing maintenance contracts and emergency electrical services",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
+    image: "/images/services/mechanical_system.jpg", // Maintenance worker
   },
   {
     title: "Project Management",
     description: "End-to-end project coordination from planning to completion",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-      </svg>
-    ),
+    image: "/images/services/electrical_installation.jpg", // Project planning
   },
 ];
 
@@ -86,62 +69,22 @@ export default function AboutPage() {
             <h1 className="font-display text-[44px] md:text-[64px] text-[#0e4672] tracking-tight mb-6">About Mubest</h1>
             <p className="font-body text-lg text-[#0d6f60] leading-relaxed mb-6">
               Mubest Pte Ltd is Singapore’s trusted partner for electrical infrastructure, lighting, and maintenance solutions. With over 20 years of experience, we deliver quality, safety, and innovation for residential, commercial, and industrial projects.
+              Established in 2006, the company brings together over 20 years of experience in electrification and infrastructure works. We have supported the development of residential estates, public spaces and private projects, delivering practical and reliable solutions that meet industry standards.
             </p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-center gap-3 font-semibold text-[#0e4672] text-base"><span className="w-2 h-2 rounded-full bg-[#FFC107]" /> EMA Licensed Electricians</li>
-              <li className="flex items-center gap-3 font-semibold text-[#0e4672] text-base"><span className="w-2 h-2 rounded-full bg-[#FFC107]" /> BCA Registered Contractor</li>
-              <li className="flex items-center gap-3 font-semibold text-[#0e4672] text-base"><span className="w-2 h-2 rounded-full bg-[#FFC107]" /> ISO 9001:2015 Certified</li>
-              <li className="flex items-center gap-3 font-semibold text-[#0e4672] text-base"><span className="w-2 h-2 rounded-full bg-[#FFC107]" /> bizSAFE Star Certified</li>
-            </ul>
-            <div className="flex flex-wrap gap-4 mt-8">
-              <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300">View Projects</Link>
-              <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-[#0e4672] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:bg-[#0e4672] hover:text-[#FFC107] transition-all duration-300">Contact Us</Link>
-            </div>
+            <p className="font-body text-lg text-[#0d6f60] leading-relaxed mb-6">
+              Our team has successfully supported the development of residential estates, public spaces and private projects, earning a strong reputation for quality, safety and timely delivery.
+            </p>
           </div>
           {/* Visual Element */}
           <div className="relative flex items-center justify-center">
-            <img src="/images/1.png" alt="About Mubest" className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-[#e3f2fd] bg-white object-cover" />
+            <img src="/images/about-team.jpg" alt="About Mubest" className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-[#e3f2fd] bg-white object-cover" />
             <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-[#FFC107]/20 blur-2xl" />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-32 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Content */}
-            <div>
-              <h2 className="font-display text-[48px] md:text-[56px] text-[#0e4672] tracking-wider mb-8">
-                OUR STORY
-              </h2>
-              <div className="space-y-6 text-[#0d6f60] leading-relaxed">
-                <p>
-                  Established in 2006, the company brings together over 20 years of experience in electrification and infrastructure works. We have supported the development of residential estates, public spaces and private projects, delivering practical and reliable solutions that meet industry standards.
-                </p>
-                <p>
-                  Our work includes lighting and electrical systems for housing blocks, linkways, public areas, commercial buildings and large-scale facilities.
-                </p>
-              </div>
-            </div>
-
-            {/* Visual Element */}
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-[rgba(255,193,7,0.1)] to-[rgba(255,193,7,0.05)] p-8 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#FFC107] to-[#FF8F00] flex items-center justify-center">
-                    <svg className="w-12 h-12 text-[#030712]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="font-display text-2xl text-white mb-2">20+ Years</h3>
-                  <p className="text-slate-400">Of Excellence</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+ 
 
       {/* What We Do Section */}
       <section className="py-32 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]">
@@ -159,13 +102,24 @@ export default function AboutPage() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group p-6 rounded-xl border border-[#e3f2fd] bg-white hover:border-[#FFC107] shadow-sm transition-all duration-300"
+                className="group rounded-3xl shadow-2xl border border-[#e0f2f1] bg-white flex flex-col items-center text-center overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-[0_8px_40px_rgba(14,70,114,0.18)]"
+                style={{ minHeight: 340 }}
               >
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FFC107] to-[#FF8F00] flex items-center justify-center mb-4 text-[#0e4672] group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                {/* Top image, Airbnb-style */}
+                <div className="w-full h-48 relative">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="font-heading text-lg text-[#0e4672] mb-3">{service.title}</h3>
-                <p className="font-body text-sm text-[#0d6f60] leading-relaxed">{service.description}</p>
+                <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-6">
+                  <h3 className="font-bold text-2xl md:text-3xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="font-body text-sm text-[#0d6f60] leading-relaxed text-center">{service.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -361,21 +315,6 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Careers Section */}
-      <section className="py-32 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="font-display text-[48px] md:text-[56px] text-[#0e4672] tracking-wider mb-6">
-            CAREERS
-          </h2>
-          <p className="font-body text-[#0d6f60] text-xl leading-relaxed max-w-3xl mx-auto mb-8">
-            We welcome individuals who are committed to quality work and continuous improvement.
-          </p>
-          <p className="font-body text-[#0d6f60] text-lg max-w-2xl mx-auto">
-            Join our team of skilled professionals and contribute to Singapore's electrical infrastructure development.
-          </p>
         </div>
       </section>
 

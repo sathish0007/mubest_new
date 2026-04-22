@@ -625,7 +625,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
     // Map/List view for /projects page with tabs
     const [activeTab, setActiveTab] = useState<'map' | 'list'>('map');
     return (
-      <section id="projects" className="py-32 bg-white font-serif relative overflow-hidden" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+      <section id="projects" className="py-40 bg-white font-serif relative overflow-visible" style={{ fontFamily: 'Times New Roman, Times, serif', minHeight: '700px' }}>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] mb-4 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
             COMPLETED PROJECTS
@@ -667,23 +667,22 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                   <div
                     key={project.id}
                     onClick={() => openModal(project)}
-                    className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-100 animate-fade-up shadow-sm flex flex-col font-serif"
-                    style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                    className="group rounded-3xl shadow-2xl border border-[#e0f2f1] bg-white flex flex-col items-center text-center overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-[0_8px_40px_rgba(14,70,114,0.18)] font-serif"
+                    style={{ minHeight: 460, animationDelay: `${0.5 + index * 0.1}s` }}
                   >
-                    {/* Image */}
-                    <div className="relative h-48 overflow-hidden bg-[#E3E7ED]">
+                    {/* Top image, Airbnb-style */}
+                    <div className="w-full h-48 relative">
                       {imageSrc ? (
                         <img
                           src={imageSrc}
                           alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       ) : (
                         <div className="flex h-full items-center justify-center bg-[#FFF8E1] text-[#0e4672] text-sm font-body">
                           Image not available
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8E1] via-transparent to-transparent" />
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">
                         <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
@@ -691,9 +690,8 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                         </span>
                       </div>
                     </div>
-                    {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+                    <div className="flex-1 flex flex-col items-center justify-center w-full px-6 py-8">
+                      <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
                         {project.title}
                       </h3>
                       <div className="flex items-center gap-2 mb-3">
@@ -701,9 +699,9 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        <span className="text-[#0d6f60] text-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
+                        <span className="text-[#0d6f60] text-sm font-serif">{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
                       </div>
-                      <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+                      <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif">
                         {project.description}
                       </p>
                     </div>
@@ -754,7 +752,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
             Our electrical projects across Singapore span residential estates to industrial complexes, all delivered with a commitment to quality, safety, and innovation.
           </p>
           {/* Carousel */}
-          <div className="relative flex items-center justify-center h-[440px]"> {/* Increased height for homepage */}
+          <div className="relative flex items-center justify-center h-[540px]"> {/* Further increased height for homepage */}
             <button
               className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-[#FFF8E1] text-[#0e4672] rounded-full shadow p-2 transition-all disabled:opacity-30 flex items-center justify-center"
               onClick={() => scrollBy(-440)}
@@ -766,7 +764,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
             <div
               ref={carouselRef}
               className="flex gap-8 overflow-x-auto snap-x snap-mandatory px-12 no-scrollbar items-center"
-              style={{ scrollBehavior: 'smooth', height: '380px' }}
+              style={{ scrollBehavior: 'smooth', height: '480px' }}
             >
               {projectsToRender.map((project, index) => {
                   const imageSrc = availableImageIds.has(project.id) ? `/images/${project.id}.png` : null;
@@ -774,43 +772,31 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                     <div
                       key={project.id}
                       onClick={() => openModal(project)}
-                      className="group relative cursor-pointer overflow-hidden rounded-sm border border-[#E3E7ED] bg-[#F5F7FA] hover:bg-[#FFF8E1] transition-all duration-500 opacity-100 animate-fade-up shadow-sm min-w-[340px] max-w-[340px] flex flex-col snap-center font-serif"
-                      style={{ animationDelay: `${0.5 + index * 0.1}s`, height: '360px' }}
+                      className="group rounded-3xl shadow-2xl border border-[#e0f2f1] bg-white flex flex-col items-center text-center overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-[0_8px_40px_rgba(14,70,114,0.18)] font-serif min-w-[340px] max-w-[340px] snap-center"
+                      style={{ minHeight: 420, animationDelay: `${0.5 + index * 0.1}s`, height: '460px' }}
                     >
-                      {/* Image */}
-                      <div className="relative h-56 overflow-hidden bg-[#E3E7ED]"> {/* Increased image height */}
+                      {/* Top image, Airbnb-style */}
+                      <div className="w-full h-56 relative">
                         {imageSrc ? (
                           <img
                             src={imageSrc}
                             alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           />
                         ) : (
                           <div className="flex h-full items-center justify-center bg-[#FFF8E1] text-[#0e4672] text-sm font-body">
                             Image not available
                           </div>
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8E1] via-transparent to-transparent" />
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4">
                           <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
                             {project.category}
                           </span>
                         </div>
-                        {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-[#0e4672]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <div className="text-center">
-                            <svg className="w-8 h-8 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                            <span className="text-white font-bold text-sm tracking-[0.1em] uppercase">View Details</span>
-                          </div>
-                        </div>
                       </div>
-                      {/* Content */}
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-[#0e4672] mb-2 group-hover:text-[#FFC107] transition-colors duration-300 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+                      <div className="flex-1 flex flex-col items-center justify-center w-full px-6 py-8">
+                        <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
                           {project.title}
                         </h3>
                         <div className="flex items-center gap-2 mb-3">
@@ -818,9 +804,9 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                           </svg>
-                          <span className="text-[#0d6f60] text-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
+                          <span className="text-[#0d6f60] text-sm font-serif">{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
                         </div>
-                        <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+                        <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif">
                           {project.description}
                         </p>
                       </div>

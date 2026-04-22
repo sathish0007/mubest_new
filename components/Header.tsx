@@ -8,6 +8,7 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/#services" },
   { label: "Projects", href: "/projects" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -136,7 +137,6 @@ export default function Header() {
                 className="flex items-center gap-3 px-4 py-3 font-heading text-lg tracking-[0.1em] uppercase text-slate-300 hover:text-[#FFC107] hover:bg-[rgba(255,193,7,0.05)] rounded-sm transition-all duration-200 border border-transparent hover:border-[rgba(255,193,7,0.1)]"
                 style={{ animationDelay: `${i * 80}ms` }}
               >
-                <span className="text-[#FFC107] text-xs font-mono opacity-50">0{i + 1}</span>
                 {link.label}
               </Link>
             ))}

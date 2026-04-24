@@ -39,12 +39,7 @@ export default function ProjectMap({ projects }: any) {
   });
 
   // For image availability check
-  const availableImageIds = new Set([
-    "1","2","3","4","5","6","7","8","9","10","11",
-    "13","14","15","16","17","18","19","20","22","23","24",
-    "25","26","27","29","31","35","37","39","40","41","42",
-    "43","44","45","47","49","50","51"
-  ]);
+
 
   useEffect(() => {
     if (!isLoaded || !window.google || !mapRef.current) return;
@@ -107,7 +102,6 @@ export default function ProjectMap({ projects }: any) {
       {activeProject && (
         <ProjectDetailsModal
           project={activeProject}
-          availableImageIds={availableImageIds}
           onClose={() => setActiveProject(null)}
         />
       )}

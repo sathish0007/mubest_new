@@ -11,12 +11,7 @@ interface ProjectMapProps {
 const MAP_ID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID || "DEMO_MAP_ID";
 const GOOGLE_MAP_LIBRARIES = ["marker"];
 
-const availableImageIds = new Set([
-  "1","2","3","4","5","6","7","8","9","10","11",
-  "13","14","15","16","17","18","19","20","22","23","24",
-  "25","26","27","29","31","35","37","39","40","41","42",
-  "43","44","45","47","49","50","51"
-]);
+
 
 export default function ProjectMap({ projects }: ProjectMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -84,7 +79,6 @@ export default function ProjectMap({ projects }: ProjectMapProps) {
       {activeProject && (
         <ProjectDetailsModal
           project={activeProject}
-          availableImageIds={availableImageIds}
           onClose={() => setActiveProject(null)}
         />
       )}

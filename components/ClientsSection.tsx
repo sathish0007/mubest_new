@@ -6,9 +6,9 @@ const clients = [
   { id: 2, name: "CHUA CHU KANG TOWN COUNCIL" },
   { id: 3, name: "COMMERCIAL INDUSTRIAL SUPPLIES & SERVICES PTE LTD" },
   { id: 4, name: "CPL ENGINEERING SERVICES PTE LTD" },
-  { id: 5, name: "DAVIS LIGHTING PTE LTD" },
+  { id: 5, name: "DAVIS LIGHTING PTE LTD" },// have to change logo
   { id: 6, name: "EC INTERIOR DESIGN & DECORATION" },
-  { id: 7, name: "ELINGTON ENGINEERING PTE LTD" },
+  { id: 7, name: "ELINGTON ENGINEERING PTE LTD" , noImage:true},
   { id: 8, name: "EM SERVICE PTE LTD." },
   { id: 9, name: "HAI KHIM ENGINEERING PTE LTD" },
   { id: 10, name: "HAM ENGINEERING PTE LTD" },
@@ -26,8 +26,7 @@ const clients = [
   { id: 22, name: "TANJONG PAGAR TOWN COUNCIL" },
   { id: 23, name: "TLC M&E ENGRG.PTE LTD" },
   { id: 24, name: "UG M&E PTE LTD" },
-  { id: 25, name: "WEST COAST TOWN COUNCIL" },
-  { id: 26, name: "YAO HENG BUILDERS" },
+  { id: 25, name: "WEST COAST TOWN COUNCIL" }
 ];
 
 // Duplicate clients for seamless loop
@@ -134,7 +133,7 @@ export default function ClientsSection() {
                 .slice(0, 2)
                 .join("");
 
-              const showInitials = imageError[client.id];
+              const showInitials = imageError[client.id] || !!client.noImage;
 
               return (
                 <div

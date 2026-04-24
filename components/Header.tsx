@@ -63,7 +63,7 @@ export default function Header() {
                 Mubest
               </div>
               <div className="font-heading text-[10px] tracking-[0.25em] text-[#fff]  leading-none opacity-70" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
-                Pvt Ltd. Since 2006.
+                Pte Ltd. Since 2006.
               </div>
             </div>
           </Link>

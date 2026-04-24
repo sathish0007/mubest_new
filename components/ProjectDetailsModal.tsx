@@ -4,7 +4,7 @@ import React from "react";
 interface Project {
   id: string;
   title: string;
-  location: string | { lat: number; lng: number };
+  location?: string | { lat: number; lng: number };
   image: string;
   services: string[];
   completedDate: string;
@@ -14,11 +14,10 @@ interface Project {
 
 interface ProjectDetailsModalProps {
   project: Project;
-  availableImageIds: Set<string>;
   onClose: () => void;
 }
 
-const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, availableImageIds, onClose }) => {
+const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
       <div className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-[#0d1525] rounded-lg border border-[rgba(255,193,7,0.2)]" onClick={e => e.stopPropagation()}>
@@ -35,17 +34,12 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, avai
         <div className="grid md:grid-cols-2 gap-0">
           {/* Image */}
           <div className="relative h-64 md:h-full">
-            {availableImageIds.has(project.id) ? (
-              <img
-                src={`/images/${project.id}.png`}
+            <img
+                src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover rounded-l-lg"
+                onError={e => { (e.target as HTMLImageElement).src = '/images/noimage.png'; }}
               />
-            ) : (
-              <div className="flex h-full items-center justify-center rounded-l-lg bg-[rgba(255,193,7,0.08)] text-slate-500 font-body text-sm">
-                Image not available
-              </div>
-            )}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 rounded-l-lg" />
           </div>
 

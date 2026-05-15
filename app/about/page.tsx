@@ -183,7 +183,7 @@ export default function AboutPage() {
               {[
                 { number: "500+", label: "Projects Completed" },
                 { number: "20+", label: "Years Experience" },
-                { number: "100%", label: "Client Satisfaction" },
+                // { number: "100%", label: "Client Satisfaction" },
                 { number: "24/7", label: "Support Available" },
               ].map((stat, index) => (
                 <div

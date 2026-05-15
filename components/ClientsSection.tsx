@@ -7,11 +7,11 @@ const clients = [
   { id: 3, name: "COMMERCIAL INDUSTRIAL SUPPLIES & SERVICES PTE LTD" },
   { id: 4, name: "CPL ENGINEERING SERVICES PTE LTD" },
   { id: 5, name: "DAVIS LIGHTING PTE LTD" },// have to change logo
-  { id: 6, name: "EC INTERIOR DESIGN & DECORATION" },
-  { id: 7, name: "ELINGTON ENGINEERING PTE LTD" , noImage:true},
+  // { id: 6, name: "EC INTERIOR DESIGN & DECORATION" },
+  // { id: 7, name: "ELINGTON ENGINEERING PTE LTD" , noImage:true},
   { id: 8, name: "EM SERVICE PTE LTD." },
   { id: 9, name: "HAI KHIM ENGINEERING PTE LTD" },
-  { id: 10, name: "HAM ENGINEERING PTE LTD" },
+  // { id: 10, name: "HAM ENGINEERING PTE LTD" },
   { id: 11, name: "HOLLAND BUKIT PANJANG TOWN COUNCIL" },
   { id: 12, name: "JURONG-CLEMENTI TOWN COUNCIL" },
   { id: 13, name: "MARINE PARADE TOWN COUNCIL" },
@@ -21,12 +21,15 @@ const clients = [
   { id: 17, name: "PRESICO ENGINEERING PTE LTD" },
   { id: 18, name: "SEMBAWANG TOWN COUNCIL" },
   { id: 19, name: "SENGKANG TOWN COUNCIL" },
-  { id: 20, name: "SING HO ELECTRICAL ENGINEERING PTE LTD" },
+  { id: 20, name: "SING HO ELECTRICAL ENGINEERING PTE LTD", noImage:true },
   { id: 21, name: "ST ENGINEERING URBAN SOLUTIONS LTD" },
   { id: 22, name: "TANJONG PAGAR TOWN COUNCIL" },
   { id: 23, name: "TLC M&E ENGRG.PTE LTD" },
   { id: 24, name: "UG M&E PTE LTD" },
-  { id: 25, name: "WEST COAST TOWN COUNCIL" }
+  { id: 25, name: "WEST COAST TOWN COUNCIL" },
+  { id: 27, name: "TAMPINES TOWN COUNCIL" },
+  { id: 28, name: "NEE SOON TOWN COUNCIL" },
+  { id: 29, name: "JALAN BESAR TOWN COUNCIL" },
 ];
 
 // Duplicate clients for seamless loop
@@ -80,7 +83,7 @@ export default function ClientsSection() {
           </div>
 
           <h2
-            className={`font-display text-[40px] md:text-[56px] text-[#0e4672] font-bold tracking-wider mb-4 transition-all duration-700 ${
+            className={`font-display text-[44px] md:text-[36px] text-[#0e4672] font-bold tracking-wider mb-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}

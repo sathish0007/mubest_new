@@ -1,18 +1,19 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const footerLinks = {
   company: [
     { label: "About Us", href: "/#about" },
     { label: "Our Services", href: "/#services" },
     { label: "Projects", href: "/projects" },
+    {label: "Careers", href: "/#careers" },
     { label: "Contact", href: "/#contact" },
   ],
   services: [
-    { label: "Electrical Rewiring", href: "/#services" },
-    { label: "Substation Maintenance", href: "/#services" },
-    { label: "Lighting Systems", href: "/#services" },
-    { label: "Emergency Repairs", href: "/#services" },
+    { label: "Electrical Works & Maintenance", href: "/#services" },
+    { label: "Mechanical Engineering Works (M & E)", href: "/#services" },
+    { label: "General Building Works", href: "/#services" },
   ],
   certifications: [
     "EMA Licensed Electricians",
@@ -44,8 +45,32 @@ const socialLinks = [
 ];
 
 export default function FooterSection() {
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
-    <footer className="relative bg-[#030712] border-t border-[rgba(255,193,7,0.08)] overflow-hidden">
+    <>
+      {/* Floating Go to Top button */}
+      <button
+        onClick={scrollToTop}
+        aria-label="Go to top"
+        className={`fixed bottom-8 right-6 z-50 w-12 h-12 rounded-full bg-[#FFC107] text-[#030712] shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-[#FFD54F] hover:scale-110 ${
+          showTop ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
+
+      <footer className="relative bg-[#030712] border-t border-[rgba(255,193,7,0.08)] overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-[rgba(255,193,7,0.02)] blur-[100px]" />
@@ -78,7 +103,7 @@ export default function FooterSection() {
                   </div>
                 </div>
                 <p className="font-body text-sm text-slate-400 leading-relaxed mb-6">
-                  Singapore's trusted electrical infrastructure specialists. Delivering quality solutions for residential, commercial, and industrial projects since 2009.
+                  Singapore's trusted electrical infrastructure specialists. Delivering quality solutions for residential, commercial, and industrial projects since 2006.
                 </p>
                 <div className="flex gap-4">
                   {socialLinks.map((social) => (
@@ -185,5 +210,6 @@ export default function FooterSection() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

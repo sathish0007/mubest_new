@@ -6,37 +6,37 @@ import Header from "../../components/Header";
 
 // Use actual certificate images from /public/images/ceritificates
 const certifications = [
-  "/images/ceritificates/1.png",
-  "/images/ceritificates/2.png",
-  "/images/ceritificates/3.png",
-  "/images/ceritificates/4.png",
+      "/images/ceritificates/2.png",
+
+  "/images/ceritificates/11.png",
+  "/images/ceritificates/12.png",
+  "/images/ceritificates/13.png",
+
+    "/images/ceritificates/46.jpeg",
+  "/images/ceritificates/47.jpeg",
+    "/images/ceritificates/14.png",
+  "/images/ceritificates/15.png",
   "/images/ceritificates/5.png",
+  "/images/ceritificates/10.png",
+  "/images/ceritificates/1.png",
+  "/images/ceritificates/3.png",
   "/images/ceritificates/6.png",
   "/images/ceritificates/7.png",
   "/images/ceritificates/8.png",
   "/images/ceritificates/9.png",
-  "/images/ceritificates/10.png",
-  "/images/ceritificates/11.png",
-  "/images/ceritificates/12.png",
-  "/images/ceritificates/13.png",
-  "/images/ceritificates/14.png",
-  "/images/ceritificates/15.png",
   "/images/ceritificates/16.png",
   "/images/ceritificates/17.png",
   "/images/ceritificates/18.png",
   "/images/ceritificates/19.png",
   "/images/ceritificates/20.png",
   "/images/ceritificates/21.png",
-  "/images/ceritificates/24.png",
-  "/images/ceritificates/25.png",
-  "/images/ceritificates/26.png",
+
   "/images/ceritificates/27.png",
   "/images/ceritificates/28.png",
   "/images/ceritificates/29.png",
   "/images/ceritificates/30.png",
   "/images/ceritificates/31.png",
   "/images/ceritificates/32.png",
-  "/images/ceritificates/33.png",
   "/images/ceritificates/34.png",
   "/images/ceritificates/35.png",
   "/images/ceritificates/36.png",
@@ -49,6 +49,13 @@ const certifications = [
   "/images/ceritificates/43.png",
   "/images/ceritificates/44.png",
   "/images/ceritificates/45.png",
+// "/images/ceritificates/4.png",
+// "/images/ceritificates/24.png",
+  "/images/ceritificates/25.png",
+  "/images/ceritificates/26.png",
+    "/images/ceritificates/33.png",
+
+
 ];
 
 export default function CertificationsPage() {

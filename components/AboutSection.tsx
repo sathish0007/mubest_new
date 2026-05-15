@@ -79,8 +79,9 @@ export default function AboutSection() {
 
         {/* Main heading */}
         <div className={`mb-20 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="font-extrabold text-[44px] md:text-[72px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
-About Us          </h2>
+          <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+ABOUT US         
+</h2>
           
         </div>
 
@@ -91,7 +92,7 @@ About Us          </h2>
             <p className="text-[#0e4672] text-lg leading-relaxed mb-6 font-medium font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
               Mubest Pte Ltd is a Singapore-based company focused on electrical infrastructure and building works across public housing developments, commercial properties and large-scale projects.
             </p>
-            <p className="text-[#0d6f60] text-base leading-relaxed mb-8 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+            <p className="text-[#0e4672] text-base leading-relaxed mb-8 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
               Established in 2006, the company brings together over 20 years of experience in electrification and infrastructure works. We have supported the development of residential estates, public spaces and private projects, delivering practical and reliable solutions that meet industry standards.
               Our work includes lighting and electrical systems for housing blocks, linkways, public areas, commercial buildings and large-scale facilities.
             </p>
@@ -99,10 +100,12 @@ About Us          </h2>
             <div className="space-y-3 mb-8">
               {[
                 "High & Low Voltage Installation",
-                "Preventive Maintenance Programs",
-                "Emergency 24/7 Fault Response",
-                "Energy Audits & Smart Systems",
-                "Building Electrical Construction (M&E)",
+                "Electrical Engineering & Design Works",
+                "Air-Conditioning , Refrigeration & Ventilation Works",
+                "CCTV, Fibre Network & Communication Systems",
+                "Fire Protection & Safety Systems",
+                "Mechanical Engineering Works (M & E)",
+                "General Building Works"
               ].map((item, i) => (
                 <div
                   key={item}

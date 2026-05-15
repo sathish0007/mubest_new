@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Home", href: "/" },
+  // { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/#services" },
   { label: "Projects", href: "/projects" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/#contact" },
+  {label: "Certifications", href: "/certifications" },  
 ];
 
 export default function Header() {
@@ -45,7 +46,7 @@ export default function Header() {
             ? "glass border-b border-[rgba(255,193,7,0.12)] py-3 bg-gradient-to-r from-[#0e4672] via-[#046f5e] to-[#7bc59d]"
             : "py-6 bg-gradient-to-r from-[#0e4672] via-[#046f5e] to-[#7bc59d]"
         }`}
-        style={{ background: scrolled ? undefined : 'linear-gradient(90deg, #0e4672 0%, #046f5e 40%, #7bc59d 80%, #fff 100%)' }}
+        style={{ background: scrolled ? undefined : 'linear-gradient(90deg, #0e4672 0%, #046f5e 40%, #7bc59d 80%)' }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
@@ -60,10 +61,10 @@ export default function Header() {
             </div>
             <div>
               <div className="font-display text-2xl leading-none text-[#fff] tracking-widest group-hover:text-[#0e4672] group-hover:bg-[#FFC107] group-hover:px-2 group-hover:rounded transition-all duration-300" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
-                Mubest
+                Mubest Pte Ltd.
               </div>
               <div className="font-heading text-[10px] tracking-[0.25em] text-[#fff]  leading-none opacity-70" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
-                Pte Ltd. Since 2006.
+                 Since 2006.
               </div>
             </div>
           </Link>
@@ -93,7 +94,6 @@ export default function Header() {
                 </Link>
               );
             })}
-            <Link href="/certifications" className="hover:text-[#046f5e] transition-colors">Certifications & Awards</Link>
           </nav>
 
         

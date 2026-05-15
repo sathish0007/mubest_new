@@ -281,7 +281,7 @@ export default function TestimonialsSection() {
         {/* Stats Row */}
         <div className="grid grid-cols-3 gap-6 md:gap-12 mt-20 pt-20 px-6 max-w-7xl mx-auto border-t border-[#0e4672]/10">
           {[
-            { number: "100%", label: "Client Satisfaction" },
+            // { number: "100%", label: "Client Satisfaction" },
             { number: "500+", label: "Projects Done" },
             { number: "20+", label: "Years Experience" },
           ].map((stat, index) => (

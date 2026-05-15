@@ -464,11 +464,11 @@ const projects: Project[] = [
   },
   {
     id: "45",
-    title: "BOUTIQUE HOTEL",
-    projectLocation: "BOUTIQUE HOTEL",
+    title: "Mercure HOTEL",
+    projectLocation: "Mercure HOTEL",
     image: "/images/45.png",
     services: ["ELECTRICAL AND CCTV INSTALLATION WORKS"],
-    description: "ELECTRICAL WORKS AND CCTV INSTALLATION WORK AT BOUTIQUE HOTEL AT 122 MIDDLE ROAD",
+    description: "ELECTRICAL WORKS AND CCTV INSTALLATION WORK AT Mercure HOTEL AT 122 MIDDLE ROAD",
     completedDate: "2016",
     category: "Commercial"
   },

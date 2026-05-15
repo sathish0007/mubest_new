@@ -6,7 +6,7 @@ const stats = [
   { value: 20, suffix: "+", label: "Years of Experience" },
   { value: 900, suffix: "+", label: "HDB Blocks Rewired" },
   { value: 10, suffix: "+", label: "Town Councils Served" },
-  { value: 100, suffix: "%", label: "Client Satisfaction" },
+  { value: 100, suffix: "+", label: "Commercial Sites" },
 ];
 
 // Available project images for background slideshow

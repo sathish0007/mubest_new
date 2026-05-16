@@ -22,8 +22,8 @@ const services = [
     image: "/images/services/mechanical_system.png", // Maintenance worker
   },
   {
-    title: "Project Management",
-    description: "End-to-end project coordination from planning to completion",
+    title: "Building & External Infrastructure Works",
+    description: "General building works, external infrastructure construction.",
     image: "/images/services/electrical_installation.jpg", // Project planning
   },
 ];
@@ -112,7 +112,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-6">
-                  <h3 className="font-bold text-2xl md:text-3xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
+                  <h3 className="font-bold text-xl md:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="font-body text-sm text-[#0e4672] leading-relaxed text-center">{service.description}</p>

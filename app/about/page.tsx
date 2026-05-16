@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
-            <h1 className="font-display text-[44px] md:text-[64px] text-[#0e4672] tracking-tight mb-6">About Mubest</h1>
+            <h1 className="font-display text-[44px] md:text-[36px] text-[#0e4672] tracking-tight mb-6">ABOUT MUBEST</h1>
             <p className="font-body text-lg text-[#0e4672] leading-relaxed mb-6">
               Mubest Pte Ltd is Singapore’s trusted partner for electrical infrastructure, lighting, and maintenance solutions. With over 20 years of experience, we deliver quality, safety, and innovation for residential, commercial, and industrial projects.
               Established in 2006, the company brings together extensive experience in electrical and infrastructure works, and handyman services. We support residential estates, public spaces, and private developments, delivering reliable solutions that meet industry standards.
@@ -299,7 +299,7 @@ export default function AboutPage() {
 
           {/* Core Values */}
          <div className="mt-20">
-  <h3 className="font-display text-[36px] md:text-[52px] text-[#0e4672] tracking-[0.2em] text-center mb-16">
+  <h3 className="font-display text-[44px] md:text-[36px] text-[#0e4672] tracking-[0.2em] text-center mb-16">
     CORE VALUES
   </h3>
 

@@ -1,4 +1,5 @@
 "use client";
+import { basePath } from "@/app/util";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -91,7 +92,7 @@ export default function FooterSection() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="relative w-10 h-10">
                     <img
-                      src="/favicon.png"
+                      src={basePath + "/favicon.png"}
                       alt="Voltex Logo"
                       className="w-full h-full object-contain"
                     />

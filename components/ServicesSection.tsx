@@ -1,4 +1,5 @@
 "use client";
+import { basePath } from "@/app/util";
 import Image from "next/image";
 
 const services = [
@@ -55,7 +56,7 @@ export default function ServicesSection() {
               {/* Top image, Airbnb-style */}
               <div className="w-full h-56 relative">
                 <Image
-                  src={service.image}
+                  src={basePath + service.image}
                   alt={service.title}
                   fill
                   style={{ objectFit: 'cover' }}

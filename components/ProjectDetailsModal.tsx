@@ -1,4 +1,5 @@
 "use client";
+import { basePath } from "@/app/util";
 import React from "react";
 
 interface Project {
@@ -35,10 +36,9 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
           {/* Image */}
           <div className="relative h-64 md:h-full">
             <img
-                src={project.image}
+                src={basePath + project.image}
                 alt={project.title}
                 className="w-full h-full object-cover rounded-l-lg"
-                onError={e => { (e.target as HTMLImageElement).src = '/images/noimage.png'; }}
               />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 rounded-l-lg" />
           </div>

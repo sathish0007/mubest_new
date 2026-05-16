@@ -1,4 +1,5 @@
 "use client";
+import { basePath } from "@/app/util";
 import { useEffect, useRef, useState } from "react";
 
 const clients = [
@@ -152,11 +153,10 @@ export default function ClientsSection() {
                       <div className="relative z-10 flex items-center justify-center w-full h-full p-0">
                         {!showInitials && (
                           <img
-                            src={`/images/clients/${client.id}.png`}
+                            src={basePath + `/images/clients/${client.id}.png`}
                             alt={client.name}
                             className="h-20 md:h-28 object-contain group-hover:scale-110 transition-transform duration-300"
                             style={{ maxHeight: '100%', width: 'auto', maxWidth: '180px' }}
-                            onError={() => setImageError((prev) => ({ ...prev, [client.id]: true }))}
                           />
                         )}
                         {showInitials && (

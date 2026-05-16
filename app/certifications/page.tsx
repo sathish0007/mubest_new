@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import "../../app/certifications/scrollbar-hide.css";
 import FooterSection from "../../components/FooterSection";
 import Header from "../../components/Header";
-
+import { basePath } from "../util";
 // Use actual certificate images from /public/images/ceritificates
 const certifications = [
       "/images/ceritificates/2.png",
@@ -97,7 +97,7 @@ export default function CertificationsPage() {
                   aria-label={`Zoom image ${idx + 1}`}
                 >
                   <img
-                    src={img}
+                    src={basePath+img}
                     alt={`Certification ${idx + 1}`}
                     className="h-[28rem] w-[28rem] object-contain rounded-xl border-4 border-[#0e4672]/10 bg-white shadow-lg hover:scale-105 transition-transform duration-300"
                   />
@@ -119,7 +119,7 @@ export default function CertificationsPage() {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setZoomed(null)}>
             <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full relative flex flex-col items-center animate-fadeIn" onClick={e => e.stopPropagation()}>
               <button className="absolute top-4 right-4 text-[#046f5e] text-2xl font-bold hover:text-[#FFC107]" onClick={() => setZoomed(null)} aria-label="Close zoomed view">&times;</button>
-              <img src={certifications[zoomed]} alt={`Certification ${zoomed + 1}`} className="h-[38rem] w-[38rem] max-w-full max-h-[90vh] object-contain rounded-xl border-4 border-[#0e4672]/10 bg-white" />
+              <img src={basePath + certifications[zoomed]} alt={`Certification ${zoomed + 1}`} className="h-[38rem] w-[38rem] max-w-full max-h-[90vh] object-contain rounded-xl border-4 border-[#0e4672]/10 bg-white" />
             </div>
           </div>
         )}

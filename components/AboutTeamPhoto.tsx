@@ -1,3 +1,4 @@
+import { basePath } from "@/app/util";
 import Image from "next/image";
 
 export default function AboutTeamPhoto({ animate = true }: { animate?: boolean }) {
@@ -6,7 +7,7 @@ export default function AboutTeamPhoto({ animate = true }: { animate?: boolean }
       style={{ boxShadow: "0 8px 32px 0 rgba(14,70,114,0.10)" }}
     >
       <Image
-        src="/images/about-team.jpg"
+        src={basePath + "/images/about-team.jpg"}
         alt="Mubest Team Group Photo"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}

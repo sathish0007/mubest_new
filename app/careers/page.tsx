@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
+import { Zap, ClipboardList, HardHat, Hammer } from "lucide-react";
 
 import Header from "../../components/Header";
 import FooterSection from "../../components/FooterSection";
+import { basePath } from "../util";
 const heroImages = [
   "/images/13.png",
   "/images/16.png",
@@ -23,7 +25,7 @@ export default function CareersPage() {
     overflow-hidden
   "
   style={{
-    backgroundImage: `url(/images/vehicle-bg.png)`,
+    backgroundImage: `url(${basePath}/images/vehicle-bg.png)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
@@ -118,28 +120,28 @@ export default function CareersPage() {
               </h2>
               <div className="grid grid-cols-1 gap-6">
                 <div className="flex items-center gap-4 bg-gradient-to-br from-[#e3f2fd] to-[#7bc59d]/20 rounded-xl p-4 shadow group hover:shadow-lg transition-all duration-300">
-                  <img src="/images/11.png" alt="Electrical Engineer" className="h-16 w-16 object-cover rounded-full border-4 border-[#0e4672]/10 group-hover:scale-105 transition-transform duration-300" />
+                  <Zap className="w-16 h-16 text-[#7dcaa9]" />
                   <div>
                     <h3 className="font-bold text-lg text-[#0e4672] mb-1">Electrical Engineer</h3>
                     <p className="text-[#0e4672] text-sm">Design, implement, and maintain electrical systems for diverse projects. Collaborate with teams to deliver safe, efficient solutions.</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 bg-gradient-to-br from-[#e3f2fd] to-[#7bc59d]/20 rounded-xl p-4 shadow group hover:shadow-lg transition-all duration-300">
-                  <img src="/images/14.png" alt="Project Manager" className="h-16 w-16 object-cover rounded-full border-4 border-[#0e4672]/10 group-hover:scale-105 transition-transform duration-300" />
+                  <ClipboardList className="w-16 h-16 text-[#7dcaa9]" />
                   <div>
                     <h3 className="font-bold text-lg text-[#0e4672] mb-1">Project Manager</h3>
                     <p className="text-[#0e4672] text-sm">Lead and coordinate project teams, manage timelines and budgets, and ensure successful project delivery from start to finish.</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 bg-gradient-to-br from-[#e3f2fd] to-[#7bc59d]/20 rounded-xl p-4 shadow group hover:shadow-lg transition-all duration-300">
-                  <img src="/images/15.png" alt="Site Supervisor" className="h-16 w-16 object-cover rounded-full border-4 border-[#0e4672]/10 group-hover:scale-105 transition-transform duration-300" />
+                  <HardHat className="w-16 h-16 text-[#7dcaa9]" />
                   <div>
                     <h3 className="font-bold text-lg text-[#0e4672] mb-1">Site Supervisor</h3>
                     <p className="text-[#0e4672] text-sm">Oversee on-site operations, ensure safety compliance, and coordinate with teams. Class 3 Driving License preferred.</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 bg-gradient-to-br from-[#e3f2fd] to-[#7bc59d]/20 rounded-xl p-4 shadow group hover:shadow-lg transition-all duration-300">
-                  <img src="/images/18.png" alt="Construction Worker" className="h-16 w-16 object-cover rounded-full border-4 border-[#0e4672]/10 group-hover:scale-105 transition-transform duration-300" />
+                  <Hammer className="w-16 h-16 text-[#7dcaa9]" />
                   <div>
                     <h3 className="font-bold text-lg text-[#0e4672] mb-1">Construction Worker</h3>
                     <p className="text-[#0e4672] text-sm">Support construction and installation activities, maintain site safety, and contribute to quality project outcomes.</p>

@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 import "../app/certifications/scrollbar-hide.css";
 import ProjectMap from "./ProjectMap";
+import { basePath } from "@/app/util";
 
 export interface Project {
   id: string;
@@ -136,7 +137,7 @@ const projects: Project[] = [
     id: "12",
     title: "15 TOWN COUNCILS",
     projectLocation: "15 TOWN COUNCILS",
-    image: "/images/12.png",
+    image: "/images/17.png",
     services: [],
     description: "",
     completedDate: "2023",
@@ -226,7 +227,7 @@ const projects: Project[] = [
     id: "21",
     title: "15 TOWN COUNCILS",
     projectLocation: "15 TOWN COUNCILS",
-    image: "/images/21.png",
+    image: "/images/17.png",
     services: [],
     description: "RESPONDING / ATTENDING OF LIGHTING COMPLAINTS FOR LED BATCHES 1 & 2 PROJECTS",
     completedDate: "2021",
@@ -356,7 +357,7 @@ const projects: Project[] = [
     id: "34",
     title: "15 TOWN COUNCILS",
     projectLocation: "15 TOWN COUNCILS",
-    image: "/images/34.png",
+    image: "/images/20.png",
     services: ["LED INSTALLATION WORKS"],
     description: "THE INSTALLATION OF LED LUMINAIRES (BATCH 3) AT HDB BLOCKS, OPEN SPACES AND CARPARKS (GROUP 1 & 2)",
     completedDate: "2019",
@@ -396,7 +397,7 @@ const projects: Project[] = [
     id: "38",
     title: "7 TOWN COUNCILS",
     projectLocation: "7 TOWN COUNCILS",
-    image: "/images/38.png",
+    image: "/images/17.png",
     services: ["TERM CONTRACT"],
     description: "TERM CONTRACT TO PROVIDE EMSU TRADEMEN FOR EAST COAST, CHUA CHU KANG, TAMPINES, PASIR RIS-PUNGGOL, MARINE PARADE, WEST COAST AND JURONG TOWN COUNCIL",
     completedDate: "2018",
@@ -496,7 +497,7 @@ const projects: Project[] = [
     id: "48",
     title: "LED INSTALLATIONS BATCH 2",
     projectLocation: "LED INSTALLATIONS BATCH 2",
-    image: "/images/48.png",
+    image: "/images/17.png",
     services: ["LED INSTALLATIONS"],
     description: "INSTALLATION OF LED LUMINAIRES (BATCH 2) AT HDB BLOCKS (ZONES 1 & 2)",
     completedDate: "2016",
@@ -646,10 +647,9 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                 >
                   <div className="w-full h-48 relative">
                     <img
-                      src={project.image}
+                      src={basePath + project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/noimage.png'; }}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
@@ -743,10 +743,9 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                 >
                   <div className="w-full h-56 relative">
                     <img
-                      src={project.image}
+                      src={basePath + project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/noimage.png'; }}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">

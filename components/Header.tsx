@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { basePath } from "@/app/util";
 
 const navLinks = [
   // { label: "Home", href: "/" },
@@ -53,7 +54,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 flex-shrink-0">
               <img
-                src="/favicon.png"
+                src={basePath + "/favicon.png"}
                 alt="Mubest Logo"
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
               />

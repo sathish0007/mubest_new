@@ -94,7 +94,7 @@ export default function ContactSection() {
           </div>
 
           <h2
-            className={`font-display text-[40px] md:text-[56px] text-[#0e4672] font-bold tracking-wider mb-6 transition-all duration-700 ${
+            className={`font-display text-[40px] md:text-[36px] text-[#0e4672] font-bold tracking-wider mb-6 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}
@@ -152,7 +152,7 @@ export default function ContactSection() {
                   href={info.href}
                   className="group flex items-start gap-4 p-5 rounded-xl border border-[#0e4672]/15 bg-gradient-to-br from-[#e3f2fd] to-[#f1f8e9] hover:border-[#FFC107] hover:from-[#fffde7] hover:to-[#e3f2fd] transition-all duration-300 cursor-pointer"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFC107] to-[#0d6f60] flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#0e4672] to-[#57ada0] flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                     {info.icon}
                   </div>
                   <div className="flex-1">

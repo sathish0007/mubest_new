@@ -312,16 +312,16 @@ const projects: Project[] = [
     completedDate: "2020",
     category: "Residential"
   },
-  {
-    id: "30",
-    title: "MINISTRY OF HOME AFFAIRS IN CENTRAL AND WEST ZONES",
-    projectLocation: "MINISTRY OF HOME AFFAIRS IN CENTRAL AND WEST ZONES",
-    image: "/images/30.png",
-    services: ["RETROFITTING WORKS"],
-    description: "RETROFITTING WORKS TO EXISTING LIGHTING SYSTEM TO THE PROPERTIES UNDER THE MINISTRY OF HOME AFFAIRS IN CENTRAL AND WEST ZONES",
-    completedDate: "2019",
-    category: "Commercial"
-  },
+  // {
+  //   id: "30",
+  //   title: "MINISTRY OF HOME AFFAIRS IN CENTRAL AND WEST ZONES",
+  //   projectLocation: "MINISTRY OF HOME AFFAIRS IN CENTRAL AND WEST ZONES",
+  //   image: "/images/30.png",
+  //   services: ["RETROFITTING WORKS"],
+  //   description: "RETROFITTING WORKS TO EXISTING LIGHTING SYSTEM TO THE PROPERTIES UNDER THE MINISTRY OF HOME AFFAIRS IN CENTRAL AND WEST ZONES",
+  //   completedDate: "2019",
+  //   category: "Commercial"
+  // },
   {
     id: "31",
     title: "CHUA CHU KANG AVE 3/4",
@@ -422,16 +422,16 @@ const projects: Project[] = [
     completedDate: "2018",
     category: "Commercial"
   },
-  {
-    id: "41",
-    title: "CHANGI AIRPORT T4",
-    projectLocation: "CHANGI AIRPORT T4",
-    image: "/images/25.png",
-    services: ["KITCHEN PANEL WORKS"],
-    description: "CHANGI AIRPORT T4- KITCHEN PANEL, ISOLATOR AND REMOTE PANEL CABLE WORKS.",
-    completedDate: "2017",
-    category: "Commercial"
-  },
+  // {
+  //   id: "41",
+  //   title: "CHANGI AIRPORT T4",
+  //   projectLocation: "CHANGI AIRPORT T4",
+  //   image: "/images/25.png",
+  //   services: ["KITCHEN PANEL WORKS"],
+  //   description: "CHANGI AIRPORT T4- KITCHEN PANEL, ISOLATOR AND REMOTE PANEL CABLE WORKS.",
+  //   completedDate: "2017",
+  //   category: "Commercial"
+  // },
   {
     id: "42",
     title: "MARINA ONE",
@@ -476,22 +476,22 @@ const projects: Project[] = [
     id: "46",
     title: "CHANGI AIRPORT T4",
     projectLocation: "CHANGI AIRPORT T4",
-    image: "/images/25.png",
+    image: "/images/46.png",
     services: ["CCTV WORKS"],
     description: "CCTV INSTALLATION WORKS AT TAKANEKA T4 SITE",
     completedDate: "2016",
     category: "Commercial"
   },
-  {
-    id: "47",
-    title: "CHANGI AIRPORT T4",
-    projectLocation: "CHANGI AIRPORT T4",
-    image: "/images/25.png",
-    services: ["ELECTRICAL WORK"],
-    description: "ELECTRICAL WORK AT CHANGI AIRPORT T4",
-    completedDate: "2016",
-    category: "Commercial"
-  },
+  // {
+  //   id: "47",
+  //   title: "CHANGI AIRPORT T4",
+  //   projectLocation: "CHANGI AIRPORT T4",
+  //   image: "/images/46.png",
+  //   services: ["ELECTRICAL WORK"],
+  //   description: "ELECTRICAL WORK AT CHANGI AIRPORT T4",
+  //   completedDate: "2016",
+  //   category: "Commercial"
+  // },
   {
     id: "48",
     title: "LED INSTALLATIONS BATCH 2",
@@ -514,11 +514,11 @@ const projects: Project[] = [
   },
   {
     id: "50",
-    title: "NATIONAL UNIVERSITY OF SINGAPORE/CHANGI",
-    projectLocation: "NATIONAL UNIVERSITY OF SINGAPORE/CHANGI",
+    title: "NATIONAL UNIVERSITY OF SINGAPORE",
+    projectLocation: "NATIONAL UNIVERSITY OF SINGAPORE",
     image: "/images/50.png",
     services: ["ELECTRICAL, CCTV AND FIRE ALARM INSTALLATION WORKS"],
-    description: "ELECTRICAL, CCTV AND FIRE ALARM INSTALLATION AT NATIONAL UNIVERSITY OF SINGAPORE/CHANGI",
+    description: "ELECTRICAL, CCTV AND FIRE ALARM INSTALLATION AT NATIONAL UNIVERSITY OF SINGAPORE",
     completedDate: "2015",
     category: "Commercial"
   },
@@ -607,7 +607,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
           <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] mb-4 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
             COMPLETED PROJECTS
           </h2>
-          <p className="text-[#0d6f60] text-lg max-w-3xl mb-12 leading-relaxed font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+          <p className="text-[#0e4672] text-lg max-w-3xl mb-12 leading-relaxed font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
             Our electrical projects across Singapore span residential estates to industrial complexes, all delivered with a commitment to quality, safety, and innovation.
           </p>
           <div className="flex gap-4 mb-8">
@@ -666,9 +666,9 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif">
+                    {/* <p className="text-[#0e4672] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif">
                       {project.description}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               ))}
@@ -716,7 +716,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
               </svg>
             </Link>
           </div>
-          <p className="text-[#0d6f60] text-lg max-w-3xl mb-12 leading-relaxed opacity-0 animate-fade-up font-serif" style={{ animationDelay: "0.3s", fontFamily: 'Times New Roman, Times, serif' }}>
+          <p className="text-[#0e4672] text-lg max-w-3xl mb-12 leading-relaxed opacity-0 animate-fade-up font-serif" style={{ animationDelay: "0.3s", fontFamily: 'Times New Roman, Times, serif' }}>
             Our electrical projects across Singapore span residential estates to industrial complexes, all delivered with a commitment to quality, safety, and innovation.
           </p>
           <div className="relative flex items-center justify-center h-[540px]">
@@ -762,11 +762,11 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
-                      <span className="text-[#0d6f60] text-sm font-serif">{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
+                      <span className="text-[#0e4672] text-sm font-serif">{typeof project.location === 'object' ? 'Singapore' : project.location}</span>
                     </div>
-                    <p className="text-[#0d6f60] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif">
+                    {/* <p className="text-[#0e4672] text-sm leading-relaxed max-h-[4.5rem] overflow-hidden font-serif">
                       {project.description}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               ))}

@@ -4,9 +4,9 @@ import HeroVideoBackground from "./HeroVideoBackground";
 
 const stats = [
   { value: 20, suffix: "+", label: "Years of Experience" },
-  { value: 900, suffix: "+", label: "HDB Blocks Rewired" },
-  { value: 10, suffix: "+", label: "Town Councils Served" },
-  { value: 100, suffix: "+", label: "Commercial Sites" },
+  // { value: 900, suffix: "+", label: "HDB Blocks Rewired" },  
+  { value: "", suffix: "🇸🇬", label: "Island Wide Operations" },
+  { value: 200, suffix: "+", label: "Qualified Professionals" },
 ];
 
 // Available project images for background slideshow
@@ -95,7 +95,7 @@ function StatCard({ value, suffix, label, delay, start }: { value: number; suffi
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="font-display text-5xl md:text-6xl text-[#FFC107] font-extrabold mb-2 drop-shadow-sm">
-        {start ? count : 0}{suffix}
+        {start ? count==0 ? "" : count : ""}{suffix}
       </div>
       <div className="font-heading text-sm md:text-base tracking-widest text-[#0e4672] uppercase mt-2">
         {label}
@@ -142,7 +142,7 @@ export default function HeroSection() {
       </section>
       {/* Stats row below hero section, below video */}
       <section className="relative z-20 max-w-6xl mx-auto px-4 pb-20 -mt-12" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {stats.map((stat, i) => (
             <StatCard key={stat.label} {...stat} delay={i * 100} start={true} />
           ))}

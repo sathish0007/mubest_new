@@ -170,7 +170,7 @@ export default function TestimonialsSection() {
           </div>
 
           <h2
-            className={`font-display text-[40px] md:text-[56px] text-[#0e4672] font-bold tracking-wider mb-6 transition-all duration-700 ${
+            className={`font-display text-[40px] md:text-[36px] text-[#0e4672] font-bold tracking-wider mb-6 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}

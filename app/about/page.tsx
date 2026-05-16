@@ -3,22 +3,23 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
+import { ShieldCheck, Flame, TrendingUp } from "lucide-react";
 
 const services = [
   {
     title: "Electrical Infrastructure",
     description: "Complete electrification systems for residential, commercial and industrial projects",
-    image: "/images/services/electrical_power.jpg", // Power lines/infrastructure
+    image: "/images/services/electrical_power.png", // Power lines/infrastructure
   },
   {
     title: "Lighting Systems",
     description: "Energy-efficient lighting solutions for public spaces, buildings and infrastructure",
-    image: "/images/services/light_energy.jpg", // Modern lighting
+    image: "/images/services/light_energy.png", // Modern lighting
   },
   {
-    title: "Maintenance & Support",
-    description: "Ongoing maintenance contracts and emergency electrical services",
-    image: "/images/services/mechanical_system.jpg", // Maintenance worker
+    title: "Mechanical and Electrical (M&E)",
+    description: "Ongoing M&E contracts and emergency electrical services",
+    image: "/images/services/mechanical_system.png", // Maintenance worker
   },
   {
     title: "Project Management",
@@ -34,26 +35,22 @@ const achievements = [
   "Managing ongoing maintenance contracts",
 ];
 
+
 const coreValues = [
   {
-    title: "Integrity",
-    description: "Honesty and transparency in all our work",
-    icon: "🤝",
+    title: "Truth",
+    description: "Honesty and transparency guide every decision we make.",
+    icon: <ShieldCheck size={42} strokeWidth={1.8} />,
   },
   {
-    title: "Quality",
-    description: "Commitment to excellence in every project",
-    icon: "⭐",
+    title: "Hard Work",
+    description: "Consistency, discipline, and dedication drive our success.",
+    icon: <Flame size={42} strokeWidth={1.8} />,
   },
   {
-    title: "Respect",
-    description: "Valuing our clients, partners, and team",
-    icon: "🙌",
-  },
-  {
-    title: "Improvement",
-    description: "Continuous learning and innovation",
-    icon: "🚀",
+    title: "Progress",
+    description: "We believe in continuous growth and constant improvement.",
+    icon: <TrendingUp size={42} strokeWidth={1.8} />,
   },
 ];
 
@@ -67,11 +64,11 @@ export default function AboutPage() {
           {/* Content */}
           <div>
             <h1 className="font-display text-[44px] md:text-[64px] text-[#0e4672] tracking-tight mb-6">About Mubest</h1>
-            <p className="font-body text-lg text-[#0d6f60] leading-relaxed mb-6">
+            <p className="font-body text-lg text-[#0e4672] leading-relaxed mb-6">
               Mubest Pte Ltd is Singapore’s trusted partner for electrical infrastructure, lighting, and maintenance solutions. With over 20 years of experience, we deliver quality, safety, and innovation for residential, commercial, and industrial projects.
-              Established in 2006, the company brings together over 20 years of experience in electrification and infrastructure works. We have supported the development of residential estates, public spaces and private projects, delivering practical and reliable solutions that meet industry standards.
+              Established in 2006, the company brings together extensive experience in electrical and infrastructure works, and handyman services. We support residential estates, public spaces, and private developments, delivering reliable solutions that meet industry standards.
             </p>
-            <p className="font-body text-lg text-[#0d6f60] leading-relaxed mb-6">
+            <p className="font-body text-lg text-[#0e4672] leading-relaxed mb-6">
               Our team has successfully supported the development of residential estates, public spaces and private projects, earning a strong reputation for quality, safety and timely delivery.
             </p>
           </div>
@@ -90,10 +87,10 @@ export default function AboutPage() {
       <section className="py-32 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="font-display text-[48px] md:text-[56px] text-[#0e4672] tracking-wider mb-6">
+            <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-6">
               WHAT WE DO
             </h2>
-            <p className="font-body text-[#0d6f60] text-lg max-w-3xl mx-auto">
+            <p className="font-body text-[#0e4672] text-lg max-w-3xl mx-auto">
               We provide a comprehensive range of services supporting electrical and infrastructure works
             </p>
           </div>
@@ -118,7 +115,7 @@ export default function AboutPage() {
                   <h3 className="font-bold text-2xl md:text-3xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="font-body text-sm text-[#0d6f60] leading-relaxed text-center">{service.description}</p>
+                  <p className="font-body text-sm text-[#0e4672] leading-relaxed text-center">{service.description}</p>
                 </div>
               </div>
             ))}
@@ -144,13 +141,13 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Content */}
             <div>
-              <h2 className="font-display text-[48px] md:text-[56px] text-[#0e4672] tracking-wider mb-8">
+              <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-8">
                 OUR EXPERIENCES
               </h2>
-              <p className="font-body text-[#0d6f60] text-lg leading-relaxed mb-8">
+              <p className="font-body text-[#0e4672] text-lg leading-relaxed mb-8">
                 Our strength lies in a skilled and experienced workforce capable of handling projects of different scales.
               </p>
-              <p className="font-body text-[#0d6f60] text-lg leading-relaxed mb-8">
+              <p className="font-body text-[#0e4672] text-lg leading-relaxed mb-8">
                 Over the years, we have built a track record in:
               </p>
 
@@ -158,12 +155,12 @@ export default function AboutPage() {
                 {achievements.map((achievement, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#FFC107] mt-2 flex-shrink-0" />
-                    <span className="font-body text-[#0d6f60]">{achievement}</span>
+                    <span className="font-body text-[#0e4672]">{achievement}</span>
                   </li>
                 ))}
               </ul>
 
-              <p className="font-body text-[#0d6f60] text-lg leading-relaxed mb-8">
+              <p className="font-body text-[#0e4672] text-lg leading-relaxed mb-8">
                 Our continued work with returning clients reflects the trust we have built over time.
               </p>
 
@@ -179,8 +176,11 @@ export default function AboutPage() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {[
+            <div className="grid grid-cols-2 gap-6"
+          style={{ backgroundImage: `url(/images/team-1.png)`, backgroundSize: 'cover',backgroundRepeat:'no-repeat', backgroundPosition: 'center',width: '100%', height: '100%' }}
+          >
+            {/* <img src="/images/vehicle-bg.png" alt="Mubest team" className={`h-40 md:h-56 w-full object-cover rounded-2xl shadow-xl border-4 border-white/60 transition-transform duration-500  hover:scale-105`} /> */}
+              {/* {[
                 { number: "500+", label: "Projects Completed" },
                 { number: "20+", label: "Years Experience" },
                 // { number: "100%", label: "Client Satisfaction" },
@@ -193,11 +193,11 @@ export default function AboutPage() {
                   <h3 className="font-display text-3xl md:text-4xl text-[#FFC107] mb-2">
                     {stat.number}
                   </h3>
-                  <p className="font-body text-xs md:text-sm text-[#0d6f60] uppercase tracking-[0.1em]">
+                  <p className="font-body text-xs md:text-sm text-[#0e4672] uppercase tracking-[0.1em]">
                     {stat.label}
                   </p>
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
@@ -207,16 +207,16 @@ export default function AboutPage() {
       <section className="py-32 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="font-display text-[48px] md:text-[56px] text-[#0e4672] tracking-wider mb-6">
+            <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-6">
               OUR COMMITMENT
             </h2>
           </div>
 
           <div className="max-w-4xl mx-auto text-center">
-            <p className="font-body text-[#0d6f60] text-xl leading-relaxed mb-8">
+            <p className="font-body text-[#0e4672] text-xl leading-relaxed mb-8">
               We approach every project with a focus on reliability, safety and clear coordination with clients and stakeholders.
             </p>
-            <p className="font-body text-[#0d6f60] text-xl leading-relaxed">
+            <p className="font-body text-[#0e4672] text-xl leading-relaxed">
               Much of our work is carried out in active public environments. We take care to minimise disruption while maintaining safety standards and ensuring work is completed efficiently.
             </p>
           </div>
@@ -244,10 +244,10 @@ export default function AboutPage() {
 
             {/* Message */}
             <div>
-              <h2 className="font-display text-[48px] md:text-[56px] text-[#0e4672] tracking-wider mb-8">
+              <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-8">
                 MESSAGE FROM THE DIRECTOR
               </h2>
-              <blockquote className="font-body text-[#0d6f60] text-xl leading-relaxed italic border-l-4 border-[#FFC107] pl-8">
+              <blockquote className="font-body text-[#0e4672] text-xl leading-relaxed italic border-l-4 border-[#FFC107] pl-8">
                 "At Mubest, we believe in building lasting relationships through consistent quality work and unwavering commitment to safety. Our team takes pride in supporting Singapore's infrastructure development with reliable electrical solutions that stand the test of time."
               </blockquote>
             </div>
@@ -259,7 +259,7 @@ export default function AboutPage() {
       <section className="py-32 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="font-display text-[48px] md:text-[56px] text-[#0e4672] tracking-wider mb-6">
+            <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-6">
               VISION & MISSION
             </h2>
           </div>
@@ -276,7 +276,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-display text-2xl text-[#0e4672]">Vision</h3>
               </div>
-              <p className="font-body text-[#0d6f60] leading-relaxed">
+              <p className="font-body text-[#0e4672] leading-relaxed">
                 To deliver reliable and practical electrical solutions that support the development of modern infrastructure.
               </p>
             </div>
@@ -291,30 +291,65 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-display text-2xl text-[#0e4672]">Mission</h3>
               </div>
-              <p className="font-body text-[#0d6f60] leading-relaxed">
+              <p className="font-body text-[#0e4672] leading-relaxed">
                 To build long-term relationships with our clients by delivering consistent, quality work with a focus on safety, reliability and efficiency.
               </p>
             </div>
           </div>
 
           {/* Core Values */}
-          <div className="mt-16">
-            <h3 className="font-display text-[36px] md:text-[42px] text-[#0e4672] tracking-wider text-center mb-12">
-              CORE VALUES
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {coreValues.map((value, index) => (
-                <div
-                  key={index}
-                  className="p-6 rounded-xl border border-[#e3f2fd] bg-white text-center hover:border-[#FFC107] shadow-sm transition-all duration-300"
-                >
-                  <div className="text-4xl mb-4">{value.icon}</div>
-                  <h4 className="font-heading text-lg text-[#0e4672] mb-3">{value.title}</h4>
-                  <p className="font-body text-sm text-[#0d6f60] leading-relaxed">{value.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+         <div className="mt-20">
+  <h3 className="font-display text-[36px] md:text-[52px] text-[#0e4672] tracking-[0.2em] text-center mb-16">
+    CORE VALUES
+  </h3>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    {coreValues.map((value, index) => (
+      <div
+        key={index}
+        className="
+          group relative overflow-hidden
+          p-10 rounded-[28px]
+          bg-white/90 backdrop-blur-sm
+          border border-[#dbeaf5]
+          shadow-[0_10px_40px_rgba(14,70,114,0.08)]
+          hover:shadow-[0_20px_60px_rgba(14,70,114,0.15)]
+          hover:-translate-y-2
+          transition-all duration-500
+        "
+      >
+        {/* Glow Effect */}
+<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0e4672] to-[#FFC107] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        {/* Icon */}
+        <div
+          className="
+            relative z-10
+            w-20 h-20 mx-auto mb-6
+            rounded-2xl
+            bg-[#f4f9fd]
+            flex items-center justify-center
+            text-[#0e4672]
+            group-hover:bg-[#0e4672]
+            group-hover:text-[#FFC107]
+            transition-all duration-500
+          "
+        >
+          {value.icon}
+        </div>
+
+        {/* Title */}
+        <h4 className="relative z-10 font-heading text-2xl text-[#0e4672] mb-4 text-center">
+          {value.title}
+        </h4>
+
+        {/* Description */}
+        <p className="relative z-10 font-body text-[15px] leading-7 text-[#4b6580] text-center">
+          {value.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
         </div>
       </section>
 

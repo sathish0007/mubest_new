@@ -5,7 +5,7 @@ const clients = [
   { id: 1, name: "ANG MO KIO TOWN COUNCIL" },
   { id: 2, name: "CHUA CHU KANG TOWN COUNCIL" },
   { id: 3, name: "COMMERCIAL INDUSTRIAL SUPPLIES & SERVICES PTE LTD" },
-  { id: 4, name: "CPL ENGINEERING SERVICES PTE LTD" },
+  // { id: 4, name: "CPL ENGINEERING SERVICES PTE LTD" },
   { id: 5, name: "DAVIS LIGHTING PTE LTD" },// have to change logo
   // { id: 6, name: "EC INTERIOR DESIGN & DECORATION" },
   // { id: 7, name: "ELINGTON ENGINEERING PTE LTD" , noImage:true},
@@ -30,6 +30,8 @@ const clients = [
   { id: 27, name: "TAMPINES TOWN COUNCIL" },
   { id: 28, name: "NEE SOON TOWN COUNCIL" },
   { id: 29, name: "JALAN BESAR TOWN COUNCIL" },
+  { id: 30, name: "INSTITUTE OF TECHNICAL EDUCATION" },
+
 ];
 
 // Duplicate clients for seamless loop

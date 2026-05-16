@@ -4,32 +4,32 @@ import Image from "next/image";
 const services = [
   {
     title: "Electrical Infrastructure & Power Systems",
-    description: "Installation, upgrading and maintenance of electrical infrastructure for residential, commercial and public developments. Our work includes electrical rewiring of residential blocks, electrical load upgrading works (ELU), underground cable replacement, substations, distribution systems and consumer switch rooms.",
-    image: "/images/services/electrical_power.jpg",
+    description: "Installation, upgrading and maintenance of electrical infrastructure for residential, commercial and public developments. Our work includes electrical rewiring of residential blocks, electrical load upgrading works (ELUP), underground cable replacement, substations, distribution systems and consumer switch rooms.",
+    image: "/images/services/electrical_power.png",
   },
   {
     title: "Lighting & Energy Efficiency",
     description: "Design and installation of lighting systems for streets, carparks and public areas. We also carry out LED retrofitting and energy-efficient lighting upgrades for existing facilities.",
-    image: "/images/services/light_energy.jpg",
+    image: "/images/services/light_energy.png",
   },
   {
     title: "Substations & Electrical Facilities",
-    description: "Design and construction of substations, consumer switch rooms (CSR), and electrical linkways to support reliable power distribution within developments.",
+    description: "Design and construction of substations and consumer switch rooms (CSR).",
     image: "/images/services/substation_electric.jpeg",
   },
   {
-    title: "Mechanical Systems (ACMV)",
+    title: "Mechanical and Electrical (M&E)",
     description: "Installation and maintenance of air-conditioning, refrigeration and ventilation systems to ensure proper environmental control for buildings and facilities.",
-    image: "/images/services/mechanical_system.jpg",
+    image: "/images/services/mechanical_system.png",
   },
   {
     title: "Security & Communication Systems",
     description: "Installation of CCTV surveillance systems, fibre network infrastructure and related building communication systems.",
-    image: "/images/services/cctv.jpg",
+    image: "/images/services/cctv.png",
   },
   {
     title: "Building & External Infrastructure Works",
-    description: "General building works, external infrastructure construction and project support works that complement electrical and mechanical installations.",
+    description: "General building works, external infrastructure construction, and project support works including general maintenance and handyman services to support overall site operations.",
     image: "/images/services/electrical_installation.jpg",
   },
 ];
@@ -38,10 +38,10 @@ export default function ServicesSection() {
   return (
     <section id="services" className="relative py-32 bg-[#f7fafc] font-serif overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-6">
+        {/* <div className="flex items-center gap-4 mb-6">
           <div className="w-8 h-px bg-[#0e4672]" />
           <span className="font-mono text-xs tracking-[0.3em] text-[#0e4672] uppercase">Our Services</span>
-        </div>
+        </div> */}
         <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm mb-16 font-serif">
           SERVICES
         </h2>

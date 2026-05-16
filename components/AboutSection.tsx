@@ -72,10 +72,10 @@ export default function AboutSection() {
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section label */}
-        <div className={`flex items-center gap-4 mb-6 transition-all duration-700 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
+        {/* <div className={`flex items-center gap-4 mb-6 transition-all duration-700 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
           <div className="w-8 h-px bg-[#0e4672]" />
           <span className="text-xs tracking-[0.3em] text-[#0e4672] uppercase font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>Who We Are</span>
-        </div>
+        </div> */}
 
         {/* Main heading */}
         <div className={`mb-20 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
@@ -93,7 +93,7 @@ ABOUT US
               Mubest Pte Ltd is a Singapore-based company focused on electrical infrastructure and building works across public housing developments, commercial properties and large-scale projects.
             </p>
             <p className="text-[#0e4672] text-base leading-relaxed mb-8 font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
-              Established in 2006, the company brings together over 20 years of experience in electrification and infrastructure works. We have supported the development of residential estates, public spaces and private projects, delivering practical and reliable solutions that meet industry standards.
+              Established in 2006, the company brings together extensive experience in electrical and infrastructure works, and handyman services. We support residential estates, public spaces, and private developments, delivering reliable solutions that meet industry standards.
               Our work includes lighting and electrical systems for housing blocks, linkways, public areas, commercial buildings and large-scale facilities.
             </p>
             {/* Key capabilities */}

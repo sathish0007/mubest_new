@@ -87,7 +87,7 @@ function AnimatedBackground() {
   );
 }
 
-function StatCard({ value, suffix, label, delay, start }: { value: number; suffix: string; label: string; delay: number; start: boolean }) {
+function StatCard({ value, suffix, label, delay, start }: { value: any; suffix: string; label: string; delay: number; start: boolean }) {
   const count = useCountUp(value, 1800, start);
   return (
     <div

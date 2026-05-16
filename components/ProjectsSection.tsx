@@ -372,16 +372,16 @@ const projects: Project[] = [
     completedDate: "2019",
     category: "Residential"
   },
-  {
-    id: "36",
-    title: "SP POWER GRID P2A CCTV CAT2 SUBSTATION",
-    projectLocation: "SP POWER GRID P2A CCTV CAT2 SUBSTATION",
-    image: "/images/36.png",
-    services: ["SUB CONTRACTOR"],
-    description: "SUB CONTRACTOR FOR SP POWER GRID P2A CCTV CAT2 SUBSTATION",
-    completedDate: "2019",
-    category: "Industrial"
-  },
+  // {
+  //   id: "36",
+  //   title: "SP POWER GRID P2A CCTV CAT2 SUBSTATION",
+  //   projectLocation: "SP POWER GRID P2A CCTV CAT2 SUBSTATION",
+  //   image: "/images/36.png",
+  //   services: ["SUB CONTRACTOR"],
+  //   description: "SUB CONTRACTOR FOR SP POWER GRID P2A CCTV CAT2 SUBSTATION",
+  //   completedDate: "2019",
+  //   category: "Industrial"
+  // },
   {
     id: "37",
     title: "WOODLANDS AVENUE 1/ STREET 32",
@@ -478,7 +478,7 @@ const projects: Project[] = [
     projectLocation: "CHANGI AIRPORT T4",
     image: "/images/46.png",
     services: ["CCTV WORKS"],
-    description: "CCTV INSTALLATION WORKS AT TAKANEKA T4 SITE",
+    description: "CCTV INSTALLATION WORKS AT CHANGI AIRPORT T4 SITE",
     completedDate: "2016",
     category: "Commercial"
   },
@@ -514,11 +514,11 @@ const projects: Project[] = [
   },
   {
     id: "50",
-    title: "NATIONAL UNIVERSITY OF SINGAPORE",
-    projectLocation: "NATIONAL UNIVERSITY OF SINGAPORE",
+    title: "MD11NATIONAL UNIVERSITY OF SINGAPORE",
+    projectLocation: "MD11 NATIONAL UNIVERSITY OF SINGAPORE",
     image: "/images/50.png",
-    services: ["ELECTRICAL, CCTV AND FIRE ALARM INSTALLATION WORKS"],
-    description: "ELECTRICAL, CCTV AND FIRE ALARM INSTALLATION AT NATIONAL UNIVERSITY OF SINGAPORE",
+    services: ["ELECTRICAL AND CCTV  INSTALLATION WORKS"],
+  description: "ELECTRICAL AND CCTV AT MD11 NATIONAL UNIVERSITY OF SINGAPORE",
     completedDate: "2015",
     category: "Commercial"
   },
@@ -561,6 +561,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
     "MARINA ONE": { lat: 1.2789, lng: 103.8536 },
     "CONNECT @ CHANGI EXPO HALL 7 & 8": { lat: 1.3331, lng: 103.9619 },
     "FUSIONPOLIS 5": { lat: 1.2990, lng: 103.7873 },
+    "BUKIT BATOK EAST & CLEMENTI": { lat: 1.344908, lng: 103.757700 }
   };
 
   const projectsWithLocation = projects.map((p, idx) => {

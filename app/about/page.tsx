@@ -12,7 +12,7 @@ const services = [
     image: "/images/services/electrical_power.png", // Power lines/infrastructure
   },
   {
-    title: "Lighting Systems",
+    title: "Lighting & Energy Efficiency",
     description: "Energy-efficient lighting solutions for public spaces, buildings and infrastructure",
     image: "/images/services/light_energy.png", // Modern lighting
   },
@@ -59,7 +59,7 @@ export default function AboutPage() {
     <main className="bg-white">
       <Header />
       {/* About Section - clean, white, rich UI */}
-      <section className="py-24 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]">
+      <section className="pt-44 pb-0 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           {/* Visual Element */}
           <div className="relative flex items-center justify-center">
             <img src="/images/about-team.jpg" alt="About Mubest" className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-[#e3f2fd] bg-white object-cover" />
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-[#FFC107]/20 blur-2xl" />
+            <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-[#7dcaa9]/20 blur-2xl" />
           </div>
         </div>
       </section>
@@ -84,7 +84,8 @@ export default function AboutPage() {
  
 
       {/* What We Do Section */}
-      <section className="py-32 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]">
+      <section className="pt-44 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]"
+      style={{paddingTop:"88px"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-6">
@@ -112,7 +113,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-6">
-                  <h3 className="font-bold text-xl md:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
+                  <h3 className="font-bold text-xl md:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#7dcaa9] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="font-body text-sm text-[#0e4672] leading-relaxed text-center">{service.description}</p>
@@ -124,7 +125,7 @@ export default function AboutPage() {
           <div className="text-center">
             <Link
               href="/#services"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#7dcaa9] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300"
             >
               <span>View All Services</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,7 +155,7 @@ export default function AboutPage() {
               <ul className="space-y-4 mb-8">
                 {achievements.map((achievement, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#FFC107] mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 rounded-full bg-[#7dcaa9] mt-2 flex-shrink-0" />
                     <span className="font-body text-[#0e4672]">{achievement}</span>
                   </li>
                 ))}
@@ -166,7 +167,7 @@ export default function AboutPage() {
 
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-[#7dcaa9] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300"
               >
                 <span>View Our Projects</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,9 +189,9 @@ export default function AboutPage() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-xl border border-[#e3f2fd] bg-white text-center hover:border-[#FFC107] shadow-sm transition-all duration-300"
+                  className="p-6 rounded-xl border border-[#e3f2fd] bg-white text-center hover:border-[#7dcaa9] shadow-sm transition-all duration-300"
                 >
-                  <h3 className="font-display text-3xl md:text-4xl text-[#FFC107] mb-2">
+                  <h3 className="font-display text-3xl md:text-4xl text-[#7dcaa9] mb-2">
                     {stat.number}
                   </h3>
                   <p className="font-body text-xs md:text-sm text-[#0e4672] uppercase tracking-[0.1em]">
@@ -224,14 +225,15 @@ export default function AboutPage() {
       </section>
 
       {/* Message from Director */}
-      <section className="py-32 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]">
+      <section className="py-32 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]"
+      style={{display:"none"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Director Image Placeholder */}
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-[rgba(255,193,7,0.1)] to-[rgba(255,193,7,0.05)] p-8 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#FFC107] to-[#FF8F00] flex items-center justify-center">
+                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#7dcaa9] to-[#FF8F00] flex items-center justify-center">
                     <svg className="w-16 h-16 text-[#030712]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
@@ -247,7 +249,7 @@ export default function AboutPage() {
               <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-8">
                 MESSAGE FROM THE DIRECTOR
               </h2>
-              <blockquote className="font-body text-[#0e4672] text-xl leading-relaxed italic border-l-4 border-[#FFC107] pl-8">
+              <blockquote className="font-body text-[#0e4672] text-xl leading-relaxed italic border-l-4 border-[#7dcaa9] pl-8">
                 "At Mubest, we believe in building lasting relationships through consistent quality work and unwavering commitment to safety. Our team takes pride in supporting Singapore's infrastructure development with reliable electrical solutions that stand the test of time."
               </blockquote>
             </div>
@@ -268,7 +270,7 @@ export default function AboutPage() {
             {/* Vision */}
             <div className="p-8 rounded-xl border border-[#e3f2fd] bg-white">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFC107] to-[#FF8F00] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7dcaa9] to-[#FF8F00] flex items-center justify-center">
                   <svg className="w-6 h-6 text-[#0e4672]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -284,7 +286,7 @@ export default function AboutPage() {
             {/* Mission */}
             <div className="p-8 rounded-xl border border-[#e3f2fd] bg-white">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFC107] to-[#FF8F00] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7dcaa9] to-[#FF8F00] flex items-center justify-center">
                   <svg className="w-6 h-6 text-[#0e4672]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -319,7 +321,7 @@ export default function AboutPage() {
         "
       >
         {/* Glow Effect */}
-<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0e4672] to-[#FFC107] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0e4672] to-[#7dcaa9] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         {/* Icon */}
         <div
           className="
@@ -330,7 +332,7 @@ export default function AboutPage() {
             flex items-center justify-center
             text-[#0e4672]
             group-hover:bg-[#0e4672]
-            group-hover:text-[#FFC107]
+            group-hover:text-[#7dcaa9]
             transition-all duration-500
           "
         >

@@ -61,7 +61,7 @@ export default function CareersPage() {
       "
     >
       Careers at
-      <span className="text-[#FFC107]"> Mubest</span>
+      <span className="text-[#7dcaa9]"> Mubest</span>
     </h1>
 
     <p
@@ -98,7 +98,7 @@ export default function CareersPage() {
             </section>
             <section className="bg-white/90 rounded-2xl shadow-lg p-8 border border-[#e3f2fd] flex flex-col gap-4">
               <h2 className="font-heading text-2xl text-[#0e4672] mb-2 flex items-center gap-2">
-                <svg className="w-7 h-7 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <svg className="w-7 h-7 text-[#7dcaa9]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 Benefits
               </h2>
               <ul className="space-y-4">
@@ -149,7 +149,7 @@ export default function CareersPage() {
             </section>
             <section className="bg-white/90 rounded-2xl shadow-lg p-8 border border-[#e3f2fd] flex flex-col gap-4">
               <h2 className="font-heading text-2xl text-[#0e4672] mb-2 flex items-center gap-2">
-                <svg className="w-7 h-7 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12v1m0 4v.01M8 12v1m0 4v.01M12 8v.01M12 16v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <svg className="w-7 h-7 text-[#7dcaa9]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12v1m0 4v.01M8 12v1m0 4v.01M12 8v.01M12 16v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 Apply to Join Us
               </h2>
               <p className="text-[#0e4672] mb-2">If you are interested in joining Mubest, please send your resume to:</p>

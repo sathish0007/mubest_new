@@ -77,12 +77,12 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-5 py-2 font-heading text-sm tracking-[0.1em] uppercase transition-all duration-300 rounded-sm
+                  className={`relative px-5 py-2 font-heading text-md tracking-[0.1em] uppercase transition-all duration-300 rounded-sm
                     ${isActive
                       ? "text-[#FFC107]"
-                      : "text-[#0e4672] hover:text-[#0e4672] hover:bg-[#FFC107] hover:shadow hover:px-6"
+                      : "text-[#ffffff] hover:text-[#0e4672] hover:bg-[#FFC107] hover:shadow hover:px-6"
                     }`}
-                  style={{ zIndex: 1 }}
+                  style={{ zIndex: 1,fontWeight: 'bold' }}
                 >
                   {isActive && (
                     <span className="absolute inset-0 bg-[rgba(255,193,7,0.06)] rounded-sm border border-[rgba(255,193,7,0.15)]" />

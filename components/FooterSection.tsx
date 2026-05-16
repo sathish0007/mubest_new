@@ -14,6 +14,9 @@ const footerLinks = {
     { label: "Electrical Works & Maintenance", href: "/#services" },
     { label: "Mechanical Engineering Works (M & E)", href: "/#services" },
     { label: "General Building Works", href: "/#services" },
+    { label: "Lighting & Energy Efficiency", href: "/#services" },
+    { label: "Substations & Electrical Facilities", href: "/#services" },
+    { label: "Security & Communication Systems", href: "/#services" },
   ],
   certifications: [
     "EMA Licensed Electricians",
@@ -61,7 +64,7 @@ export default function FooterSection() {
       <button
         onClick={scrollToTop}
         aria-label="Go to top"
-        className={`fixed bottom-8 right-6 z-50 w-12 h-12 rounded-full bg-[#FFC107] text-[#030712] shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-[#FFD54F] hover:scale-110 ${
+        className={`fixed bottom-8 right-6 z-50 w-12 h-12 rounded-full bg-[#7dcaa9] text-[#030712] shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-[#FFD54F] hover:scale-110 ${
           showTop ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
@@ -95,10 +98,10 @@ export default function FooterSection() {
                   </div>
                   <div>
                     <div className="font-display text-xl leading-none text-white tracking-widest">
-                      MUBEST
+                      Mubest Pte Ltd.
                     </div>
-                    <div className="font-heading text-[8px] tracking-[0.25em] text-[#FFC107] uppercase leading-none opacity-70">
-                      PTE LTD.
+                    <div className="font-heading text-[8px] tracking-[0.25em] text-white uppercase leading-none opacity-70">
+                      Since 2006.
                     </div>
                   </div>
                 </div>
@@ -110,7 +113,7 @@ export default function FooterSection() {
                     <a
                       key={social.name}
                       href={social.href}
-                      className="w-10 h-10 rounded-lg border border-[rgba(255,193,7,0.2)] bg-[rgba(13,21,37,0.5)] flex items-center justify-center text-slate-400 hover:text-[#FFC107] hover:border-[#FFC107] transition-all duration-300"
+                      className="w-10 h-10 rounded-lg border border-[rgba(255,193,7,0.2)] bg-[rgba(13,21,37,0.5)] flex items-center justify-center text-slate-400 hover:text-[#7dcaa9] hover:border-[#7dcaa9] transition-all duration-300"
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -130,7 +133,7 @@ export default function FooterSection() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="font-body text-sm text-slate-400 hover:text-[#FFC107] transition-colors duration-300"
+                      className="font-body text-sm text-slate-400 hover:text-[#7dcaa9] transition-colors duration-300"
                     >
                       {link.label}
                     </Link>
@@ -149,7 +152,7 @@ export default function FooterSection() {
                   <li key={service.label}>
                     <Link
                       href={service.href}
-                      className="font-body text-sm text-slate-400 hover:text-[#FFC107] transition-colors duration-300"
+                      className="font-body text-sm text-slate-400 hover:text-[#7dcaa9] transition-colors duration-300"
                     >
                       {service.label}
                     </Link>
@@ -165,7 +168,7 @@ export default function FooterSection() {
               </h3>
               <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-3">
-                  <svg className="w-4 h-4 text-[#FFC107] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-[#7dcaa9] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -175,18 +178,18 @@ export default function FooterSection() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <svg className="w-4 h-4 text-[#FFC107] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-[#7dcaa9] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 00.948.684l1.498 4.493a1 1 0 00.502.756l2.048 1.024a11.037 11.037 0 010 1.986l-2.048 1.024a1 1 0 00-.502.756l-1.498 4.493a1 1 0 00-.948.684H5a2 2 0 01-2-2V5z" />
                   </svg>
-                  <a href="tel:+6563590110" className="font-body text-sm text-slate-400 hover:text-[#FFC107] transition-colors duration-300">
+                  <a href="tel:+6563590110" className="font-body text-sm text-slate-400 hover:text-[#7dcaa9] transition-colors duration-300">
                     +65 6359 0110
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <svg className="w-4 h-4 text-[#FFC107] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-[#7dcaa9] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <a href="mailto:info@mubest.com.sg" className="font-body text-sm text-slate-400 hover:text-[#FFC107] transition-colors duration-300">
+                  <a href="mailto:info@mubest.com.sg" className="font-body text-sm text-slate-400 hover:text-[#7dcaa9] transition-colors duration-300">
                     info@mubest.com.sg
                   </a>
                 </div>

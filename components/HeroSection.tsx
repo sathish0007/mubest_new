@@ -6,7 +6,7 @@ const stats = [
   { value: 20, suffix: "+", label: "Years of Experience" },
   // { value: 900, suffix: "+", label: "HDB Blocks Rewired" },  
   { value: "", suffix: "🇸🇬", label: "Island Wide Operations" },
-  { value: 200, suffix: "+", label: "Qualified Professionals" },
+  { value: 300, suffix: "+", label: "Qualified Professionals" },
 ];
 
 // Available project images for background slideshow

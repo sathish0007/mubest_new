@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-   basePath: '/new',
-  assetPrefix: '/new/',
+   basePath: '',
+  assetPrefix: '',
 };
 
 module.exports = nextConfig;

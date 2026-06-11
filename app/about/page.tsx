@@ -5,7 +5,8 @@ import Header from "@/components/Header";
 import FooterSection from "@/components/FooterSection";
 import { ShieldCheck, Flame, TrendingUp } from "lucide-react";
 import { basePath } from "../util";
-
+import {OurCommitmentSection} from "@/components/OurCommitmentSection";
+import { OurExperiencesSection } from "@/components/OurExperienceSection";
 const services = [
   {
     title: "Electrical Infrastructure",
@@ -64,7 +65,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
-            <h1 className="font-display text-[44px] md:text-[36px] text-[#0e4672] tracking-tight mb-6">ABOUT MUBEST</h1>
+            <h1 className="font-display text-[44px] md:text-[36px] text-[#0e4672] font-extrabold tracking-tight mb-6">ABOUT MUBEST</h1>
             <p className="font-body text-lg text-[#0e4672] leading-relaxed mb-6">
               Mubest Pte Ltd is Singapore’s trusted partner for electrical infrastructure, lighting, and maintenance solutions. With over 20 years of experience, we deliver quality, safety, and innovation for residential, commercial, and industrial projects.
               Established in 2006, the company brings together extensive experience in electrical and infrastructure works, and handyman services. We support residential estates, public spaces, and private developments, delivering reliable solutions that meet industry standards.
@@ -85,11 +86,11 @@ export default function AboutPage() {
  
 
       {/* What We Do Section */}
-      <section className="pt-44 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]"
-      style={{paddingTop:"88px"}}>
+      <section className="pt-44 pb-22 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]"
+      style={{paddingTop:"88px",paddingBottom:"88px"}}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-6">
+            <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] font-extrabold tracking-wider mb-6">
               WHAT WE DO
             </h2>
             <p className="font-body text-[#0e4672] text-lg max-w-3xl mx-auto">
@@ -137,127 +138,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Experiences Section */}
-      <section className="py-32 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Content */}
-            <div>
-              <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-8">
-                OUR EXPERIENCES
-              </h2>
-              <p className="font-body text-[#0e4672] text-lg leading-relaxed mb-8">
-                Our strength lies in a skilled and experienced workforce capable of handling projects of different scales.
-              </p>
-              <p className="font-body text-[#0e4672] text-lg leading-relaxed mb-8">
-                Over the years, we have built a track record in:
-              </p>
-
-              <ul className="space-y-4 mb-8">
-                {achievements.map((achievement, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#7dcaa9] mt-2 flex-shrink-0" />
-                    <span className="font-body text-[#0e4672]">{achievement}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="font-body text-[#0e4672] text-lg leading-relaxed mb-8">
-                Our continued work with returning clients reflects the trust we have built over time.
-              </p>
-
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[#7dcaa9] text-[#030712] font-heading font-semibold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.5)] transition-all duration-300"
-              >
-                <span>View Our Projects</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6"
-          style={{ backgroundImage: `url(/images/team-1.png)`, backgroundSize: 'cover',backgroundRepeat:'no-repeat', backgroundPosition: 'center',width: '100%', height: '100%' }}
-          >
-            {/* <img src="/images/vehicle-bg.png" alt="Mubest team" className={`h-40 md:h-56 w-full object-cover rounded-2xl shadow-xl border-4 border-white/60 transition-transform duration-500  hover:scale-105`} /> */}
-              {/* {[
-                { number: "500+", label: "Projects Completed" },
-                { number: "20+", label: "Years Experience" },
-                // { number: "100%", label: "Client Satisfaction" },
-                { number: "24/7", label: "Support Available" },
-              ].map((stat, index) => (
-                <div
-                  key={index}
-                  className="p-6 rounded-xl border border-[#e3f2fd] bg-white text-center hover:border-[#7dcaa9] shadow-sm transition-all duration-300"
-                >
-                  <h3 className="font-display text-3xl md:text-4xl text-[#7dcaa9] mb-2">
-                    {stat.number}
-                  </h3>
-                  <p className="font-body text-xs md:text-sm text-[#0e4672] uppercase tracking-[0.1em]">
-                    {stat.label}
-                  </p>
-                </div>
-              ))} */}
-            </div>
-          </div>
-        </div>
-      </section>
+     
+    <OurExperiencesSection />
 
       {/* Our Commitment Section */}
-      <section className="py-32 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-6">
-              OUR COMMITMENT
-            </h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="font-body text-[#0e4672] text-xl leading-relaxed mb-8">
-              We approach every project with a focus on reliability, safety and clear coordination with clients and stakeholders.
-            </p>
-            <p className="font-body text-[#0e4672] text-xl leading-relaxed">
-              Much of our work is carried out in active public environments. We take care to minimise disruption while maintaining safety standards and ensuring work is completed efficiently.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Message from Director */}
-      <section className="py-32 bg-gradient-to-b from-white via-[#f7fafc] to-[#e3f2fd]"
-      style={{display:"none"}}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Director Image Placeholder */}
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-[rgba(255,193,7,0.1)] to-[rgba(255,193,7,0.05)] p-8 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#7dcaa9] to-[#FF8F00] flex items-center justify-center">
-                    <svg className="w-16 h-16 text-[#030712]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="font-display text-2xl text-white mb-2">Director</h3>
-                  <p className="text-slate-400">Mubest Pte Ltd</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Message */}
-            <div>
-              <h2 className="font-display text-[48px] md:text-[36px] text-[#0e4672] tracking-wider mb-8">
-                MESSAGE FROM THE DIRECTOR
-              </h2>
-              <blockquote className="font-body text-[#0e4672] text-xl leading-relaxed italic border-l-4 border-[#7dcaa9] pl-8">
-                "At Mubest, we believe in building lasting relationships through consistent quality work and unwavering commitment to safety. Our team takes pride in supporting Singapore's infrastructure development with reliable electrical solutions that stand the test of time."
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <OurCommitmentSection />
       {/* Vision & Mission */}
       <section className="py-32 bg-gradient-to-b from-[#e3f2fd] via-white to-[#f7fafc]">
         <div className="max-w-7xl mx-auto px-6">

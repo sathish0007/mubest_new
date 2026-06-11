@@ -175,21 +175,21 @@ const projects: Project[] = [
   },
   {
     id: "16",
-    title: "CHOA CHU KANG STREET 62 AND WOODLANDS DRIVE 50",
-    projectLocation: "CHOA CHU KANG STREET 62 AND WOODLANDS DRIVE 50",
+    title: "CHOA CHU KANG STREET 62",
+    projectLocation: "CHOA CHU KANG STREET 62",
     image: "/images/16.png",
     services: ["ELECTRICAL REWIRING"],
-    description: "",
+    description: "ELECTRICAL REWIRING TO 29 BLOCKS AT CHOA CHU KANG STREET 62",
     completedDate: "2022",
     category: "Residential"
   },
   {
     id: "17",
-    title: "CHOA CHU KANG STREET 62 AND WOODLANDS DRIVE 50",
-    projectLocation: "CHOA CHU KANG STREET 62 AND WOODLANDS DRIVE 50",
+    title: "WOODLANDS DRIVE 50",
+    projectLocation: "WOODLANDS DRIVE 50",
     image: "/images/17.png",
     services: ["ELECTRICAL REWIRING"],
-    description: "ELECTRICAL REWIRING TO 29 BLOCKS AT CHOA CHU KANG STREET 62 AND WOODLANDS DRIVE 50",
+    description: "ELECTRICAL REWIRING TO 29 BLOCKS AT WOODLANDS DRIVE 50",
     completedDate: "2022",
     category: "Residential"
   },
@@ -225,7 +225,7 @@ const projects: Project[] = [
   },
   {
     id: "21",
-    title: "15 TOWN COUNCILS",
+    title: "15 TOWN COUNCILS - LED BATCH 1 & 2",
     projectLocation: "15 TOWN COUNCILS",
     image: "/images/17.png",
     services: [],
@@ -255,7 +255,7 @@ const projects: Project[] = [
   },
   {
     id: "24",
-    title: "WEST COAST",
+    title: "WEST COAST - ELECTRICAL WORKS AND MAINTENANCE",
     projectLocation: "WEST COAST",
     image: "/images/24.png",
     services: ["ELECTRICAL WORKS AND MAINTENANCE"],
@@ -465,8 +465,8 @@ const projects: Project[] = [
   },
   {
     id: "45",
-    title: "Mercure HOTEL",
-    projectLocation: "Mercure HOTEL",
+    title: "MERCURE HOTEL",
+    projectLocation: "MERCURE HOTEL",
     image: "/images/45.png",
     services: ["ELECTRICAL AND CCTV INSTALLATION WORKS"],
     description: "ELECTRICAL WORKS AND CCTV INSTALLATION WORK AT Mercure HOTEL AT 122 MIDDLE ROAD",
@@ -540,29 +540,50 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const projectLocations: { [key: string]: { lat: number; lng: number } } = {
-    "ST ENGINEERING URBAN SOLUTIONS LTD": { lat: 1.3117, lng: 103.8636 },
-    "TANJONG PAGAR TOWN COUNCIL": { lat: 1.2830, lng: 103.8165 },
-    "WEST COAST": { lat: 1.2900, lng: 103.7700 },
-    "TANJONG PAGAR": { lat: 1.2764, lng: 103.8458 },
-    "TELOK BLANGAH DRIVE/HEIGHTS": { lat: 1.2735, lng: 103.8090 },
-    "CHOA CHU KANG STREET 62": { lat: 1.4015, lng: 103.7485 },
-    "WOODLANDS DRIVE 50": { lat: 1.4320, lng: 103.7910 },
-    "YUNG HO ROAD": { lat: 1.3285, lng: 103.7065 },
-    "WOODLANDS DRIVE 40/70, AVE 6, STREET 83": { lat: 1.4405, lng: 103.7925 },
-    "KEAT HONG SHOPPING CENTRE": { lat: 1.3786, lng: 103.7440 },
-    "CHOA CHU KANG AVE 2": { lat: 1.3805, lng: 103.7425 },
-    "JURONG WEST STREET 74": { lat: 1.3490, lng: 103.6975 },
-    "WOODLANDS STREET 81/82/83/ AVENUE 4/9": { lat: 1.4400, lng: 103.7890 },
-    "PASIR RIS DRIVE 1/3 & 10": { lat: 1.3735, lng: 103.9495 },
-    "CHUA CHU KANG AVE 3/4": { lat: 1.3855, lng: 103.7435 },
-    "CHOA CHU KANG ST 51/ST 52 & LIMBANG PARK": { lat: 1.3920, lng: 103.7475 },
-    "WOODLANDS AVENUE 1/ STREET 32": { lat: 1.4310, lng: 103.7850 },
-    "NATIONAL UNIVERSITY OF SINGAPORE": { lat: 1.2966, lng: 103.7764 },
-    "CHANGI AIRPORT T4": { lat: 1.3344, lng: 103.9865 },
-    "MARINA ONE": { lat: 1.2789, lng: 103.8536 },
-    "CONNECT @ CHANGI EXPO HALL 7 & 8": { lat: 1.3331, lng: 103.9619 },
-    "FUSIONPOLIS 5": { lat: 1.2990, lng: 103.7873 },
-    "BUKIT BATOK EAST & CLEMENTI": { lat: 1.344908, lng: 103.757700 }
+    "BUKIT BATOK EAST & CLEMENTI": { lat: 1.343973, lng: 103.757120 },// map added correctly
+    "RIVERVALE": { lat: 1.393468, lng: 103.905250 },// map added correctly
+    "ANG MO KIO TOWN COUNCIL": { lat: 1.3647020339308533, lng: 103.84866499562106 },// map added correctly
+    "BLOCK 401 TO 428 CHOA CHU KANG AVENUE 3 / 4": { lat: 1.3800424305031431, lng: 103.73974498027775 },// map added correctly
+    "BUKIT PANJANG, BUKIT TIMAH, CASHEW, ULU PANDAN, AND ZHENGHUA": { lat: 1.3771477856772014,lng: 103.77226142369692},// map added correctly
+    "YEW TEE": { lat: 1.4024444658209438, lng: 103.75108965076157 },// map added correctly
+    "ADMIRALTY AND WOODLANDS": { lat: 1.4423932173268903, lng: 103.79937993775327 },// map added correctly
+    "KEMBANGAN-CHAI CHEE, MACPHERSON AND MOUNTBATTEN": { lat: 1.317777496643291, lng: 103.90040167603867 },// map added correctly
+    "SEMBAWANG WEST": { lat: 1.443111385250676, lng: 103.79917330302402 },// map added correctly
+    "PASIR RIS - PUNGGOL": { lat: 1.4014849854956997, lng: 103.90875426069557 },// map added correctly
+    "WEST COAST": { lat: 1.302130223264362, lng: 103.76771196784794 },// map added correctly
+    "15 TOWN COUNCILS": { lat: 1.4183728196516134, lng: 103.83820176529375 },// map added correctly
+    "ST ENGINEERING URBAN SOLUTIONS LTD [jurong]": { lat: 1.3368989949036914, lng: 103.74449249523906 },// map added correctly
+    "TANJONG PAGAR TOWN COUNCIL": { lat: 1.2833205954631242, lng: 103.8176696821283 },// map added correctly
+    "TELOK BLANGAH DRIVE/HEIGHTS": { lat: 1.276734155881678, lng: 103.81143443489039 },// map added correctly
+    "CHOA CHU KANG STREET 62": { lat: 1.3990216087967637, lng: 103.74705596254627 },// map added correctly
+    "WOODLANDS DRIVE 50": { lat: 1.4372220804645166, lng: 103.79387107418816 },// map added correctly
+    "YUNG HO ROAD": { lat: 1.3267730697797866, lng: 103.72271632445674 },// map added correctly
+    "WOODLANDS DRIVE 40/70, AVE 6, STREET 83": { lat: 1.4472135655664335, lng: 103.79873683980031 },// map added correctly
+    "KEAT HONG SHOPPING CENTRE & CHOA CHU KANG AVE 2": { lat: 1.3776550133111485, lng: 103.74439399562098 },// map added correctly
+    "15 TOWN COUNCILS - LED BATCH 1 & 2": { lat: 1.381214351179909, lng: 103.7855882617301 },// map added correctly
+    "JURONG WEST STREET 74": { lat: 1.3496174382567765, lng: 103.6997369220685 },// map added correctly
+    "TANJONG PAGAR": { lat: 1.275944557743903, lng: 103.84423503070344 },// map added correctly
+    "WEST COAST - ELECTRICAL WORKS AND MAINTENANCE": { lat: 1.3468605406874576, lng: 103.6860243637403 },// map added correctly
+    "CONNECT @ CHANGI EXPO HALL 7 & 8": { lat: 1.3356812578852528, lng: 103.96470280057285 },// map added correctly
+    "MULTI STOREY CARPARK": { lat: 1.351177785277058, lng: 103.93668339598025 },// map added correctly
+    "WOODLANDS STREET 81/82/83/ AVENUE 4/9": { lat: 1.44385784510873, lng: 103.78867155383236 },// map added correctly
+    "BIG BOX JURONG": { lat: 1.3328964624848705, lng: 103.74414105806919 },// map added correctly
+    "PASIR RIS DRIVE 1/3 & 10": { lat: 1.3698502913317439, lng: 103.95236258212843 },// map added correctly
+    "CHUA CHU KANG AVE 3/4": { lat: 1.3815144226332485, lng: 103.7422303846479 },// map added correctly
+    "SPPG P2A CCTV CAT 1 & CAT 2 SUBSTATION": { lat: 1.332966140222416, lng: 103.87174111818878 },// map added correctly
+    "CHOA CHU KANG WATERWORKS": { lat: 1.3429785012183835, lng: 103.67646887418795 },// map added correctly
+    "CHOA CHU KANG ST 51/ST 52 & LIMBANG PARK": { lat: 1.390814316604527, lng: 103.74604361929906 },// map added correctly
+    "WOODLANDS AVENUE 1/ STREET 32": { lat: 1.4310940044313525, lng: 103.78116543502368 },// map added correctly
+    "7 TOWN COUNCILS": { lat: 1.3825895864033055, lng: 103.89750955291127 },// map added correctly
+    "NATIONAL UNIVERSITY OF SINGAPORE": { lat: 1.2978959986174985, lng: 103.77698127418785 },// map added correctly
+    "KOPITIAM SITES": { lat: 1.3529816121553786, lng: 103.98826990672532 },// map added correctly
+    "FAJAR/SAUJANA ROAD": { lat: 1.3822705871754914, lng: 103.76928323794944 },// map added correctly
+    "MERCURE HOTEL": { lat: 1.2846194438752383, lng: 103.85215347697321 },// map added correctly
+    "CHANGI AIRPORT T4": { lat: 1.3380730949460906, lng: 103.9831966525957 },// map added correctly
+    "LED INSTALLATIONS BATCH 2": { lat: 1.2952255702083624, lng: 103.82217172124777 },// map added correctly
+    "MD11NATIONAL UNIVERSITY OF SINGAPORE": { lat: 1.2961447335098157, lng: 103.78234549508328 },// map added correctly
+    "FUSIONPOLIS 5": { lat: 1.2989275125766298, lng: 103.78784205476093 },// map added correctly
+    "MARINA ONE": { lat: 1.2780336697211097, lng: 103.8534412104265 },// map added correctly
   };
 
   const projectsWithLocation = projects.map((p, idx) => {

@@ -1,1 +1,1 @@
-export const basePath = '/new';
+export const basePath = '';

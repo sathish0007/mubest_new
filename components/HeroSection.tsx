@@ -4,8 +4,7 @@ import HeroVideoBackground from "./HeroVideoBackground";
 
 const stats = [
   { value: 20, suffix: "+", label: "Years of Experience" },
-  // { value: 900, suffix: "+", label: "HDB Blocks Rewired" },  
-  { value: "", suffix: "🇸🇬", label: "Island Wide Operations" },
+  { value: null, suffix: null, label: "Island Wide Operations", isSingapore: true },
   { value: 300, suffix: "+", label: "Qualified Professionals" },
 ];
 
@@ -20,7 +19,23 @@ const projectImages = [
   "/images/40.png", "/images/41.png", "/images/42.png", "/images/43.png", "/images/44.png",
   "/images/45.png", "/images/47.png", "/images/49.png", "/images/50.png", "/images/51.png"
 ];
-
+function SingaporeFlag() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 2" width="72" height="36" role="img"
+    style={{boxShadow:"1px 1px 2px 2px #e0d8d8"}}>
+      <title>Singapore Flag</title>
+      <rect x="0" y="0" width="4" height="1" fill="#EF3340"/>
+      <rect x="0" y="1" width="4" height="1" fill="#FFFFFF"/>
+      <circle cx="0.75" cy="0.5" r="0.3" fill="#FFFFFF"/>
+      <circle cx="0.86" cy="0.5" r="0.24" fill="#EF3340"/>
+      <polygon points="1.3,0.27 1.319,0.333 1.385,0.333 1.333,0.37 1.352,0.433 1.3,0.396 1.248,0.433 1.267,0.37 1.215,0.333 1.281,0.333" fill="#FFFFFF"/>
+      <polygon points="1.519,0.342 1.538,0.405 1.604,0.405 1.552,0.442 1.571,0.505 1.519,0.468 1.467,0.505 1.486,0.442 1.434,0.405 1.5,0.405" fill="#FFFFFF"/>
+      <polygon points="1.435,0.577 1.454,0.64 1.52,0.64 1.468,0.677 1.487,0.74 1.435,0.703 1.383,0.74 1.402,0.677 1.35,0.64 1.416,0.64" fill="#FFFFFF"/>
+      <polygon points="1.165,0.577 1.184,0.64 1.25,0.64 1.198,0.677 1.217,0.74 1.165,0.703 1.113,0.74 1.132,0.677 1.08,0.64 1.146,0.64" fill="#FFFFFF"/>
+      <polygon points="1.081,0.342 1.1,0.405 1.166,0.405 1.114,0.442 1.133,0.505 1.081,0.468 1.029,0.505 1.048,0.442 0.996,0.405 1.062,0.405" fill="#FFFFFF"/>
+    </svg>
+  );
+}
 function useCountUp(target: number, duration = 2000, start = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -87,15 +102,21 @@ function AnimatedBackground() {
   );
 }
 
-function StatCard({ value, suffix, label, delay, start }: { value: any; suffix: string; label: string; delay: number; start: boolean }) {
-  const count = useCountUp(value, 1800, start);
+function StatCard({ value, suffix, label, delay, start, isSingapore }: {
+  value: any; suffix: string | null; label: string; delay: number; start: boolean; isSingapore?: boolean;
+}) {
+  const count = useCountUp(value ?? 0, 1800, start);
   return (
     <div
       className="flex flex-col items-center justify-center bg-white rounded-xl shadow-lg p-8 transition-transform duration-300 hover:scale-105 border border-[#e0f2f1]"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="font-display text-5xl md:text-6xl text-[#FFC107] font-extrabold mb-2 drop-shadow-sm">
-        {start ? count==0 ? "" : count : ""}{suffix}
+      <div className="font-display text-5xl md:text-6xl text-[#FFC107] font-extrabold mb-2 drop-shadow-sm flex items-center justify-center">
+        {isSingapore ? (
+          <SingaporeFlag />
+        ) : (
+          <>{start && count > 0 ? count : ""}{suffix}</>
+        )}
       </div>
       <div className="font-heading text-sm md:text-base tracking-widest text-[#0e4672] uppercase mt-2">
         {label}

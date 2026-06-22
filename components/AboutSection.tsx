@@ -112,8 +112,8 @@ ABOUT US
                   className="flex items-center gap-3 group"
                   style={{ transitionDelay: `${200 + i * 80}ms` }}
                 >
-                  <div className="w-5 h-5 rounded-sm border border-[#FFC107] bg-[#FFF8E1] flex items-center justify-center flex-shrink-0 group-hover:bg-[#FFE082] transition-colors duration-300">
-                    <svg className="w-3 h-3 text-[#FFC107]" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-5 h-5 rounded-sm border border-[#0e4672] bg-[#ffff] flex items-center justify-center flex-shrink-0 group-hover:bg-[#86c0b7] transition-colors duration-300">
+                    <svg className="w-3 h-3 text-[#0e4672]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
                   </div>
@@ -123,11 +123,11 @@ ABOUT US
             </div>
             <a
               href="/about"
-              className="group inline-flex items-center gap-3 font-bold text-sm tracking-[0.15em] uppercase text-[#FFC107] hover:text-[#0d6f60] transition-colors duration-300 font-serif"
+              className="group inline-flex items-center gap-3 font-bold text-sm tracking-[0.15em] uppercase text-[#0e4672] hover:text-[#0d6f60] transition-colors duration-300 font-serif"
               style={{ fontFamily: 'Times New Roman, Times, serif' }}
             >
               View More
-              <div className="w-8 h-px bg-[#FFC107] group-hover:w-12 transition-all duration-300" />
+              <div className="w-8 h-px bg-[#0d6f60] group-hover:w-12 transition-all duration-300" />
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

@@ -40,7 +40,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Business Hours",
-    value: "Mon - Fri, 8:30am - 6pm",
+    value: "Mon - Sat, 8:30am - 6pm",
     href: "#",
   },
 ];
@@ -83,11 +83,11 @@ export default function ContactSection() {
         {/* Header */}
         <div className="text-center mb-20 px-6 max-w-7xl mx-auto">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 border border-[#FFC107]/30 bg-[#FFC107]/10 rounded-full mb-8 transition-all duration-700 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 border border-[#7dcaa9]/30 bg-[#7dcaa9]/10 rounded-full mb-8 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#7dcaa9] animate-pulse" />
             <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
               Get In Touch
             </span>
@@ -150,7 +150,7 @@ export default function ContactSection() {
                 <a
                   key={index}
                   href={info.href}
-                  className="group flex items-start gap-4 p-5 rounded-xl border border-[#0e4672]/15 bg-gradient-to-br from-[#e3f2fd] to-[#f1f8e9] hover:border-[#FFC107] hover:from-[#fffde7] hover:to-[#e3f2fd] transition-all duration-300 cursor-pointer"
+                  className="group flex items-start gap-4 p-5 rounded-xl border border-[#0e4672]/15 bg-gradient-to-br from-[#e3f2fd] to-[#f1f8e9] hover:border-[#7dcaa9] hover:from-[#fffde7] hover:to-[#e3f2fd] transition-all duration-300 cursor-pointer"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#0e4672] to-[#57ada0] flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                     {info.icon}
@@ -159,7 +159,7 @@ export default function ContactSection() {
                     <h3 className="text-sm font-heading text-[#0e4672] tracking-[0.05em] mb-1">
                       {info.label}
                     </h3>
-                    <p className="text-sm text-[#0d6f60] group-hover:text-[#FFC107] transition-colors duration-300">
+                    <p className="text-sm text-[#0d6f60] group-hover:text-[#7dcaa9] transition-colors duration-300">
                       {info.value}
                     </p>
                   </div>

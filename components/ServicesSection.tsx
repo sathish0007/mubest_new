@@ -66,7 +66,7 @@ export default function ServicesSection() {
                 />
               </div>
               <div className="flex-1 flex flex-col w-full px-6 py-8">
-                <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
+                <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#7dcaa9] transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-[#0e4672] text-base md:text-lg font-normal mb-2 font-serif group-hover:text-[#0e4672] transition-colors duration-300">

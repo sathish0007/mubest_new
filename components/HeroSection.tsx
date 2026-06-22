@@ -111,7 +111,7 @@ function StatCard({ value, suffix, label, delay, start, isSingapore }: {
       className="flex flex-col items-center justify-center bg-white rounded-xl shadow-lg p-8 transition-transform duration-300 hover:scale-105 border border-[#e0f2f1]"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="font-display text-5xl md:text-6xl text-[#FFC107] font-extrabold mb-2 drop-shadow-sm flex items-center justify-center">
+      <div className="font-display text-5xl md:text-6xl text-[#0e4672] font-extrabold mb-2 drop-shadow-sm flex items-center justify-center">
         {isSingapore ? (
           <SingaporeFlag />
         ) : (

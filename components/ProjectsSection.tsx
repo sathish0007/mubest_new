@@ -731,7 +731,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                 COMPLETED PROJECTS
               </h2>
             </div>
-            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#FFC107] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300 mt-8 md:mt-0">
+            <Link href="/projects" className="inline-flex items-center gap-3 px-8 py-4 bg-[#7dcaa9] text-[#0e4672] font-bold text-sm tracking-[0.15em] uppercase rounded-sm hover:shadow-[0_0_40px_rgba(255,193,7,0.25)] transition-all duration-300 mt-8 md:mt-0">
               <span>View All Projects</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -769,17 +769,17 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
+                      <span className="px-3 py-1 bg-[#7dcaa9] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
                         {project.category}
                       </span>
                     </div>
                   </div>
                   <div className="flex-1 flex flex-col items-center justify-center w-full px-6 py-8">
-                    <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
+                    <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#7dcaa9] transition-colors duration-300">
                       {project.title}
                     </h3>
                     <div className="flex items-center gap-2 mb-3">
-                      <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[#7dcaa9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>

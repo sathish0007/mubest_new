@@ -75,11 +75,11 @@ export default function ClientsSection() {
         {/* Header */}
         <div className="text-center mb-16 px-6 max-w-7xl mx-auto">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 border border-[#FFC107]/30 bg-[#FFC107]/10 rounded-full mb-6 transition-all duration-700 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 border border-[#7dcaa9]/30 bg-[#7dcaa9]/10 rounded-full mb-6 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#7dcaa9] animate-pulse" />
             <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
               Trusted Partners
             </span>

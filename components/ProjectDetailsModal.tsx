@@ -25,7 +25,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-[#FFC107] hover:text-[#030712] transition-colors duration-300 flex items-center justify-center"
+          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-[#86c0b7] hover:text-[#030712] transition-colors duration-300 flex items-center justify-center"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -47,7 +47,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
           <div className="p-8">
             {/* Category */}
             <div className="mb-4">
-              <span className="px-3 py-1 bg-[#FFC107] text-[#030712] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
+              <span className="px-3 py-1 bg-[#86c0b7] text-[#030712] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
                 {project.category}
               </span>
             </div>
@@ -60,7 +60,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
             {/* Location */}
             {typeof project.location === "string" && project.location && (
               <div className="flex items-center gap-2 mb-6">
-                <svg className="w-5 h-5 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#86c0b7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -70,7 +70,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
 
             {/* Services */}
             <div className="mb-6">
-              <h3 className="font-heading text-lg text-[#FFC107] mb-3 uppercase tracking-[0.1em]">Services Provided</h3>
+              <h3 className="font-heading text-lg text-[#86c0b7] mb-3 uppercase tracking-[0.1em]">Services Provided</h3>
               <div className="flex flex-wrap gap-2">
                 {project.services.map((service, index) => (
                   <span
@@ -85,7 +85,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
 
             {/* Description */}
             <div className="mb-6">
-              <h3 className="font-heading text-lg text-[#FFC107] mb-3 uppercase tracking-[0.1em]">Project Overview</h3>
+              <h3 className="font-heading text-lg text-[#86c0b7] mb-3 uppercase tracking-[0.1em]">Project Overview</h3>
               <p className="font-body text-slate-400 leading-relaxed">
                 {project.description}
               </p>
@@ -93,7 +93,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
 
             {/* Completion Date */}
             <div className="flex items-center gap-2 pt-4 border-t border-[rgba(255,193,7,0.1)]">
-              <svg className="w-5 h-5 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-[#86c0b7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span className="font-body text-slate-400">

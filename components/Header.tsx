@@ -58,10 +58,10 @@ export default function Header() {
                 alt="Mubest Logo"
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 rounded-full bg-[#FFC107]/30 blur-lg scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-full bg-[#86c0b7]/30 blur-lg scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div>
-              <div className="font-display text-2xl leading-none text-[#fff] tracking-widest group-hover:text-[#0e4672] group-hover:bg-[#FFC107] group-hover:px-2 group-hover:rounded transition-all duration-300" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
+              <div className="font-display text-2xl leading-none text-[#fff] tracking-widest group-hover:text-[#0e4672] group-hover:bg-[#86c0b7] group-hover:px-2 group-hover:rounded transition-all duration-300" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
                 Mubest Pte Ltd.
               </div>
               <div className="font-heading text-[10px] tracking-[0.25em] text-[#fff]  leading-none opacity-70" style={{ fontFamily: 'Times New Roman, Times, serif', textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>
@@ -80,8 +80,8 @@ export default function Header() {
                   href={link.href}
                   className={`relative px-5 py-2 font-heading text-md tracking-[0.1em] uppercase transition-all duration-300 rounded-sm
                     ${isActive
-                      ? "text-[#FFC107]"
-                      : "text-[#ffffff] hover:text-[#0e4672] hover:bg-[#FFC107] hover:shadow hover:px-6"
+                      ? "text-[#86c0b7]"
+                      : "text-[#ffffff] hover:text-[#0e4672] hover:bg-[#86c0b7] hover:shadow hover:px-6"
                     }`}
                   style={{ zIndex: 1,fontWeight: 'bold' }}
                 >
@@ -90,7 +90,7 @@ export default function Header() {
                   )}
                   <span className="relative">{link.label}</span>
                   {isActive && (
-                    <span className="absolute -bottom-0.5 left-5 right-5 h-px bg-[#FFC107]" />
+                    <span className="absolute -bottom-0.5 left-5 right-5 h-px bg-[#86c0b7]" />
                   )}
                 </Link>
               );
@@ -105,9 +105,9 @@ export default function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block w-6 h-px bg-[#FFC107] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-4 h-px bg-[#FFC107] transition-all duration-300 ${menuOpen ? "opacity-0 w-0" : ""}`} />
-            <span className={`block w-6 h-px bg-[#FFC107] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span className={`block w-6 h-px bg-[#86c0b7] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-4 h-px bg-[#86c0b7] transition-all duration-300 ${menuOpen ? "opacity-0 w-0" : ""}`} />
+            <span className={`block w-6 h-px bg-[#86c0b7] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </div>
       </header>
@@ -135,7 +135,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 font-heading text-lg tracking-[0.1em] uppercase text-slate-300 hover:text-[#FFC107] hover:bg-[rgba(255,193,7,0.05)] rounded-sm transition-all duration-200 border border-transparent hover:border-[rgba(255,193,7,0.1)]"
+                className="flex items-center gap-3 px-4 py-3 font-heading text-lg tracking-[0.1em] uppercase text-slate-300 hover:text-[#86c0b7] hover:bg-[rgba(255,193,7,0.05)] rounded-sm transition-all duration-200 border border-transparent hover:border-[rgba(255,193,7,0.1)]"
                 style={{ animationDelay: `${i * 80}ms` }}
               >
                 {link.label}
@@ -146,7 +146,7 @@ export default function Header() {
             <Link
               href="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-center px-6 py-3 font-heading text-sm tracking-[0.2em] uppercase text-[#030712] bg-[#FFC107] font-semibold rounded-sm hover:bg-[#FF8F00] transition-colors duration-300"
+              className="block w-full text-center px-6 py-3 font-heading text-sm tracking-[0.2em] uppercase text-[#030712] bg-[#86c0b7] font-semibold rounded-sm hover:bg-[#FF8F00] transition-colors duration-300"
             >
               Get a Quote
             </Link>

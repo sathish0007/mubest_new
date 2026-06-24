@@ -54,6 +54,11 @@ const certifications = [
   // "/images/ceritificates/25.png",
   // "/images/ceritificates/26.png",
     "/images/ceritificates/33.png",
+    "/images/ceritificates/48.jpeg",
+    "/images/ceritificates/49.jpeg",
+    "/images/ceritificates/50.jpeg",
+    "/images/ceritificates/51.jpeg",
+    "/images/ceritificates/52.jpeg",
 
 
 ];

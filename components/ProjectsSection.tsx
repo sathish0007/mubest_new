@@ -635,13 +635,13 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
           </p>
           <div className="flex gap-4 mb-8">
             <button
-              className={`px-6 py-2 rounded-t-lg font-bold text-sm transition-colors duration-200 border-b-2 ${activeTab === 'map' ? 'border-[#FFC107] text-[#0e4672] bg-[#FFF8E1]' : 'border-transparent text-slate-400 bg-transparent'}`}
+              className={`px-6 py-2 rounded-t-lg font-bold text-sm transition-colors duration-200 border-b-2 ${activeTab === 'map' ? 'border-[#86c0b7] text-[#0e4672] bg-[#86c0b7]' : 'border-transparent text-slate-400 bg-transparent'}`}
               onClick={() => setActiveTab('map')}
             >
               Map View
             </button>
             <button
-              className={`px-6 py-2 rounded-t-lg font-bold text-sm transition-colors duration-200 border-b-2 ${activeTab === 'list' ? 'border-[#FFC107] text-[#0e4672] bg-[#FFF8E1]' : 'border-transparent text-slate-400 bg-transparent'}`}
+              className={`px-6 py-2 rounded-t-lg font-bold text-sm transition-colors duration-200 border-b-2 ${activeTab === 'list' ? 'border-[#86c0b7] text-[#0e4672] bg-[#86c0b7]' : 'border-transparent text-slate-400 bg-transparent'}`}
               onClick={() => setActiveTab('list')}
             >
               List View
@@ -650,7 +650,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
           {activeTab === 'map' && (
             <div className="mb-12">
               <div className="w-full max-w-7xl mx-auto">
-                <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#FFC107]/10 bg-[#0a1627] relative" style={{ minHeight: 600 }}>
+                <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#86c0b7]/10 bg-[#0a1627] relative" style={{ minHeight: 600 }}>
                   {/* @ts-ignore */}
                   <ProjectMap projects={projectsWithLocation} />
                 </div>
@@ -673,17 +673,17 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-[#FFC107] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
+                      <span className="px-3 py-1 bg-[#86c0b7] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
                         {project.category}
                       </span>
                     </div>
                   </div>
                   <div className="flex-1 flex flex-col items-center justify-center w-full px-6 py-8">
-                    <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#FFC107] transition-colors duration-300">
+                    <h3 className="font-bold text-xl md:text-2xl lg:text-2xl text-[#0e4672] mb-3 font-serif tracking-tight group-hover:text-[#86c0b7] transition-colors duration-300">
                       {project.title}
                     </h3>
                     <div className="flex items-center gap-2 mb-3">
-                      <svg className="w-4 h-4 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[#86c0b7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
@@ -722,7 +722,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
           <div className="flex items-center justify-between mb-16">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#0e4672] bg-[#F5F7FA] rounded-full mb-8 opacity-0 animate-fade-up font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
-                <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#86c0b7] animate-pulse" />
                 <span className="text-xs text-[#0e4672] tracking-[0.15em] uppercase">
                   Our Portfolio
                 </span>
@@ -743,7 +743,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
           </p>
           <div className="relative flex items-center justify-center h-[540px]">
             <button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-[#FFF8E1] text-[#0e4672] rounded-full shadow p-2 transition-all disabled:opacity-30 flex items-center justify-center"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-[#86c0b7] text-[#0e4672] rounded-full shadow p-2 transition-all disabled:opacity-30 flex items-center justify-center"
               onClick={() => scrollBy(-440)}
               aria-label="Scroll left"
               style={{ marginLeft: '8px', height: '48px', width: '48px' }}
@@ -793,7 +793,7 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
               ))}
             </div>
             <button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-[#FFF8E1] text-[#0e4672] rounded-full shadow p-2 transition-all disabled:opacity-30 flex items-center justify-center"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-[#86c0b7] text-[#0e4672] rounded-full shadow p-2 transition-all disabled:opacity-30 flex items-center justify-center"
               onClick={() => scrollBy(440)}
               aria-label="Scroll right"
               style={{ marginRight: '8px', height: '48px', width: '48px' }}

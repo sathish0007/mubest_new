@@ -25,7 +25,7 @@ export default function CareersPage() {
     overflow-hidden
   "
   style={{
-    backgroundImage: `url(${basePath}/images/vehicle-bg.png)`,
+    backgroundImage: `url(${basePath}/images/vehicle-bg.jpeg)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}

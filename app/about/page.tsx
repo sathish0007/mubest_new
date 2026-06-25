@@ -76,7 +76,7 @@ export default function AboutPage() {
           </div>
           {/* Visual Element */}
           <div className="relative flex items-center justify-center">
-            <img src={basePath + "/images/about-team1.jpeg"} alt="About Mubest" className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-[#e3f2fd] bg-white object-cover" />
+            <img src={basePath + "/images/mubest-aboutus.png"} alt="About Mubest" className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-[#e3f2fd] bg-white object-cover" />
             <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-[#7dcaa9]/20 blur-2xl" />
           </div>
         </div>

@@ -112,7 +112,7 @@ function AchieveIcon({ type }) {
             >
               {/* Replace with your actual <img> — the div below is the placeholder */}
               <img
-                src={`${basePath}/images/team-1.png`}
+                src={`${basePath}/images/experince-sec.png`}
                 alt="Mubest team at work"
                 className="absolute inset-0 w-full h-full object-cover opacity-60"
               />

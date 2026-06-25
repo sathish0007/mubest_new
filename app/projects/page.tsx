@@ -4,7 +4,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import FooterSection from "@/components/FooterSection";
 
 export const metadata: Metadata = {
-  title: "Our Projects",
+  title: "Our Projects | Mubest PTE LTD",
   description:
     "Browse over 50 completed electrical projects by Mubest PTE LTD across Singapore — including HDB town councils, commercial buildings, and industrial facilities.",
   openGraph: {
@@ -12,6 +12,23 @@ export const metadata: Metadata = {
     description:
       "Browse over 50 completed electrical projects by Mubest PTE LTD across Singapore.",
     url: "https://www.mubest.com.sg/projects",
+    type: "website",
+    siteName: "Mubest PTE LTD",
+    images: [
+      {
+        url: "/images/about-team.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mubest PTE LTD Projects",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Projects | Mubest PTE LTD",
+    description:
+      "Browse over 50 completed electrical projects by Mubest PTE LTD across Singapore.",
+    images: ["/images/about-team.jpg"],
   },
 };
 

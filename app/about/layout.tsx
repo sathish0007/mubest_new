@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "About Us | Mubest PTE LTD",
@@ -30,5 +31,22 @@ export const metadata: Metadata = {
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <Script id="about-schema" type="application/ld+json">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Mubest PTE LTD",
+          "url": "https://www.mubest.com.sg",
+          "logo": "https://www.mubest.com.sg/images/about-team.jpg",
+          "description": "Singapore's trusted electrical infrastructure and maintenance company with over 20 years of experience.",
+          "foundingDate": "2006",
+          "areaServed": "SG",
+          "sameAs": []
+        }`}
+      </Script>
+      {children}
+    </>
+  );
 }

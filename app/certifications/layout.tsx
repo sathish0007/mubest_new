@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Certifications & Awards | Mubest PTE LTD",
@@ -30,5 +31,19 @@ export const metadata: Metadata = {
 };
 
 export default function CertificationsLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <Script id="certifications-schema" type="application/ld+json">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mubest.com.sg"},
+            {"@type": "ListItem", "position": 2, "name": "Certifications", "item": "https://www.mubest.com.sg/certifications"}
+          ]
+        }`}
+      </Script>
+      {children}
+    </>
+  );
 }

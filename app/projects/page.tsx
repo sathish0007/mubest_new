@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Header from "@/components/Header";
 import ProjectsSection from "@/components/ProjectsSection";
 import FooterSection from "@/components/FooterSection";
@@ -35,6 +36,16 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main className="bg-[#030712] min-h-screen">
+      <Script id="projects-schema" type="application/ld+json">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mubest.com.sg"},
+            {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://www.mubest.com.sg/projects"}
+          ]
+        }`}
+      </Script>
       <Header />
       <ProjectsSection showAll />
 

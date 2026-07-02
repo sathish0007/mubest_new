@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Careers | Mubest PTE LTD",
@@ -30,5 +31,19 @@ export const metadata: Metadata = {
 };
 
 export default function CareersLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <Script id="careers-schema" type="application/ld+json">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mubest.com.sg"},
+            {"@type": "ListItem", "position": 2, "name": "Careers", "item": "https://www.mubest.com.sg/careers"}
+          ]
+        }`}
+      </Script>
+      {children}
+    </>
+  );
 }

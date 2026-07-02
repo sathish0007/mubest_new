@@ -53,6 +53,9 @@ export const metadata: Metadata = {
       "Singapore's trusted electrical maintenance and construction company serving HDB, commercial & industrial clients.",
     images: ["/images/about-team.jpg"],
   },
+  verification: {
+    google: "7Lj5wnvUJMcAXlXNCemotFNCGgeaukNniOoCPMrRYjo",
+  },
   icons: {
     icon: "/favicon.png",
   },

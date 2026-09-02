@@ -96,15 +96,26 @@ export default function CertificationsPage() {
               {certifications.map((img, idx) => (
                 <div
                   key={img}
-                  className="min-w-[440px] max-w-[440px] flex flex-col items-center cursor-pointer snap-center"
+                  className="min-w-[440px] max-w-[440px] flex flex-col items-center cursor-pointer snap-center focus:outline-none focus:ring-2 focus:ring-[#7dcaa9] rounded-xl"
                   onClick={() => setZoomed(idx)}
                   tabIndex={0}
-                  aria-label={`Zoom image ${idx + 1}`}
+                  role="button"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setZoomed(idx);
+                    }
+                  }}
+                  aria-label={`View certification ${idx + 1} in fullscreen`}
                 >
                   <img
                     src={basePath+img}
-                    alt={`Certification ${idx + 1}`}
+                    alt={`Certification ${idx + 1} - Mubest Accreditation`}
                     className="h-[28rem] w-[28rem] object-contain rounded-xl border-4 border-[#0e4672]/10 bg-white shadow-lg hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    width={448}
+                    height={448}
                   />
                 </div>
               ))}
@@ -124,7 +135,7 @@ export default function CertificationsPage() {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setZoomed(null)}>
             <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full relative flex flex-col items-center animate-fadeIn" onClick={e => e.stopPropagation()}>
               <button className="absolute top-4 right-4 text-[#046f5e] text-2xl font-bold hover:text-[#FFC107]" onClick={() => setZoomed(null)} aria-label="Close zoomed view">&times;</button>
-              <img src={basePath + certifications[zoomed]} alt={`Certification ${zoomed + 1}`} className="h-[38rem] w-[38rem] max-w-full max-h-[90vh] object-contain rounded-xl border-4 border-[#0e4672]/10 bg-white" />
+              <img src={basePath + certifications[zoomed]} alt={`Certification ${zoomed + 1} - Mubest Accreditation`} className="h-[38rem] w-[38rem] max-w-full max-h-[90vh] object-contain rounded-xl border-4 border-[#0e4672]/10 bg-white" width={608} height={608} decoding="async" />
             </div>
           </div>
         )}

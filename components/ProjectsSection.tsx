@@ -665,12 +665,25 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                   onClick={() => openModal(project)}
                   className="group rounded-3xl shadow-2xl border border-[#e0f2f1] bg-white flex flex-col items-center text-center overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-[0_8px_40px_rgba(14,70,114,0.18)] font-serif"
                   style={{ minHeight: 460, animationDelay: `${0.5 + index * 0.1}s` }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View details for ${project.title} project`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openModal(project);
+                    }
+                  }}
                 >
                   <div className="w-full h-48 relative">
                     <img
                       src={basePath + project.image}
-                      alt={project.title}
+                      alt={`${project.title} - Electrical Project`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      width={300}
+                      height={192}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-[#86c0b7] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">
@@ -759,14 +772,27 @@ export default function ProjectsSection({ previewCount = 20, showAll = false }: 
                 <div
                   key={project.id}
                   onClick={() => openModal(project)}
-                  className="group rounded-3xl shadow-2xl border border-[#e0f2f1] bg-white flex flex-col items-center text-center overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-[0_8px_40px_rgba(14,70,114,0.18)] font-serif min-w-[340px] max-w-[340px] snap-center"
+                  className="group rounded-3xl shadow-2xl border border-[#e0f2f1] bg-white flex flex-col items-center text-center overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-[0_8px_40px_rgba(14,70,114,0.18)] font-serif min-w-[340px] max-w-[340px] snap-center focus:outline-none focus:ring-2 focus:ring-[#7dcaa9] focus:ring-offset-2"
                   style={{ minHeight: 420, animationDelay: `${0.5 + index * 0.1}s`, height: '460px' }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View details for ${project.title} project`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openModal(project);
+                    }
+                  }}
                 >
                   <div className="w-full h-56 relative">
                     <img
                       src={basePath + project.image}
-                      alt={project.title}
+                      alt={`${project.title} - Electrical Project`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      width={340}
+                      height={224}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-[#7dcaa9] text-[#0e4672] font-mono text-xs tracking-[0.1em] uppercase rounded-full">

@@ -53,21 +53,34 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="bg-[#030712]">
-      <Script id="local-business-schema" type="application/ld+json">
+      <Script id="local-business-schema" type="application/ld+json" strategy="afterInteractive">
         {`{
           "@context": "https://schema.org",
-          "@type": "Electrician",
+          "@type": "LocalBusiness",
+          "@id": "https://www.mubest.com.sg",
           "name": "Mubest PTE LTD",
           "url": "https://www.mubest.com.sg",
           "image": "https://www.mubest.com.sg/images/about-team.jpg",
-          "description": "Singapore electrical services company offering electrical maintenance, construction, HDB town council works, commercial and industrial electrical systems.",
+          "description": "Singapore's trusted electrical maintenance and construction company offering HDB, commercial, and industrial electrical services with over 20 years of experience.",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "123 Industrial Ave",
+            "addressLocality": "Singapore",
             "addressCountry": "SG",
-            "addressLocality": "Singapore"
+            "postalCode": "123456"
           },
-          "areaServed": "Singapore",
-          "keywords": "electrical services Singapore, electrical contractor Singapore, electrical maintenance Singapore, HDB electrical works, industrial electrical contractor, lighting installation Singapore"
+          "telephone": "+65-1234-5678",
+          "email": "info@mubest.com",
+          "areaServed": ["SG"],
+          "sameAs": [],
+          "foundingDate": "2006",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "telephone": "+65-1234-5678",
+            "email": "info@mubest.com",
+            "availableLanguage": "en"
+          }
         }`}
       </Script>
       <Header />

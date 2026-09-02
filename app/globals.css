@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimize font loading and prevent layout shift */
+@layer base {
+  html {
+    font-display: swap;
+  }
+}
+
 :root {
   --volt: #FFC107;
   --volt-dark: #FF8F00;

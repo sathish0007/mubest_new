@@ -69,6 +69,7 @@ export default function AboutSection() {
       ref={sectionRef}
       className="relative py-32 overflow-hidden bg-white font-serif"
       style={{ fontFamily: 'Times New Roman, Times, serif' }}
+      aria-labelledby="about-heading"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section label */}
@@ -79,7 +80,7 @@ export default function AboutSection() {
 
         {/* Main heading */}
         <div className={`mb-20 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+          <h2 className="font-extrabold text-[44px] md:text-[36px] leading-none tracking-tight text-[#0e4672] drop-shadow-sm font-serif" style={{ fontFamily: 'Times New Roman, Times, serif' }} id="about-heading">
 ABOUT US         
 </h2>
           

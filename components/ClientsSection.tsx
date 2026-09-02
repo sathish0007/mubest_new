@@ -144,7 +144,16 @@ export default function ClientsSection() {
               return (
                 <div
                   key={`${client.id}-${Math.floor(index / clients.length)}`}
-                  className="group flex-shrink-0 flex items-center justify-center"
+                  className="group flex-shrink-0 flex items-center justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#7dcaa9] rounded-lg"
+                  tabIndex={0}
+                  role="button"
+                  aria-label={client.name}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      // Handle interaction if needed
+                    }
+                  }}
                 >
                   {/* Logo container */}
                   <div className="relative flex items-center justify-center h-24 md:h-32">
@@ -153,10 +162,14 @@ export default function ClientsSection() {
                       <div className="relative z-10 flex items-center justify-center w-full h-full p-0">
                         {!showInitials && (
                           <img
+                            loading="lazy"
                             src={basePath + `/images/clients/${client.id}.png`}
                             alt={client.name}
                             className="h-20 md:h-28 object-contain group-hover:scale-110 transition-transform duration-300"
                             style={{ maxHeight: '100%', width: 'auto', maxWidth: '180px' }}
+                            decoding="async"
+                            width={180}
+                            height={112}
                           />
                         )}
                         {showInitials && (

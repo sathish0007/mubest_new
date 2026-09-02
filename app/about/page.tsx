@@ -76,7 +76,7 @@ export default function AboutPage() {
           </div>
           {/* Visual Element */}
           <div className="relative flex items-center justify-center">
-            <img src={basePath + "/images/mubest-aboutus.png"} alt="About Mubest" className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-[#e3f2fd] bg-white object-cover" />
+            <img src={basePath + "/images/mubest-aboutus.png"} alt="About Mubest PTE LTD - Electrical maintenance and construction team" className="w-full max-w-md rounded-2xl shadow-2xl border-4 border-[#e3f2fd] bg-white object-cover" width={400} height={400} decoding="async" loading="lazy" />
             <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-[#7dcaa9]/20 blur-2xl" />
           </div>
         </div>
@@ -109,9 +109,12 @@ export default function AboutPage() {
                 <div className="w-full h-48 relative">
                   <img
                     src={basePath + service.image}
-                    alt={service.title}
+                    alt={`${service.title} - Mubest Service`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
+                    width={300}
+                    height={192}
                   />
                 </div>
                 <div className="flex-1 flex flex-col items-center justify-center w-full px-4 py-6">

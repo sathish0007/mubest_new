@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function CertificationsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Script id="certifications-schema" type="application/ld+json">
+      <Script id="certifications-schema" type="application/ld+json" strategy="afterInteractive">
         {`{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -41,6 +41,24 @@ export default function CertificationsLayout({ children }: { children: React.Rea
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mubest.com.sg"},
             {"@type": "ListItem", "position": 2, "name": "Certifications", "item": "https://www.mubest.com.sg/certifications"}
           ]
+        }`}
+      </Script>
+      <Script id="credentials-schema" type="application/ld+json" strategy="afterInteractive">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Mubest PTE LTD Certifications & Accreditations",
+          "description": "Industry certifications, accreditations, and awards demonstrating Mubest's commitment to quality, safety, and excellence in electrical services.",
+          "url": "https://www.mubest.com.sg/certifications",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Mubest PTE LTD",
+            "url": "https://www.mubest.com.sg"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": "Quality Assurance and Safety Certifications"
+          }
         }`}
       </Script>
       {children}

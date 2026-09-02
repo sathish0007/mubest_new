@@ -40,20 +40,21 @@ export default function ContactPage() {
                   e.preventDefault();
                   setSubmitted(true);
                 }}
+                aria-label="Contact form"
               >
                 <div>
-                  <label className="block text-gray-300 mb-2">Name</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-gray-700 text-white focus:outline-none focus:border-blue-400" />
+                  <label className="block text-gray-300 mb-2" htmlFor="name-input">Name</label>
+                  <input type="text" id="name-input" required className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-gray-700 text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30" aria-required="true" />
                 </div>
                 <div>
-                  <label className="block text-gray-300 mb-2">Email</label>
-                  <input type="email" required className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-gray-700 text-white focus:outline-none focus:border-blue-400" />
+                  <label className="block text-gray-300 mb-2" htmlFor="email-input">Email</label>
+                  <input type="email" id="email-input" required className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-gray-700 text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30" aria-required="true" />
                 </div>
                 <div>
-                  <label className="block text-gray-300 mb-2">Message</label>
-                  <textarea required rows={5} className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-gray-700 text-white focus:outline-none focus:border-blue-400" />
+                  <label className="block text-gray-300 mb-2" htmlFor="message-input">Message</label>
+                  <textarea id="message-input" required rows={5} className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-gray-700 text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30" aria-required="true" />
                 </div>
-                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors duration-300">
+                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-[#030712]">
                   Send Message
                 </button>
               </form>

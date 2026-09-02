@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function CareersLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Script id="careers-schema" type="application/ld+json">
+      <Script id="careers-schema" type="application/ld+json" strategy="afterInteractive">
         {`{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -41,6 +41,22 @@ export default function CareersLayout({ children }: { children: React.ReactNode 
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mubest.com.sg"},
             {"@type": "ListItem", "position": 2, "name": "Careers", "item": "https://www.mubest.com.sg/careers"}
           ]
+        }`}
+      </Script>
+      <Script id="organization-careers-schema" type="application/ld+json" strategy="afterInteractive">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://www.mubest.com.sg",
+          "name": "Mubest PTE LTD",
+          "url": "https://www.mubest.com.sg",
+          "logo": "https://www.mubest.com.sg/favicon.png",
+          "description": "Singapore's leading electrical maintenance and construction company hiring skilled electricians, engineers, and operations staff.",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "Mubest PTE LTD",
+            "sameAs": "https://www.mubest.com.sg"
+          }
         }`}
       </Script>
       {children}

@@ -20,12 +20,14 @@ interface ProjectDetailsModalProps {
 
 const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onClose }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
-      <div className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-[#0d1525] rounded-lg border border-[rgba(255,193,7,0.2)]" onClick={e => e.stopPropagation()}>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose} role="presentation">
+      <div className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-[#0d1525] rounded-lg border border-[rgba(255,193,7,0.2)]" onClick={e => e.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
         {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-[#86c0b7] hover:text-[#030712] transition-colors duration-300 flex items-center justify-center"
+          aria-label="Close project details modal"
+          type="button"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -36,9 +38,13 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
           {/* Image */}
           <div className="relative h-64 md:h-full">
             <img
+                loading="lazy"
                 src={basePath + project.image}
                 alt={project.title}
                 className="w-full h-full object-cover rounded-l-lg"
+                decoding="async"
+                width={400}
+                height={256}
               />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20 rounded-l-lg" />
           </div>
@@ -53,7 +59,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ project, onCl
             </div>
 
             {/* Title */}
-            <h2 className="font-display text-4xl text-white mb-2">
+            <h2 className="font-display text-4xl text-white mb-2" id="project-modal-title">
               {project.title}
             </h2>
 

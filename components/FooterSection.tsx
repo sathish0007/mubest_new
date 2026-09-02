@@ -82,10 +82,14 @@ export default function FooterSection() {
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="relative w-10 h-10">
-                    <img
+                    <img                      
+                      loading="lazy"
                       src={basePath + "/favicon.png"}
-                      alt="Voltex Logo"
+                      alt="Mubest PTE LTD Logo - Electrical Services"
                       className="w-full h-full object-contain"
+                      width={40}
+                      height={40}
+                      decoding="async"
                     />
                   </div>
                   <div>
@@ -105,8 +109,8 @@ export default function FooterSection() {
                     <a
                       key={social.name}
                       href={social.href}
-                      className="w-10 h-10 rounded-lg border border-[rgba(255,193,7,0.2)] bg-[rgba(13,21,37,0.5)] flex items-center justify-center text-slate-400 hover:text-[#7dcaa9] hover:border-[#7dcaa9] transition-all duration-300"
-                      aria-label={social.name}
+                      className="w-10 h-10 rounded-lg border border-[rgba(255,193,7,0.2)] bg-[rgba(13,21,37,0.5)] flex items-center justify-center text-slate-400 hover:text-[#7dcaa9] hover:border-[#7dcaa9] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7dcaa9] focus:ring-offset-2 focus:ring-offset-[#0d1525]"
+                      aria-label={`Visit our ${social.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

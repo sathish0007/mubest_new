@@ -113,8 +113,12 @@ function AchieveIcon({ type }) {
               {/* Replace with your actual <img> — the div below is the placeholder */}
               <img
                 src={`${basePath}/images/experince-sec.png`}
-                alt="Mubest team at work"
+                alt="Mubest PTE LTD team at work - Electrical maintenance and construction"
                 className="absolute inset-0 w-full h-full object-cover opacity-60"
+                loading="lazy"
+                decoding="async"
+                width={1200}
+                height={420}
               />
 
               {/* Decorative top-right corner accent */}

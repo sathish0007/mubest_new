@@ -55,8 +55,12 @@ export default function Header() {
             <div className="relative w-10 h-10 flex-shrink-0">
               <img
                 src={basePath + "/favicon.png"}
-                alt="Mubest Logo"
+                alt="Mubest Logo - Electrical Services Singapore"
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                width={40}
+                height={40}
+                decoding="async"
+                loading="lazy"
               />
               <div className="absolute inset-0 rounded-full bg-[#86c0b7]/30 blur-lg scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
@@ -71,7 +75,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href.startsWith("/#") && pathname === "/" && activeSection === link.href.replace("/#", ""));
               return (

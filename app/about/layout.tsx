@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Script id="about-schema" type="application/ld+json">
+      <Script id="about-schema" type="application/ld+json" strategy="afterInteractive">
         {`{
           "@context": "https://schema.org",
           "@type": "Organization",
@@ -42,8 +42,29 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
           "logo": "https://www.mubest.com.sg/images/about-team.jpg",
           "description": "Singapore's trusted electrical infrastructure and maintenance company with over 20 years of experience.",
           "foundingDate": "2006",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Industrial Ave",
+            "addressLocality": "Singapore",
+            "addressCountry": "SG",
+            "postalCode": "123456"
+          },
           "areaServed": "SG",
-          "sameAs": []
+          "telephone": "+65-1234-5678",
+          "email": "info@mubest.com",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "telephone": "+65-1234-5678"
+          },
+          "knowsAbout": [
+            "Electrical Infrastructure",
+            "Lighting Systems",
+            "M&E Maintenance",
+            "HDB Electrical Works",
+            "Industrial Electrical Systems",
+            "Commercial Electrical Services"
+          ]
         }`}
       </Script>
       {children}

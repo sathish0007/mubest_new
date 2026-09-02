@@ -26,15 +26,22 @@ export default function HeroVideoBackground({ children }: { children?: React.Rea
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
+        aria-hidden="true"
+        role="presentation"
         poster={basePath + "/images/hero-fallback.jpg"}
       />
       
         <img
           className="absolute inset-0 w-full h-full object-cover z-0"
           src={basePath + "/images/hero-bg.webp"}
-          alt="Hero Fallback"
-          style={{ display: isVideoLoaded ? "none" : "block" }}
+          alt="Hero Fallback Background - Electrical Services"
+            style={{ display: isVideoLoaded ? "none" : "block" }}
+            decoding="async"
+            loading="eager"
+            fetchPriority="high"
+            width={1920}
+            height={1080}
         />
     
       <div className="relative z-20 w-full flex flex-col items-center justify-center h-full">

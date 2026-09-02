@@ -154,9 +154,9 @@ export default function HeroSection() {
               Get in Touch
             </a> */}
             {/* <div className="flex flex-wrap justify-center items-center gap-6 mt-12">
-              <img src="/images/biz-safe-transparent-rcpset4ksj9t4gx7ydpg773coqqsatx6w965z529z4.png" alt="BizSafe" className="h-10 object-contain" />
-              <img src="/images/GGBD-logo-transparent-rcpsf85ztvuea8bdik7hb3aq6wonpzkwablxnkfz7k.png" alt="GGBD" className="h-10 object-contain" />
-              <img src="/images/progress-wage-transparent-rcpsfhkdq879ibxpzo9r00xc4rebuym7nm4sgc21hc.png" alt="Progressive Wage" className="h-10 object-contain" />
+              <img src="/images/biz-safe-transparent-rcpset4ksj9t4gx7ydpg773coqqsatx6w965z529z4.png" alt="BizSafe - Workplace Safety and Health Certification" className="h-10 object-contain" width={100} height={40} decoding="async" />
+              <img src="/images/GGBD-logo-transparent-rcpsf85ztvuea8bdik7hb3aq6wonpzkwablxnkfz7k.png" alt="GGBD - Singapore Enterprise Development Logo" className="h-10 object-contain" width={100} height={40} decoding="async" />
+              <img src="/images/progress-wage-transparent-rcpsfhkdq879ibxpzo9r00xc4rebuym7nm4sgc21hc.png" alt="Progressive Wage Model - Singapore Program" className="h-10 object-contain" width={100} height={40} decoding="async" />
             </div> */}
           </div>
         </HeroVideoBackground>

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Script id="services-schema" type="application/ld+json">
+      <Script id="services-schema" type="application/ld+json" strategy="afterInteractive">
         {`{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -41,6 +41,25 @@ export default function ServicesLayout({ children }: { children: React.ReactNode
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mubest.com.sg"},
             {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.mubest.com.sg/services"}
           ]
+        }`}
+      </Script>
+      <Script id="services-list-schema" type="application/ld+json" strategy="afterInteractive">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "Mubest PTE LTD Electrical Services",
+          "description": "Comprehensive electrical services including infrastructure, lighting, maintenance, and installations.",
+          "hasOfferingDescription": [
+            {"@type": "Service", "name": "Electrical Infrastructure", "description": "Complete electrification systems for residential, commercial and industrial projects"},
+            {"@type": "Service", "name": "Lighting & Energy Efficiency", "description": "Energy-efficient lighting solutions for public spaces, buildings and infrastructure"},
+            {"@type": "Service", "name": "Mechanical and Electrical (M&E)", "description": "Ongoing M&E contracts and emergency electrical services"},
+            {"@type": "Service", "name": "Building & External Infrastructure Works", "description": "General building works, external infrastructure construction"}
+          ],
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Mubest PTE LTD",
+            "url": "https://www.mubest.com.sg"
+          }
         }`}
       </Script>
       {children}

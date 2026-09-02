@@ -26,7 +26,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+html, body {
+  font-family: 'Times New Roman', Times, serif;
   background-color: var(--bg-deep);
   color: var(--text-primary);
   font-family: 'DM Sans', sans-serif;
@@ -41,9 +42,9 @@ body {
 
 /* Custom utility classes */
 @layer utilities {
-  .font-display { font-family: 'Bebas Neue', cursive; }
+ /* .font-display { font-family: 'Bebas Neue', cursive; }
   .font-heading { font-family: 'Barlow Condensed', sans-serif; }
-  .font-body { font-family: 'DM Sans', sans-serif; }
+  .font-body { font-family: 'DM Sans', sans-serif; } */
 
   .text-volt { color: var(--volt); }
   .bg-volt { background-color: var(--volt); }

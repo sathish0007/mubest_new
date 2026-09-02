@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["'Bebas Neue'", "cursive"],
-        heading: ["'Barlow Condensed'", "sans-serif"],
-        body: ["'DM Sans'", "sans-serif"],
-        mono: ["'JetBrains Mono'", "monospace"],
+        display: ["Times New Roman", "Times", "serif"],
+        heading: ["Times New Roman", "Times", "serif"],
+        body: ["Times New Roman", "Times", "serif"],
+        // mono: ["'JetBrains Mono'", "monospace"],
       },
       colors: {
         volt: {

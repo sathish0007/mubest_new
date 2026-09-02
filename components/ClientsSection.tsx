@@ -1,17 +1,18 @@
 "use client";
+import { basePath } from "@/app/util";
 import { useEffect, useRef, useState } from "react";
 
 const clients = [
   { id: 1, name: "ANG MO KIO TOWN COUNCIL" },
   { id: 2, name: "CHUA CHU KANG TOWN COUNCIL" },
   { id: 3, name: "COMMERCIAL INDUSTRIAL SUPPLIES & SERVICES PTE LTD" },
-  { id: 4, name: "CPL ENGINEERING SERVICES PTE LTD" },
-  { id: 5, name: "DAVIS LIGHTING PTE LTD" },
-  { id: 6, name: "EC INTERIOR DESIGN & DECORATION" },
-  { id: 7, name: "ELINGTON ENGINEERING PTE LTD" },
+  // { id: 4, name: "CPL ENGINEERING SERVICES PTE LTD" },
+  { id: 5, name: "DAVIS LIGHTING PTE LTD" },// have to change logo
+  // { id: 6, name: "EC INTERIOR DESIGN & DECORATION" },
+  // { id: 7, name: "ELINGTON ENGINEERING PTE LTD" , noImage:true},
   { id: 8, name: "EM SERVICE PTE LTD." },
   { id: 9, name: "HAI KHIM ENGINEERING PTE LTD" },
-  { id: 10, name: "HAM ENGINEERING PTE LTD" },
+  // { id: 10, name: "HAM ENGINEERING PTE LTD" },
   { id: 11, name: "HOLLAND BUKIT PANJANG TOWN COUNCIL" },
   { id: 12, name: "JURONG-CLEMENTI TOWN COUNCIL" },
   { id: 13, name: "MARINE PARADE TOWN COUNCIL" },
@@ -21,19 +22,25 @@ const clients = [
   { id: 17, name: "PRESICO ENGINEERING PTE LTD" },
   { id: 18, name: "SEMBAWANG TOWN COUNCIL" },
   { id: 19, name: "SENGKANG TOWN COUNCIL" },
-  { id: 20, name: "SING HO ELECTRICAL ENGINEERING PTE LTD" },
+  { id: 20, name: "SING HO ELECTRICAL ENGINEERING PTE LTD", noImage:true },
   { id: 21, name: "ST ENGINEERING URBAN SOLUTIONS LTD" },
   { id: 22, name: "TANJONG PAGAR TOWN COUNCIL" },
   { id: 23, name: "TLC M&E ENGRG.PTE LTD" },
   { id: 24, name: "UG M&E PTE LTD" },
   { id: 25, name: "WEST COAST TOWN COUNCIL" },
-  { id: 26, name: "YAO HENG BUILDERS" },
+  { id: 27, name: "TAMPINES TOWN COUNCIL" },
+  { id: 28, name: "NEE SOON TOWN COUNCIL" },
+  { id: 29, name: "JALAN BESAR TOWN COUNCIL" },
+  { id: 30, name: "INSTITUTE OF TECHNICAL EDUCATION" },
+
 ];
 
 // Duplicate clients for seamless loop
 const duplicatedClients = [...clients, ...clients];
-
 export default function ClientsSection() {
+
+// Track which client images failed to load
+  const [imageError, setImageError] = useState<{ [key: number]: boolean }>({});
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -57,29 +64,29 @@ export default function ClientsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="clients" className="relative py-20 bg-[#030712] overflow-hidden">
-      {/* Background elements */}
+    <section ref={sectionRef} id="clients" className="relative py-20 bg-white overflow-hidden">
+      {/* Soft logo color background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-[rgba(255,193,7,0.03)] blur-[150px]" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[rgba(255,143,0,0.02)] blur-[120px]" />
+        <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full bg-[rgba(14,70,114,0.06)] blur-[150px]" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[rgba(13,111,96,0.05)] blur-[120px]" />
       </div>
 
       <div className="relative z-10">
         {/* Header */}
         <div className="text-center mb-16 px-6 max-w-7xl mx-auto">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 border border-[rgba(255,193,7,0.25)] bg-[rgba(255,193,7,0.06)] rounded-full mb-6 transition-all duration-700 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 border border-[#7dcaa9]/30 bg-[#7dcaa9]/10 rounded-full mb-6 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-[#FFC107] animate-pulse" />
-            <span className="font-mono text-xs text-[#FFC107] tracking-[0.15em] uppercase">
+            <span className="w-2 h-2 rounded-full bg-[#7dcaa9] animate-pulse" />
+            <span className="font-mono text-xs text-[#0e4672] tracking-[0.15em] uppercase">
               Trusted Partners
             </span>
           </div>
 
           <h2
-            className={`font-display text-[48px] md:text-[64px] text-white tracking-wider mb-4 transition-all duration-700 ${
+            className={`font-display text-[44px] md:text-[36px] text-[#0e4672] font-bold tracking-wider mb-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.1s" }}
@@ -88,7 +95,7 @@ export default function ClientsSection() {
           </h2>
 
           <p
-            className={`font-body text-slate-400 text-base max-w-2xl mx-auto leading-relaxed transition-all duration-700 ${
+            className={`font-body text-[#0d6f60] text-base max-w-2xl mx-auto leading-relaxed transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "0.2s" }}
@@ -117,8 +124,8 @@ export default function ClientsSection() {
 
         <div className="relative overflow-hidden">
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-[#030712] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling logos */}
           <div
@@ -132,41 +139,38 @@ export default function ClientsSection() {
                 .slice(0, 2)
                 .join("");
 
+              const showInitials = imageError[client.id] || !!client.noImage;
+
               return (
                 <div
                   key={`${client.id}-${Math.floor(index / clients.length)}`}
                   className="group flex-shrink-0 flex items-center justify-center"
                 >
                   {/* Logo container */}
-                  <div className="relative flex items-center justify-center h-20 md:h-28 aspect-square">
+                  <div className="relative flex items-center justify-center h-24 md:h-32">
                     <div className="relative w-full h-full flex items-center justify-center">
-                      {/* Background circle */}
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[rgba(255,193,7,0.08)] to-[rgba(255,143,0,0.04)] border border-[rgba(255,193,7,0.15)] group-hover:border-[rgba(255,193,7,0.4)] group-hover:from-[rgba(255,193,7,0.15)] group-hover:to-[rgba(255,143,0,0.08)] transition-all duration-300" />
-
                       {/* Logo image or initials */}
-                      <div className="relative z-10 flex items-center justify-center w-full h-full p-3">
-                        <img
-                          src={`/images/clients/${client.id}.png`}
-                          alt={client.name}
-                          className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = "none";
-                          }}
-                        />
-                        <span
-                          className="font-display text-lg md:text-2xl text-[#FFC107] font-bold tracking-wider group-hover:scale-110 transition-transform duration-300"
-                          id={`initials-${client.id}`}
-                        >
-                          {initials || "?"}
-                        </span>
+                      <div className="relative z-10 flex items-center justify-center w-full h-full p-0">
+                        {!showInitials && (
+                          <img
+                            src={basePath + `/images/clients/${client.id}.png`}
+                            alt={client.name}
+                            className="h-20 md:h-28 object-contain group-hover:scale-110 transition-transform duration-300"
+                            style={{ maxHeight: '100%', width: 'auto', maxWidth: '180px' }}
+                          />
+                        )}
+                        {showInitials && (
+                          <span
+                            className="font-display text-2xl md:text-4xl text-[#0e4672] font-bold tracking-wider group-hover:scale-110 transition-transform duration-300 flex items-center justify-center w-full h-full"
+                            id={`initials-${client.id}`}
+                          >
+                            {initials || "?"}
+                          </span>
+                        )}
                       </div>
-
-                      {/* Glow effect on hover */}
-                      <div className="absolute inset-0 rounded-xl bg-[rgba(255,193,7,0.15)] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
-
                     {/* Tooltip */}
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 border border-[rgba(255,193,7,0.3)] rounded-lg text-white font-body text-xs text-center whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-[#0e4672]/90 border border-[#FFC107]/30 rounded-lg text-white font-body text-xs text-center whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
                       {client.name}
                     </div>
                   </div>
@@ -183,7 +187,7 @@ export default function ClientsSection() {
           }`}
           style={{ transitionDelay: isVisible ? "0.8s" : "0s" }}
         >
-          <p className="font-body text-slate-400 text-sm max-w-2xl mx-auto mb-6">
+          <p className="font-body text-[#0d6f60] text-sm max-w-2xl mx-auto mb-6">
             Join our network of satisfied clients. Experience reliability, expertise, and excellence in every project we undertake.
           </p>
         </div>
@@ -191,3 +195,4 @@ export default function ClientsSection() {
     </section>
   );
 }
+
